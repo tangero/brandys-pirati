@@ -5,7 +5,7 @@ fullname: Patrick Zandl  	# jméno s tituly etc.
 category:                 # kategorie: pms, clenove, priznivci
 - clenove
 
-img: people/lukas-findeis.jpg   # 165 x 220
+img: people/Patrick_Zandl_mojefoto_small.jpg   # 165 x 220
 description: fanda moderních technologií, publicista a také projektový manažer  # kratký popis, max 160 znaků
 mob: +420 735 07 66 99          # telefon je dobre mit u cloveka uvedeneho jako lokalni kontakt
 mail:
@@ -13,7 +13,7 @@ mail:
 profiles:
   facebook: https://www.facebook.com/patrick.zandl
   twitter: https://twitter.com/tangero
-  linkedin: 
+  linkedin: https://www.linkedin.com/in/patrickzandl/
   blog: https://www.marigold.cz
 ---
 
