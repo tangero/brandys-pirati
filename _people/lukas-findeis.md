@@ -1,23 +1,25 @@
 ---
-uid: lukas.findeis
-name:     Lukáš Findeis  	# běžně používáné jméno
-fullname: Lukáš Findeis  	# jméno s tituly etc.
+uid: patrick.zandl
+name:     Patrick Zandl  	# běžně používáné jméno
+fullname: Patrick Zandl  	# jméno s tituly etc.
 category:                 # kategorie: pms, clenove, priznivci
 - clenove
 
 img: people/lukas-findeis.jpg   # 165 x 220
-description: zastupitel MČ Praha 12 # kratký popis, max 160 znaků
+description: fanda moderních technologií, publicista a také projektový manažer  # kratký popis, max 160 znaků
 mob: +420 735 07 66 99          # telefon je dobre mit u cloveka uvedeneho jako lokalni kontakt
 mail:
-- lukas.findeis@pirati.cz
+- patrick.zandl@pirati.cz
 profiles:
-  facebook: https://www.facebook.com/lukas.xeelee.findeis
-  googleplus: https://plus.google.com/+LukasXeeleeFindeis
+  facebook: https://www.facebook.com/patrick.zandl
+  twitter: https://twitter.com/tangero
+  linkedin: 
+  blog: https://www.marigold.cz
 ---
 
-Lukáš Findeis (*8. října 1985, Praha) je členem Pirátské strany od roku 2010, aktivní je o něco déle.
+Patrick Zandl (*26. srpna 1974, Mnichov, SRN) je členem Pirátské strany od roku 2018, dlouhou dobu patří mezi spolupracovníky na egov a telekomunikačních agendách.
 
-**Vzdělání/práce:** Studoval na SŠ slaboproudé elektrotechniky, odkud odešel s maturitou. Profilový předmět: Přenosové informační systémy. Momentálně je bez práce a žije z úspor. Ke konci ledna 2015 dal po 15 měsících výpověď ve vratkovém skladu Amazonu v Dobrovízi, kde pracoval jako specialista na fotoaparáty a fotografickou optiku.
+**Vzdělání/práce:** Studoval informatiku a statistiku na VŠE a IZV UK, obojí nedokončil z toho důvodu, že přišla internetová revoluce, které propadl. V roce 1996 založil jeden z prvních zpravodajských serverů Mobil.cz, ten později prodal vydavatelství MAFRA a ve vedení iDnesu strávil další roky. 
 
 **Politik:** U Pirátů začínal jako aktivista-dobrovolník, ale někdy během čtvrtého roku ve straně dospěl k rozhodnutí, že se chce politice věnovat aktivně i jako volený zastupitel a že je ochotný tuto oběť podstoupit. V komunálních volbách 2014 byl zvolen zastupitelem městské části Praha 12.
 
