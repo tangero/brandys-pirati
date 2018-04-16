@@ -1,5 +1,5 @@
 ---
-uid: patrick.zandl
+uid:      patrick.zandl
 name:     Patrick Zandl  	# běžně používáné jméno
 fullname: Patrick Zandl  	# jméno s tituly etc.
 category:                 # kategorie: pms, clenove, priznivci
