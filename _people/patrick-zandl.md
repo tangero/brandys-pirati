@@ -5,9 +5,9 @@ fullname: Patrick Zandl  	# jméno s tituly etc.
 category:                 # kategorie: pms, clenove, priznivci
 - clenove
 
-img: people/Patrick_Zandl_mojefoto_small.jpg   # 165 x 220
+img: people/patrick_zandl_2018_small.jpg   # 165 x 220
 description: fanda moderních technologií, publicista a také projektový manažer  # kratký popis, max 160 znaků
-mob: +420 735 07 66 99          # telefon je dobre mit u cloveka uvedeneho jako lokalni kontakt
+
 mail:
 - patrick.zandl@pirati.cz
 profiles:
