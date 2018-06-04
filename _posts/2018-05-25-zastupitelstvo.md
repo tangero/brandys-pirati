@@ -9,7 +9,7 @@ image: /assets/img/posts/2018-05-25-slunecni-lazne.jpg
 tags:
   - zastupitelstvo
   - Houšťka
-  - Dům 98
+  - Dům98
 ---
 
 

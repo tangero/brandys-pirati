@@ -3,7 +3,7 @@ group:
   short_name: "Brandýs - St. Boleslav"
   facebook_page: "https://www.facebook.com/piratibrandysboleslav/"
   twitter: "https://twitter.com/piratipraha"
-  local_contact_uid: "lukas.findeis"  # uid mistniho kontaktu definovane v _people
+  local_contact_uid: "patrick.zandl"  # uid mistniho kontaktu definovane v _people
   github_repository: "https://github.com/pirati-web/praha12.pirati.cz/"
 
 parent_group:
