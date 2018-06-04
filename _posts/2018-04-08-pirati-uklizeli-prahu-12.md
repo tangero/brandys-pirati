@@ -1,34 +1,24 @@
 ---
 layout: blog
 category: CLANKY
-title: Uklízeli jsme Prahu 12
-date: 2018-04-08T12:00:00.000Z
-author: Jan Adamec
-authorId: jan.adamec
-image: /assets/img/posts/2018-04-08-uklid1.jpg
+title: Poznávnka na ustanovující schůzi Pirátů Brandýs-Boleslav
+date: 2018-04-01T12:00:00.000Z
+author: Patrick Zandl
+authorId: patrick.zandl
+image: /assets/img/posts/pirati-brandys-cover.jpg
 tags:
-  - Praha 12
-  - ukliďme česko
+  - pozvánka
+  - schůze
 ---
 
-Dobrovolnická činnost je Pirátům blízká, mají přirozený zájem o ochranu přírody. Úklidové akce u nich proto mají dlouholetou tradici. Proto jsme se rozhodli, že se zúčastníme akce [Ukliďme svět, ukliďme Česko](http://www.uklidmecesko.cz) a uklidíme louku po Policejní akademií a les táhnoucí se od ní k ulici Československého exilu.
+Všechny zájemce o spolupráci na pirátském programu i komunálních tématech zveme na ustanovující schůzi místního sdružení Brandýs nad Labem - Stará Boleslav. 
 
-![Úklid](/assets/img/posts/2018-04-08-uklid2.jpg)
+Kdy: v neděli 8.4.2018 od 16:00
+Kde: Zámek Brandýs nad Labem, v restauraci Rychta. 
+Kdo: všichni, koho pirátský program zajímá. 
+Přípravný výbor: Marek Řebíček, Antonín Krejzlar a Patrick Zandl. 
+Témata: účast pirátů v komunálních volbách 2018, program, kandidátka, volební témata atd. 
 
-Akce se povedla. Zúčastnilo se jí 24 lidí, z toho 3 děti. Jako organizátor jsem se bál, jestli v takovém počtu neprojdeme vybrané území příliš rychle, naplánováno jsme to měli na 2,5 hodiny, ale nakonec jsme sbírání museli naopak o více než hodinu protáhnout. A to jsme se nestihli dostat do lesíka za ulicí Čs. exilu, kde jsme původně také chtěli uklidit. Snad příště.
-
-![Úklid](/assets/img/posts/2018-04-08-uklid3.jpg)
-
-Nasbírali jsme asi 1100 kg odpadu, z čehož se malá část povedla dát k recyklaci. V lese jsme našli i 10 pneumatik, několik matrací, obrovskou hromadu izolací elektrických kabelů a 135 kg železa.
-
-![Hromada s pneumatikami a kabely](/assets/img/posts/2018-04-08-uklid4.jpg)
-
-Celou akci jsme zakončili společným opékáním špekáčků.
-
-![Opékání špekáčků](/assets/img/posts/2018-04-08-uklid5.jpg)
-
-Tak zase za rok!
-
-_Autoři fotografií: Michal Ouška, Veronika Šamánková, Eva Tylová a Jan Adamec_
+Ustanovující schůze se koná v rámci středočeského krajského setkání Pirátů a za účasti středočeského předsednictva strany, takže ta 16tá hodina je začátek celého setkání. Program zde budeme průběžně upřesňovat.
 
 - - -
