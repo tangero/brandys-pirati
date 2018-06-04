@@ -6,7 +6,7 @@ category:                 # kategorie: pms, clenove, priznivci
 - clenove
 
 img: people/patrick_zandl_2018_small.jpg   # 165 x 220
-description: fanda moderních technologií, publicista a také projektový manažer  # kratký popis, max 160 znaků
+description: fanda moderních technologií, publicista, odborník na telekomunikace a předseda Pirátů v Brandýse  # kratký popis, max 160 znaků
 
 mail:
 - patrick.zandl@pirati.cz
@@ -19,8 +19,12 @@ profiles:
 
 Patrick Zandl (*26. srpna 1974, Mnichov, SRN) je členem Pirátské strany od roku 2018, dlouhou dobu patří mezi spolupracovníky na egov a telekomunikačních agendách.
 
-**Vzdělání/práce:** Studoval informatiku a statistiku na VŠE a IZV UK, obojí nedokončil z toho důvodu, že přišla internetová revoluce, které propadl. V roce 1996 založil jeden z prvních zpravodajských serverů Mobil.cz, ten později prodal vydavatelství MAFRA a ve vedení iDnesu strávil další roky. 
+**Vzdělání/práce:** Studoval informatiku a statistiku na VŠE a IZV UK, obojí nedokončil z toho důvodu, že přišla internetová revoluce, které propadl. V roce 1996 založil jeden z prvních zpravodajských serverů Mobil.cz, ten později prodal vydavatelství MAFRA a ve vedení iDnesu strávil další roky. Dnes pracuje jako vedoucí bezpečnostního projektu Turris ve společnosti CZ.NIC, z.s.p.o. 
 
-**Politik:** U Pirátů začínal jako aktivista-dobrovolník, ale někdy během čtvrtého roku ve straně dospěl k rozhodnutí, že se chce politice věnovat aktivně i jako volený zastupitel a že je ochotný tuto oběť podstoupit. V komunálních volbách 2014 byl zvolen zastupitelem městské části Praha 12.
+Jeho hlavním oborem jsou moderní technologie (a tedy i internet) a jejich dopad na život a vývoj společnosti. Angažuje se v de/regulaci internetu a je popularizátorem moderních technologií i moderních přístupů.
 
-**Osobní:** Ze zdravotních důvodů přestal jíst maso a už se k němu nevrátil. Dává přednost jednoduché a z velké části syrové stravě, obejde se bez alkoholu. Dělají mu dobře dlouhodobé půsty. Díky jednomu Pirátovi zjistil, že k udržení osobní hygieny nepotřebuje sprchový gel ani šampon. Zaujala ho východní filosofie, především zen. Mezi jeho zájmy mimo Pirátů patří My Little Pony, fotografování, sci-fi a (převážně grafická) kreativní tvorba. Dlouho sdílel domov s čistokrevnými laboratorními potkany s rodokmenem. Cítí se tak trochu jako cinefil a jeho oblíbeným dopravním prostředkem jsou vlastní nohy. Celoročně chodí a běhá bos.
+**Osobní:** Patrick Zandl je kromě své práce také publicista: publikoval desítku knih jak o moderních technologiích (bezdrátové sítě WiFi nebo Apple) i beletrii. Pravidelně publikuje v periodickém tisku a také na svém blogu Marigold.cz
+
+ Mezi jeho záliby patří běh, knihy a cestování. Pokud si s ním chcete domluvit schůzku, může se vám snadno stát, že jediný volný čas bude společná desítka Prahou …
+
+
