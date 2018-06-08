@@ -1,8 +1,8 @@
 ---
-title: Daňový systém
+title: Základní školství a předškolní zařízení
 img: https://www.pirati.cz/_media/rp/program/me_308_taxincentives.png
 category: dlouhodoby
-topic: Hospodářství
+topic: Běžný život města
 ---
 
 Prosazujeme přehledné a spravedlivé daně, ze kterých lze financovat kvalitní veřejné služby. Pokud navíc lidé uvidí, že s jejich penězi stát hospodaří efektivně, budou mít při placení daní lepší pocit.
