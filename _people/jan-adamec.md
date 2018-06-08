@@ -6,7 +6,7 @@ category:                   # kategorie: pms, clenove, priznivci
 - priznivci
 
 img: people/jan-adamec.jpg   # 165 x 220
-description: programátor, autor nezávislé mobilní aplikace o Praze 12  # kratký popis, max 160 znaků
+description: programátor, autor mobilní aplikace o Praze 12  # kratký popis, max 160 znaků
 mail:
 profiles:
   facebook: https://www.facebook.com/honza.adamec

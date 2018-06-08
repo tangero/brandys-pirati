@@ -12,12 +12,10 @@ profiles:
   facebook: https://www.facebook.com/honcka
 ---
 
-Jan Prokop (* 25.6.1981) je členem Místního sdružení Pirátů v Brandýse nad Labem Staré Boleslavi. Je IT specialistou ve firmě zabývající se správou systémů. 
+Jan Prokop (* 25.6.1981) je členem Místního sdružení Pirátů v Brandýse nad Labem Staré Boleslavi. Je IT specialistou ve firmě zabývající se správou systémů.
 
 Vystudoval gymnázium, jeho hobby jsou počítače a modelařina - a ve Staré Boleslavi klub Klíček.
 
-V Brandýse - Staré Boleslavi je kandidátem Pirátů do zastupitelstva města. 
+V Brandýse - Staré Boleslavi je kandidátem Pirátů do zastupitelstva města.
 
 ---
-
-
