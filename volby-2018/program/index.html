@@ -10,7 +10,7 @@ rbar: ""
 {% for point in metatop %}
 <div class="medium-12 large-4 columns o-section-block--medium">
   <ul>
-    <li><a href="{{point.url}}">{{point.title}}</a></li>
+    <li><a href="{{point.url}}">{{point.title}}</a><br/>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</li>
   </ul>
 </div>
 {% endfor %}
