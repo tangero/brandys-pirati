@@ -3,7 +3,7 @@ uid: vojtech.holoubek
 name:     Vojtěch Holoubek  	# běžně používáné jméno
 fullname: Mgr. Vojtěch Holoubek  	# jméno s tituly etc.
 category:                   # kategorie: pms, clenove, priznivci
-- clenove
+- priznivci
 - kandidat-komunalky-2018
 ordkomunal2018: 6
 img: people/vojtech-holoubek.png   # 165 x 220
