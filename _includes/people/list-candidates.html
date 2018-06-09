@@ -16,8 +16,7 @@
     {% if loopindex == 1 %}
     <div class="u-cf o-section-block o-section-block--divided-small o-section-block--divided-small--border">
     {% endif %}
-    {% assign number = number | plus: 1 %}
-    <p>{{number}}.</p>
+
     {% include people/item.html param='item' %}
     {% if loopindex == 0 %}
     </div>
