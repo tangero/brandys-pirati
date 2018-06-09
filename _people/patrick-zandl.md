@@ -5,7 +5,7 @@ fullname: Patrick Zandl  	# jméno s tituly etc.
 category:                 # kategorie: pms, clenove, priznivci
 - clenove
 - kandidat-komunalky-2018
-ordkomunal2018: 2
+ordkomunal2018: 1
 img: people/patrick_zandl_2018_small.jpg   # 165 x 220
 description: fanda moderních technologií, publicista, odborník na telekomunikace a předseda Pirátů v Brandýse  # kratký popis, max 160 znaků
 
