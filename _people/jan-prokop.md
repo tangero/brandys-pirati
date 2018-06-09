@@ -4,7 +4,8 @@ name:     Jan Prokop  	# běžně používáné jméno
 fullname: Jan Prokop  	# jméno s tituly etc.
 category:                   # kategorie: pms, clenove, priznivci
 - clenove
-
+- kandidat-komunalky-2018
+ordkomunal2018: 8
 img: people/jan/prokop.jpg   # 165 x 220
 description: místopředseda místního pirátského sdružení, kandidát do zastupitelstva, povoláním podnikatel v dřevozpracujícím průmyslu  # kratký popis, max 160 znaků
 mail: jan.prokop@pirati.cz

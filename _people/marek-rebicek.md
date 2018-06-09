@@ -4,7 +4,8 @@ name:     Marek Řebíček  	# běžně používáné jméno
 fullname: Marek Řebíček  	# jméno s tituly etc.
 category:                   # kategorie: pms, clenove, priznivci
 - clenove
-
+- kandidat-komunalky-2018
+ordkomunal2018: 4
 img: people/marek-rebicek.jpg   # 165 x 220
 description: místopředseda místního pirátského sdružení, kandidát do zastupitelstva, povoláním podnikatel v dřevozpracujícím průmyslu  # kratký popis, max 160 znaků
 mail: marek.rebicek@pirati.cz
@@ -18,10 +19,8 @@ Vystudoval gymnázium a nedostudoval právnickou fakultu. V průběhu studia za�
 
 V roce 2001 odešel z Národního bezpečnostního úřadu a věnuje se podnikání, nejdříve poradenství, od roku 2008 je pevně spojen s dřevařstvím a výrobou pelet ve společnosti Waldera, kde je jednatelem.
 
-Věnuje se obnovitelným zdrojům energie, je členem předsednictva Klastru Česká peleta a Sdružení pro biomasu BIOM. Je renomovaným odborníkem v oboru vytápění, dřevařství a obnovitelných zdrojů. 
+Věnuje se obnovitelným zdrojům energie, je členem předsednictva Klastru Česká peleta a Sdružení pro biomasu BIOM. Je renomovaným odborníkem v oboru vytápění, dřevařství a obnovitelných zdrojů.
 
-V Brandýse - Staré Boleslavi je kandidátem Pirátů do zastupitelstva města. 
+V Brandýse - Staré Boleslavi je kandidátem Pirátů do zastupitelstva města.
 
 ---
-
-
