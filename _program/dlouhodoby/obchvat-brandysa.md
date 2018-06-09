@@ -4,7 +4,7 @@ category: dlouhodoby
 topic: Infrastruktura
 tags: Obchvat
 ---
-Brandýský obchvat by měl vyřešit levobřežní dopravu a odclonit centrum Brandýsa od těžké a tranzitní dopravy.
+Řeší levobřežní dopravu a odcloní centrum Brandýsa od těžké a tranzitní dopravy.
 
 Dlužno říct, že obchvat Brandýsa je třeba ještě vyhodnotit, protože po dobudování obchvatu Boleslavi by nemusel být problém tak palčivý a již dnes je téměř jisté, že před dostavbou Boleslavského obchvatu se stavět nezačne.
 
