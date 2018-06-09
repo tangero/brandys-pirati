@@ -9,7 +9,8 @@ ordkomunal2018: 8
 img: people/jan_prokop_2018_small.jpg   # 165 x 220
 description: místopředseda místního pirátského sdružení, kandidát do zastupitelstva, povoláním podnikatel v dřevozpracujícím průmyslu  # kratký popis, max 160 znaků
 candidatedesc: čtyřka na Pirátské kandidátce v komunálních volbách
-mail: jan.prokop@pirati.cz
+mail:
+- jan.prokop@pirati.cz
 profiles:
   facebook: https://www.facebook.com/honcka
 ---
