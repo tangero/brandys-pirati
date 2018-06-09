@@ -3,6 +3,10 @@ layout: page
 title: Program pro Brandýs - Starou Boleslav
 rbar: ""
 ---
+
+<p>
+  Máme zpracovanou celou řadu oblastí města, často lokálních. Ozvěte se nám, rádi se s vámi potkáme a promluvíme si o tom, co byste ve městě rádi změnili právě vy.  </p>
+
 {% assign program = site.program | where: "category","dlouhodoby" | group_by:"topic" %}
 {% assign meta = program | where_exp: "item", "item.name == 'meta'" | first %}
 {% assign metatop = meta.items | reverse %}
@@ -31,8 +35,3 @@ rbar: ""
 </div>
 {% endif %}
 {% endfor %}
-
-
-  <h3>Chybí vám nějaké téma?</h3>
-<p>
-  Máme zpracovanou celou řadu oblastí města, často lokálních. Ozvěte se nám, rádi se s vámi potkáme a promluvíme si o tom, co byste ve městě rádi změnili právě vy.  </p>
