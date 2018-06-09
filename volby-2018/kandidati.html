@@ -21,7 +21,7 @@ title: Kandidátní listiny Pirátů se STANem pro komunální volby 2018
 			</div>
 		</section>
 
-                                        {% assign team = site.people | where_exp:"item","item.categories contains 'pak'" | sort:"ordkomunal2018" %}
+                                        {% assign team = site.people | where_exp:"item","item.categories contains 'kandidat-komunalky-2018'" | sort:"ordkomunal2018" %}
 
 
                                         {% include people/list-candidates.html param=team %}
