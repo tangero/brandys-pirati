@@ -1,7 +1,12 @@
 <div class="large-6 small-12 small-collapse columns end o-section-mediumdown-divided-small">
   <div class="o-media o-media--top">
     <div class="o-media__image o-media__image--lgspace">
-      <img src="{{ item.img | prepend: '/assets/img/' | relative_url }}" alt="{{item.name}}{{item.title}}"> </div>
+      {% if item.img %}
+      <img src="{{ item.img | prepend: '/assets/img/' | relative_url }}" alt="{{item.name}}{{item.title}}">
+{% else %}
+<img src="/assets/img/people/piratska-strana.png" alt="{{item.name}} tu zatím nemá fotku. Asi mu to neslušelo na té, co poslal :)"> 
+{% endif %}
+    </div>
     <div class="o-media__body">
       <h2 class="o-media__headline">
         {% if item.url contains 'http' %}

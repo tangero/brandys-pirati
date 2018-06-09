@@ -8,6 +8,7 @@ category:                   # kategorie: pms, clenove, priznivci
 ordkomunal2018: 4
 img: people/marek-rebicek.jpg   # 165 x 220
 description: místopředseda místního pirátského sdružení, kandidát do zastupitelstva, povoláním podnikatel v dřevozpracujícím průmyslu  # kratký popis, max 160 znaků
+candidatedesc: dvojka na Pirátské kandidátce v komunálních volbách
 mail: marek.rebicek@pirati.cz
 profiles:
   facebook: https://www.facebook.com/marek.rebicek
