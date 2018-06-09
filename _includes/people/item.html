@@ -2,9 +2,9 @@
   <div class="o-media o-media--top">
     <div class="o-media__image o-media__image--lgspace">
       {% if item.img %}
-      <img src="{{ item.img | prepend: '/assets/img/' | relative_url }}" alt="{{item.name}}{{item.title}}">
+      <img src="{{ item.img | prepend: '/assets/img/' | relative_url }}" alt="{{item.name}} - {{item.title}}">
 {% else %}
-<img src="/assets/img/people/piratska-strana.png" alt="{{item.name}} tu zatím nemá fotku. Asi mu to neslušelo na té, co poslal :)"> 
+<img src="/assets/img/people/piratska-strana.png" alt="{{item.name}} tu zatím nemá fotku. Asi mu to neslušelo na té, co poslal :)">
 {% endif %}
     </div>
     <div class="o-media__body">
