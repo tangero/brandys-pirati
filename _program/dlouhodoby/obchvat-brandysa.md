@@ -10,7 +10,7 @@ Dlužno říct, že obchvat Brandýsa je třeba ještě vyhodnotit, protože po 
 
 Jde o dopravu po silnici II/101 z Kostelce, tedy o dopravu ze severu středních Čech po takzvaném aglomeračním okruhu kolem Prahy. Jenže po dostavění obchvatu Boleslavi by se většině řidičů vyplatilo využít silnici 331 a přes boleslavský obchvat dojet na dálnici, silnice 101 by zůstala využívána zřejmě jen pro menší územní celek ohraničený Kostelcem, Neratovicemi a Odolenou Vodou. Obchvat Brandýsa počítá s “přeložkou silnice” 101 z Kostelecké někde před pumpou Benzina kolem sídliště BSS a za Hrušovickým rybníkem podél stožárů vysokého vedení (ty se kvůli němu již přesunuly) přes silnici 601 a dále s odbočkou na dálniční nájezd 10 Zápy a končí napojením na silnici 101 v prostoru za obcí Zápy, čímž mimo jiné sníží dopravu v Zápech a funguje také jako obchvat Záp, dnes silnicí nešťastně rozdělených. Viz modrá přerušovaná čára v mapě.
 
-![Obchvat Brandýsa v mapě. ](/assets/img/posts/2018-06-09-obchvat-brandys.png)
+![Obchvat Brandýsa v mapě. ](/assets/img/posts/2018-06-09-obchvatbrandys.png)
 
 V druhé mapě, Zásadách územního rozvoje Středočeského kraje, je vyznačen i severní obchvat Záp.
 
