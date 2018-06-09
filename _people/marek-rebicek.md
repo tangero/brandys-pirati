@@ -8,14 +8,14 @@ category:                   # kategorie: pms, clenove, priznivci
 ordkomunal2018: 4
 img: people/marek-rebicek.jpg   # 165 x 220
 description: místopředseda místního pirátského sdružení, kandidát do zastupitelstva, povoláním podnikatel v dřevozpracujícím průmyslu  # kratký popis, max 160 znaků
-candidatedesc: dvojka na Pirátské kandidátce v komunálních volbách
-mail: 
+candidatedesc: dvojka na Pirátské kandidátce v komunálních volbách, člen Pirátů
+mail:
 - marek.rebicek@pirati.cz
 profiles:
   facebook: https://www.facebook.com/marek.rebicek
 ---
 
-Marek Řebíček (* 30. června 1975) je členem Místního sdružení Pirátů v Brandýse nad Labem Staré Boleslavi. Marek pochází z Prahy, od roku 2008 žije v Brandýse.
+**Marek Řebíček (* 30. června 1975)** je členem Místního sdružení Pirátů v Brandýse nad Labem Staré Boleslavi. Marek pochází z Prahy, od roku 2008 žije v Brandýse.
 
 Vystudoval gymnázium a nedostudoval právnickou fakultu. V průběhu studia začal pracovat ve státní správě v bezpečnostní oblasti.
 
