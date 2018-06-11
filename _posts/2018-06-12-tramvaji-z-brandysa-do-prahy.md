@@ -27,15 +27,15 @@ Výkupy pozemků, jednání s vlastníky. Ochránci přírody, památkáři, spo
 
 **Trasa na Brandýs je i z pohledu Prahy třetí nejvýznamnější plánovaná trať** obsluhující dosud zle dostupnou část okolí Prahy. První je trať na Kladno kvůli letišti a ostudě. Na Beroun kvůli stavu zdejší trati, která ale bude megadrahá. A pak my. My, kteří jsme prý dosud neměli zájem.
 
-> Jenže my zájem máme.
+ Jenže my zájem máme.
 
-> Máte ho také?
+ Máte ho také?
 
-> Pomozte nám postavit tramvaj z Brandýsa do Prahy!
+ **Pomozte nám postavit tramvaj z Brandýsa do Prahy!
 
-> Řekněme jasně, že chceme tramvaj z Brandýsa do Prahy!
+ Řekněme jasně, že chceme tramvaj z Brandýsa do Prahy!**
 
-![Uvažovaná trasa příměstské vlakotramvaje z pražských Kbel do Brandýsa. Zda povede přesně tudy, to je až věc dalších prací na projektu, územních možností a zejména zájmu občanů... ](/assets/img/posts/2018-06-12-trasa-tramvaje)
+![Uvažovaná trasa příměstské vlakotramvaje z pražských Kbel do Brandýsa. Zda povede přesně tudy, to je až věc dalších prací na projektu, územních možností a zejména zájmu občanů... ](/assets/img/posts/2018-06-12-trasa-tramvaje.png)
 
 
 
