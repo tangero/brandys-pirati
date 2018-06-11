@@ -2,7 +2,7 @@
 layout: blog
 category: CLANKY
 title: Začali jsme roznášet brandobolské Pirátské listy
-date: 2018-05-11T12:00:00.000Z
+date: 2018-05-10T12:00:00.000Z
 author: Patrick Zandl
 authorId: patrick.zandl
 image: /assets/img/posts/2018-06-11-pirlisty-roznos.jpg
