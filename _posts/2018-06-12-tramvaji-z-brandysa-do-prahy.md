@@ -31,9 +31,11 @@ Výkupy pozemků, jednání s vlastníky. Ochránci přírody, památkáři, spo
 
  Máte ho také?
 
- **Pomozte nám postavit tramvaj z Brandýsa do Prahy!
+ **Pomozte nám postavit tramvaj z Brandýsa do Prahy!**
 
- Řekněme jasně, že chceme tramvaj z Brandýsa do Prahy!**
+ **Řekněme jasně, že chceme tramvaj z Brandýsa do Prahy!**
+
+ _PS: uvedená fotka je vážně ilustrační :)_
 
 ![Uvažovaná trasa příměstské vlakotramvaje z pražských Kbel do Brandýsa. Zda povede přesně tudy, to je až věc dalších prací na projektu, územních možností a zejména zájmu občanů... ](/assets/img/posts/2018-06-12-trasa-tramvaje.png)
 
