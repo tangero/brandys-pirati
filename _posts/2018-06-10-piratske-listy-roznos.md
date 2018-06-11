@@ -26,6 +26,6 @@ Pořád potřebujeme dobrovolníky, kteří by nám chtěli pomoci zlepšit měs
 
 I tady je jednoduchá pomoc: registrujte se do naší služby pro [zasílání emailových novinek][newsletter]. Maximálně jednou za týden (ale spíše méně často) vám napíšeme o věcech, které nás ve městě zaujaly.
 
-[pirlisty]: [http://www.piratisestanem.cz/assets/img/download/PirListy-Brandys-Boleslav_1.pdf]
-[newsletter]: [https://piratisestanem.us14.list-manage.com/subscribe/post?u=2c0d68ca4eed389b86ffeccc0&id=30ee6a8841]
+[pirlisty]: http://www.piratisestanem.cz/assets/img/download/PirListy-Brandys-Boleslav_1.pdf
+[newsletter]: https://piratisestanem.us14.list-manage.com/subscribe/post?u=2c0d68ca4eed389b86ffeccc0&id=30ee6a8841
 - - -
