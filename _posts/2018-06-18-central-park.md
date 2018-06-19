@@ -40,9 +40,12 @@ _P.S: Plocha parkoviště a víceúčelového hřiště pod Penny s tím nemá n
 
 ![Kbely - rybníček a restaurace na konci parku](/assets/img/posts/35358120_2203695476337404_126385533013196800_o.jpg)
 
-![Brandýs - Východní část pozemku mezi Penny a nemocnicí](/assets/img/posts/35416839_2203695976337354_8670583202961686528_o.jpg Brandýs: Východní část pozemku mezi Penny a nemocnicí)
+#### Brandýs - Východní část pozemku mezi Penny a nemocnicí
+![Brandýs - Východní část pozemku mezi Penny a nemocnicí](/assets/img/posts/35416839_2203695976337354_8670583202961686528_o.jpg)
 
-![Kbely - Vyčištěný meandr Vinořského potoka](/assets/img/posts/35439650_2203695076337444_7033029322524852224_o.jpg Kbely - Vyčištěný meandr Vinořského potoka)
+#### Kbely - Vyčištěný meandr Vinořského potoka
+![Kbely - Vyčištěný meandr Vinořského potoka](/assets/img/posts/35439650_2203695076337444_7033029322524852224_o.jpg)
 
-![Brandýs - Vinořský potok pod nemocnicí v Brandýse potoka](/assets/img/posts/35476438_2203695809670704_7193804207705554944_o.jpg Brandýs - Vinořský potok pod nemocnicí v Brandýse)
+#### Brandýs - Vinořský potok pod nemocnicí v Brandýse
+![Brandýs - Vinořský potok pod nemocnicí v Brandýse potoka](/assets/img/posts/35476438_2203695809670704_7193804207705554944_o.jpg)
 - - -
