@@ -36,8 +36,8 @@ _P.S: Plocha parkoviště a víceúčelového hřiště pod Penny s tím nemá n
 
 ### A teď najděte těch deset rozdílů
 
-![Kbely - rybníček a restaurace na konci parku](/assets/img/posts/35358120_2203695476337404_126385533013196800_o.jpg Kbely - rybníček a restaurace na konci parku)
+![Kbely - rybníček a restaurace na konci parku](/assets/img/posts/35358120_2203695476337404_126385533013196800_o.jpg)
 
-![Rybníček v kbelském Central Parku](/assets/img/posts/35358120_2203695476337404_126385533013196800_o.jpg)
+![Brandýs: Východní část pozemku mezi Penny a nemocnicí](/assets/img/posts/35416839_2203695976337354_8670583202961686528_o.jpg)
 
 - - -
