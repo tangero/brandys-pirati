@@ -48,4 +48,29 @@ _P.S: Plocha parkoviště a víceúčelového hřiště pod Penny s tím nemá n
 
 #### Brandýs - Vinořský potok pod nemocnicí v Brandýse
 ![Brandýs - Vinořský potok pod nemocnicí v Brandýse potoka](/assets/img/posts/35476438_2203695809670704_7193804207705554944_o.jpg)
+
+#### Kbely - můstek přes potok
+![Kbely - můstek přes potok](/assets/img/posts/35409382_2203695373004081_1279578118775898112_o.jpg)
+
+#### Brandýs - můstek přes potok
+![Brandýs - můstek přes potok](/assets/img/posts/35427377_2203696193003999_7521501227318771712_o.jpg)
+
+#### Kbely - začátek cyklostezky
+![Kbely - začátek cyklostezky](/assets/img/posts/35414690_2203695496337402_5530484796985180160_o.jpg)
+
+#### Brandýs - začátek stezky pod nemocnicí
+![Brandýs - začátek stezky](/assets/img/posts/35361801_2203696003004018_6393888607777587200_o.jpg)
+
+#### Kbely - prostor pro malé děti
+![Kbely - prostor pro malé děti](/assets/img/posts/35426817_2203694996337452_7991588945508958208_o.jpg)
+
+#### Brandýs - prostor pro jakékoliv děti
+![Brandýs - prostor pro jakékoliv děti](/assets/img/posts/35476167_2203695699670715_7409058017141850112_o.jpg)
+
+#### Kbely - cesty v městské parku
+![Kbely - cesty v městské parku](/assets/img/posts/35413908_2203695059670779_1209221151398559744_o.jpg)
+
+#### Brandýs - cesty v parku
+![Brandýs - cesty v parku](/assets/img/posts/35557984_2203695926337359_9168882190497349632_o.jpg)
+
 - - -
