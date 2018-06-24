@@ -17,7 +17,7 @@ Všechny zájemce o dění ve městě zveme na naši veřejnou schůzku:
 * Kdy: čtvrtek 28.6.2018 od 19:00 do řekněme 22 hodin, ale to se uvidí
 * S kým: lidi se zájmem o lepší fungování Brandýsa-Boleslavi, zejména Piráti a STAN, někteří dnešní členové městské rady, komisí atd.
 * O čem: témata z volebního programu. Lepší doprava, bezpečnost a vzdělávání (školy a školky).
-* Kdo může dorazit: kdokoliv chce
+* Kdo může dorazit: kdokoliv chce
 * Jak se registrovat: nijak, prostě doražte, ale když o sobě dáte vědět odpovědí na tento email nebo [na Facebookové události](https://www.facebook.com/events/245726239341588/), seženeme vám židli najisto :)
 
 
