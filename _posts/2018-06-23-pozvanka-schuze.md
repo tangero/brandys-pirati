@@ -29,7 +29,7 @@ Kdo dorazí jmenovitě:
 * Jan Jirovský - městský radní a kandidát na starostu města
 * Patrick Zandl - publicista, spisovatel, autor tohoto emailu a leader pirátské kandidátky
 * Marek Řebíček - obnovitel zámecké restaurace, podnikatel v topení dřevem a Pirát
-* Nina Nováková - exposlankyně a zastutpitelka města
+* Nina Nováková - exposlankyně a zastupitelka města
 * Robert Pecha - nadšený včelař, podnikatel a člen městské Komise pro vnější vztahy, komunikaci a propagaci města
 * Markéta Blahníková - architektka, členka městské Komise pro rozvoj města, územní plánování a památkovou péči
 
