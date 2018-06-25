@@ -4,7 +4,7 @@ group:
   facebook_page: "https://www.facebook.com/piratibrandysboleslav/"
   twitter: "https://twitter.com/piratipraha"
   local_contact_uid: "patrick.zandl"  # uid mistniho kontaktu definovane v _people
-  github_repository: "https://github.com/pirati-web/praha12.pirati.cz/"
+  github_repository: "https://github.com/tangero/brandys-pirati"
 
 parent_group:
   name: "Středočeské sdružení"
