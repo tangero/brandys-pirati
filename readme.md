@@ -15,8 +15,11 @@ Jak postupovat ke zprovoznění vlastního webu na základě těchto šablon:
 * přejděte do svého repozitáře (kdybyste nevěděli, výpis repozitářů je vlevo)
 * vpravo nahoře je ozubené kolečko a Settings - klikněte
 * jeďte dolů, tam je část Github Pages - tam si můžete zadat vlastní doménu, pokud ji máte. HTTPS certifikát výrazně doporučuji, ale hned nepůjde zaškrtnout, jeho vygenerování několik dní pro vlastní doménu trvá, tak se sem časem vrátíte. Source a Theme nechte, jak je (source: master) - pokud nevíte, co děláte.
-* tím by to mohlo fungovat, ale nefunguje, musíte si ještě nastavit správně DNS u toho, kdo vám spravuje doménu. Je třeba vyplnit následující:
+* tím by to mohlo fungovat, ale nefunguje, musíte si ještě nastavit správně DNS u toho, kdo vám spravuje doménu. Je třeba vyplnit následující nastavení v DNS (důležité jsou znáznamy A a CNAME):
 
+![Editace DNS](/assets/img/dns-subreg.png)
+
+Tohle nastavení je tak, jak vypadá v administraci Subreg, u jiných registrátorů je to stejné. Pokud si chcete pořídit doménu třetího řádu typu něco.pirati.cz, musíte se domluvit s jejím sprácem (nevím, kdo to je). Pozor, po editaci DNS trvá něco jako den, než se všechno zpropaguje a funguje po celém internetu. Že vám za pět minut web neběží na nové doméně, je normální, zkuste to druhý den. Pokud jste nastavili doménu výše v administraci Githubu a správně ji spojili s IP adresami v administraci DNS, bude to fungovat. 
 
 ## Konfigurace vzhledu webu pro potřebu sdružení
 
@@ -28,6 +31,11 @@ Pokud byste z tohoto našeho chtěli vyjít pro tvorbu webu svého místního sd
 - v adresáři `assets/img/people` dejte fotky vašich lidí. Pokud nemáte fotku, používejte `assets/img/people/ppp.jpg`
 - v adresáři `_posts` odstraňte naše blogové příspěvky a dávejte vlastní
 - v adresáři `assets/img/posts` odstraňte naše fotky pro blogové příspěvky a dávejte vlastní
+
+
+## Vypublikování webu z Github Pages
+
+Jestliže jste všechno provedli
 
 Jekyll se dá rozběhat nejen na Linuxu, jak se píše níže, ale docela snadno i na macOS a s trochou úsilí i na Windows 10. Návod je například v readme [Pardubického kraje](https://github.com/pirati-web/pardubicky.pirati.cz).
 
