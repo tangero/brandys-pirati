@@ -1,6 +1,6 @@
-# praha12.pirati.cz
+# Web místního sdružení Pirátů k obecnému použití
 
-Naklonovaný web pirati.cz, upravený [Janem Adamcem](https://praha12.pirati.cz/lide/jan-adamec/) a Patrickem Zandlem pro potřeby místních sdružení. 
+Naklonovaný web pirati.cz, upravený [Janem Adamcem](https://praha12.pirati.cz/lide/jan-adamec/) a Patrickem Zandlem pro potřeby místních sdružení. Za pět minut můžete mít vlastní web a už si do něj jen vesele vytváříte obsah. 
 
 ## Rozchození webu pokud Githubu vůbec nerozumíte
 
