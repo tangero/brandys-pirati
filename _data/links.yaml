@@ -1,15 +1,15 @@
 group:
-  name: "Piráti Brandýs nad Labem - Stará Boleslav"
-  short_name: "Brandýs - St. Boleslav"
-  facebook_page: "https://www.facebook.com/piratibrandysboleslav/"
-  twitter: "https://twitter.com/piratipraha"
-  local_contact_uid: "patrick.zandl"  # uid mistniho kontaktu definovane v _people
-  github_repository: "https://github.com/tangero/brandys-pirati"
+  name: "Piráti Kutná Hora"
+  short_name: "Kutnohorští piráti"
+  facebook_page: "https://www.facebook.com/kutnahorapirati/"
+  /* twitter: "https://twitter.com/piratipraha" */
+  /* local_contact_uid: "jmeno"  # uid mistniho kontaktu definovane v _people */
+  github_repository: "https://github.com/DrBinary1/pirati-kutnahora"
 
 parent_group:
   name: "Středočeské sdružení"
   web_url: "https://stc.pirati.cz"
 
 calendar:
-  bar: "https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=500&amp;wkst=2&amp;hl=cs&amp;bgcolor=%23FFFFFF&amp;src=rm0h4oqjk2j2o0615sc4d1slfk%40group.calendar.google.com&amp;color=%23B1365F&amp;src=lpvmfpogihrca3lqs9p2udae0k%40group.calendar.google.com&amp;color=%238D6F47&amp;ctz=Europe%2FPrague"
-  bar_title: "Celopražský kalendář"
+  /*bar: "https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=500&amp;wkst=2&amp;hl=cs&amp;bgcolor=%23FFFFFF&amp;src=rm0h4oqjk2j2o0615sc4d1slfk%40group.calendar.google.com&amp;color=%23B1365F&amp;src=lpvmfpogihrca3lqs9p2udae0k%40group.calendar.google.com&amp;color=%238D6F47&amp;ctz=Europe%2FPrague" zadat náš KH kalendář */
+  bar_title: "Kutnohorský kalendář"
