@@ -2,7 +2,7 @@
 layout: blog
 category: CLANKY
 title: Jak vyřešit fronty na poště a doručování?
-date: 2018-05-11T12:00:00.000Z
+date: 2018-07-09T12:00:00.000Z
 author: Marek Řebíček
 authorId: marek.rebicek
 image: /assets/img/posts/2018-07-09-fronty-na-poste.jpg
