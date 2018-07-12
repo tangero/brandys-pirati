@@ -6,7 +6,7 @@ category:                   # kategorie: pms, clenove, priznivci
 - priznivci
 - kandidat-komunalky-2018
 ordkomunal2018: 6
-img:    # 165 x 220
+img:    people/marie-kubacova.jpg    # 165 x 220
 description: specialista na správu nemovitostí  # kratký popis, max 160 znaků
 candidatedesc: trojka na Pirátské kandidátce v komunálních volbách, příznivec Pirátů
 mail:
