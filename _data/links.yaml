@@ -11,5 +11,5 @@ parent_group:
   web_url: "https://stc.pirati.cz"
 
 calendar:
-  bar: "<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=har1dmou53l37fbr4lci4prbhc%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FPrague" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>"
+  bar: "https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=har1dmou53l37fbr4lci4prbhc%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FPrague" 
   bar_title: "Středočeský kalendář"
