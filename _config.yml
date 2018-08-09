@@ -7,12 +7,12 @@
 
 # Site settings
 title: Pirátská strana | Brandýs nad Labem - Stará Boleslav
-email: to@pirati.cz
+email: patrick.zandl@pirati.cz
 description: > # this means to ignore newlines until "baseurl:"
   Web místního sdružení České pirátské strany v Brandýse - Boleslavi.
-url: "https://www.pirati.cz" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://www.piratibrandys.cz" # the base hostname & protocol for your site
+twitter_username: tangero
+github_username:  tangero
 
 # Build settings
 markdown: kramdown
