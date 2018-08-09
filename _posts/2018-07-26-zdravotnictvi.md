@@ -27,7 +27,6 @@ Dlouholetým snem drtivé většiny rodičů je dětská pohotovost v Brandýse.
 
 ![Návrh, jak by nemocnice mohla vypadat po rekonstrukci. Plán z roku 2011 se ale dosud nerealizoval.](/assets/img/posts/nemocnice-plan.jpg)
 
-_Návrh, jak by nemocnice mohla vypadat po rekonstrukci. Plán z roku 2011 se ale dosud nerealizoval._
 
 Vybudovat samostatnou městskou dětskou pohotovost je v podmínkách města ekonomicky naprosto nerealistické a proto jediným schůdným a relativně rychlým (byť nedokonalým) řešením je příspěvek na asistenční telefonickou službu, která umí alespoň na dálku rodičům poradit ve stresových situacích. Není to samozřejmě náhrada funkční pohotovosti, ale pomůže to vystresovanému rodiči se minimálně v problému zorientovat. Řada měst v zahraničí takto jako službu pro své občany přispívá na provoz podobné asistenční služby a to by mohl být základní model pro nás.
 
