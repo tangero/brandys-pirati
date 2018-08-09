@@ -33,7 +33,8 @@ Vybudovat samostatnou městskou dětskou pohotovost je v podmínkách města eko
 ## Lékařský dům v Boleslavi
 
 No a do třetice stojí za úvahu projekt “Lékařského domu” ve Staré Boleslavi. Té totiž poliklinika chybí a místní pobíhají po městě, když si mají “oběhnout” více vyšetření. Cožpak o to, objektů v majetku města by se pár našlo, jenže nejsou příliš vhodné nebo dopravně dostupné, navíc se přidávají výše popsané problémy se smlouvami se zdravotními pojišťovnami a samozřejmě s tím, že dnešní ordinace jsou dlouhodobě zavedené a změnu nemusí podpořit, protože jim samotným nic nepřinese, šlo by hlavně o pohodlí pro pacienty. Zajímavou variantou tak zůstává nalezení silného finančního partnera pro místní nemocnici. I tato varianta, kterou se několik posledních měsíců velmi intenzivně zabýváme, je aktuální, stávající provozovatel na ideální provoz nemocnice jako služby pro občany našeho města sám nestačí a město může s hledáním pomoci.
-Zdravotnictví není trh, ale péče
+
+## Zdravotnictví není trh, ale péče
 
 Fungující nemocnice a dostupná zdravotní péče je pro město a jeho občany naprosto zásadní, město se početně rozrůstá a populace postupně stárne, takže bez kvalitní lékařské péče se do budoucna neobejdeme. Město se tedy musí začít angažovat a zastupovat občany i v těchto “tržních procesech” tak, aby kvalitní a dostupná lékařská péče v našem městě byl dlouhodobě zajištěna. A abychom včas reagovali v této oblasti na problémy, o nichž víme, že přicházejí. Je totiž věcí města, když své základní funkce nezvládá plnit náš stát, aby pomáhalo, kde to je možné.
 
