@@ -13,9 +13,6 @@ tags:
 
 Jak zlepšit zdravotní péči ve městě? Se zdravotní péčí v Brandýse-Boleslavi to není jednoduché. Ale plán máme.
 
-![Takhle vypadá Praha-Východ podle projektu Intersucho. Zatím mírné sucho... ](/assets/img/posts/2018-05-11-intersucho.jpg)
-
-
 ## Praktičté lékaři a pediatři
 
 Tak zaprvé praktičtí lékaři. Ve městě jich je deset, což na dvacetitisícové město málo a jsme na tom hůře, než je celorepublikový průměru a i ten je sám o sobě spíše špatný. Stejně tak čtveřice pediatrů se musí starat o všechny děti ve městě. Jistě, část práce přebírají lékaři v Praze, kam lidé dojíždí za zaměstnáním, město ale trápí také to, že lékaři stárnou a dostávají se blízko důchodovému věku. To za prvé znamená, že je třeba přemýšlet o nových lékařích, kteří jejich práci v nějakém horizontu převezmou, neboť “hromadný” odchod daný věkovou blízkostí by zkomplikoval život mnoha lidí. A za druhé starší lékaři nepřijímají nejsnáze novoty, které na ně stát hrne, třeba e-recepty nebo dodatečnou administrativu. Ale také novoty, které požadují mladší klienti, jako objednávkový systém zamezující čekání v ordinacích.
@@ -26,8 +23,14 @@ Co město může udělat? Obce v zahraniční dnes stále častěji lákají dok
 
 ## Sen o dětské pohotovosti
 
-Dlouholetým snem drtivé většiny rodičů je dětská pohotovost v Brandýse. Přeci jen, strach o děti máme větší, než o sebe, jezdit kvůli akutní situaci do Prahy na Bulovku a modlit se za průjezdnou dálnici, to na klidu nepřidá. Jenže nemocnice je soukromá, provozovaná jen malým hráčem na velkém a tvrdě konkurenčním zdravotnickém trhu a dětská pohotovost se jí jednoduše nevyplatí. Město by na ni muselo přispívat a to dlouhodobě, v řádu milionů korun ročně. Vybudovat samostatnou městskou dětskou pohotovost je v podmínkách města ekonomicky naprosto nerealistické a proto jediným schůdným a relativně rychlým (byť nedokonalým) řešením je příspěvek na asistenční telefonickou službu, která umí alespoň na dálku rodičům poradit ve stresových situacích. Není to samozřejmě náhrada funkční pohotovosti, ale pomůže to vystresovanému rodiči se minimálně v problému zorientovat. Řada měst v zahraničí takto jako službu pro své občany přispívá na provoz podobné asistenční služby a to by mohl být základní model pro nás.
-Lékařský dům v Boleslavi
+Dlouholetým snem drtivé většiny rodičů je dětská pohotovost v Brandýse. Přeci jen, strach o děti máme větší, než o sebe, jezdit kvůli akutní situaci do Prahy na Bulovku a modlit se za průjezdnou dálnici, to na klidu nepřidá. Jenže nemocnice je soukromá, provozovaná jen malým hráčem na velkém a tvrdě konkurenčním zdravotnickém trhu a dětská pohotovost se jí jednoduše nevyplatí. Město by na ni muselo přispívat a to dlouhodobě, v řádu milionů korun ročně.
+
+![Návrh, jak by nemocnice mohla vypadat po rekonstrukci. Plán z roku 2011 se ale dosud nerealizoval.](/assets/img/posts/nemocnice-plan.jpg)
+
+
+Vybudovat samostatnou městskou dětskou pohotovost je v podmínkách města ekonomicky naprosto nerealistické a proto jediným schůdným a relativně rychlým (byť nedokonalým) řešením je příspěvek na asistenční telefonickou službu, která umí alespoň na dálku rodičům poradit ve stresových situacích. Není to samozřejmě náhrada funkční pohotovosti, ale pomůže to vystresovanému rodiči se minimálně v problému zorientovat. Řada měst v zahraničí takto jako službu pro své občany přispívá na provoz podobné asistenční služby a to by mohl být základní model pro nás.
+
+## Lékařský dům v Boleslavi
 
 No a do třetice stojí za úvahu projekt “Lékařského domu” ve Staré Boleslavi. Té totiž poliklinika chybí a místní pobíhají po městě, když si mají “oběhnout” více vyšetření. Cožpak o to, objektů v majetku města by se pár našlo, jenže nejsou příliš vhodné nebo dopravně dostupné, navíc se přidávají výše popsané problémy se smlouvami se zdravotními pojišťovnami a samozřejmě s tím, že dnešní ordinace jsou dlouhodobě zavedené a změnu nemusí podpořit, protože jim samotným nic nepřinese, šlo by hlavně o pohodlí pro pacienty. Zajímavou variantou tak zůstává nalezení silného finančního partnera pro místní nemocnici. I tato varianta, kterou se několik posledních měsíců velmi intenzivně zabýváme, je aktuální, stávající provozovatel na ideální provoz nemocnice jako služby pro občany našeho města sám nestačí a město může s hledáním pomoci.
 Zdravotnictví není trh, ale péče
