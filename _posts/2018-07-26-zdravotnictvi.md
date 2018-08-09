@@ -25,8 +25,9 @@ Co město může udělat? Obce v zahraniční dnes stále častěji lákají dok
 
 Dlouholetým snem drtivé většiny rodičů je dětská pohotovost v Brandýse. Přeci jen, strach o děti máme větší, než o sebe, jezdit kvůli akutní situaci do Prahy na Bulovku a modlit se za průjezdnou dálnici, to na klidu nepřidá. Jenže nemocnice je soukromá, provozovaná jen malým hráčem na velkém a tvrdě konkurenčním zdravotnickém trhu a dětská pohotovost se jí jednoduše nevyplatí. Město by na ni muselo přispívat a to dlouhodobě, v řádu milionů korun ročně.
 
-![Návrh, jak by nemocnice mohla vypadat po rekonstrukci. Plán z roku 2011 se ale dosud nerealizoval.](/assets/img/posts/nemocnice-plan.jpg Návrh, jak by nemocnice mohla vypadat po rekonstrukci. Plán z roku 2011 se ale dosud nerealizoval.)
+![Návrh, jak by nemocnice mohla vypadat po rekonstrukci. Plán z roku 2011 se ale dosud nerealizoval.](/assets/img/posts/nemocnice-plan.jpg)
 
+_Návrh, jak by nemocnice mohla vypadat po rekonstrukci. Plán z roku 2011 se ale dosud nerealizoval._
 
 Vybudovat samostatnou městskou dětskou pohotovost je v podmínkách města ekonomicky naprosto nerealistické a proto jediným schůdným a relativně rychlým (byť nedokonalým) řešením je příspěvek na asistenční telefonickou službu, která umí alespoň na dálku rodičům poradit ve stresových situacích. Není to samozřejmě náhrada funkční pohotovosti, ale pomůže to vystresovanému rodiči se minimálně v problému zorientovat. Řada měst v zahraničí takto jako službu pro své občany přispívá na provoz podobné asistenční služby a to by mohl být základní model pro nás.
 
