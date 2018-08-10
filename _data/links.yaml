@@ -2,7 +2,7 @@ group:
   name: "Piráti Kutná Hora"
   short_name: "Kutnohorští piráti"
   facebook_page: "https://www.facebook.com/kutnahorapirati/"
-  twitter: "https://twitter.com/piratipraha" 
+ 
   local_contact_uid: "jmeno"  # uid mistniho kontaktu definovane v _people 
   github_repository: "https://github.com/DrBinary1/pirati-kutnahora"
 
