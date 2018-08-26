@@ -39,9 +39,9 @@ collections:
   program:
     output: true
     permalink: /volby-2018/:path/
-  teams:
-    output: true
-    permalink: /pripoj-se/:title/
+#  teams:
+#    output: true
+#    permalink: /pripoj-se/:title/
 
 defaults:   # defaults values for collection scope
   -
