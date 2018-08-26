@@ -8,7 +8,7 @@ group:
 
 parent_group:
   name: "Středočeské sdružení"
-  web_url: "https://stc.pirati.cz"
+  web_url: "https://stredocesky.pirati.cz"
 
 calendar:
   bar: "https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=har1dmou53l37fbr4lci4prbhc%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FPrague" 
