@@ -27,6 +27,8 @@ exclude:
   - readme.md
   - Gemfile
   - Gemfile.lock
+  - vendor
+  - .bundle
 
 sass:
     style: compressed

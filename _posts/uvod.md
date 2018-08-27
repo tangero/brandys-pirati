@@ -1,4 +1,16 @@
-﻿Piráti se chystají na komunální volby
+﻿---
+date: 2018-07-04
+category: blog
+tags:
+ - komunální_volby
+layout: post
+title: Pirátské kandidátky měst Středočeského kraje znají své leadery!
+author: Štěpán Drtina
+authorId: stepan.drtina    # uid nekoho z _people (nepoviné)
+image: posts/sbirani_odpadu.jpg
+---
+
+Piráti se chystají na komunální volby
  
 Česká pirátská strana vstupuje poprvé do komunálních voleb v Kutné Hoře. Kandidátní listina je tvořena členy České pirátské strany a nezávislými kandidáty.
 
