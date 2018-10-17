@@ -10,7 +10,7 @@ title: Pirátská strana | Brandýs nad Labem - Stará Boleslav
 email: to@pirati.cz
 description: > # this means to ignore newlines until "baseurl:"
   Web místního sdružení České pirátské strany v Brandýse - Boleslavi.
-url: "https://www.pirati.cz" # the base hostname & protocol for your site
+url: "https://brandys.pirati.cz" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
@@ -64,4 +64,3 @@ defaults:   # defaults values for collection scope
       rbar: "team-summary, teams-toc"
 
 emptyArray: []
-

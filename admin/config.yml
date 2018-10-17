@@ -1,0 +1,56 @@
+backend:
+  name: github
+  repo: pirati-web/praha6.pirati.cz
+  branch: gh-pages
+  base_url: https://piraweboauth.herokuapp.com
+
+media_folder: "assets/img"
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "posts-2018" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Články 2018" # Used in the UI, ie.: "New Post"
+    folder: "_posts/2018"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true # AlBucilow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Category", name: "category", widget: "hidden", default: "blog"}
+      - {label: "Titulek", name: "title", widget: "string", tagname: "h1", required: true}
+      - {label: "Publikovano", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mma", required: true}
+      - {label: "Autor", name: "author", widget: "string", required: true}
+      - {label: "Obrázek", name: "image", widget: "image", required: false}
+      - {label: "Obsah", name: "body", widget: "markdown", required: true}
+      - {label: "Tagy", name: "tags", widget: "text", required: true}
+    card: {type: "image", image: "image", text: "title", required: true}
+  - name: "people" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Lidé" # Used in the UI, ie.: "New Post"
+    folder: "_people"
+    slug: "{{slug}}"
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "UID", name: "uid", widget: "string", required: true}
+      - {label: "Name", name: "name", widget: "string", tagname: "h1", required: true}
+      - {label: "Fullname", name: "fullname", widget: "string", required: true}
+      - {label: "Mobil", name: "mob", widget: "string", required: false}
+      - {label: "Mail", name: "mail", widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "text", default: "", required: false}
+      - {label: "Obrázek", name: "img", widget: "image", tagname: "", required: false}
+      - {label: "Description", name: "description", widget: "text", default: "", required: false}
+      - {label: "Order person", name: "ordpraha", widget: "number", required: false}
+      - {label: "Order candidate", name: "ordcan", widget: "number", required: false}
+      - {label: "Facebook", name: "facebook", widget: "string", required: false}
+      - {label: "Twitter", name: "twitter", widget: "string", required: false}
+      - {label: "Instagram", name: "instagram", widget: "string", required: false}
+      - {label: "Flicker", name: "flicker", widget: "string", required: false}
+      - {label: "Obsah", name: "body", widget: "markdown", required: false}
+    card: {type: "image", image: "image", text: "title", required: true}
+  - name: "program" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Program" # Used in the UI, ie.: "New Post"
+    folder: "_program"
+    slug: "{{slug}}"
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Category", name: "category", widget: "text", default: ""}
+      - {label: "Pořadí", name: "order", widget: "text", default: ""}
+      - {label: "Jméno", name: "name", widget: "string", tagname: "h1", required: true}
+      - {label: "Obsah", name: "body", widget: "markdown", required: true}
