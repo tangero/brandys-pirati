@@ -42,6 +42,9 @@ collections:
   teams:
     output: true
     permalink: /pripoj-se/:title/
+  vystavba:
+    output: true
+    permalink: /vystavba/:title.html
 
 defaults:   # defaults values for collection scope
   -
@@ -62,5 +65,16 @@ defaults:   # defaults values for collection scope
     values:
       layout: "team"
       rbar: "team-summary, teams-toc"
+
+        scope:
+      path: "_vystavba"
+    values:
+      layout: "vystavba"
+      rbar: "map, textbox"
+      img: "vystavba/mapa-vystavby.png"
+      mapycz_api: "mini-api"
+      textbox:
+        title: "Naše stanovisko"
+  
 
 emptyArray: []
