@@ -39,9 +39,6 @@ collections:
   program:
     output: true
     permalink: /volby-2018/:path/
-  teams:
-    output: true
-    permalink: /pripoj-se/:title/
   vystavba:
     output: true
     permalink: /vystavba/:title.html
@@ -61,8 +58,13 @@ defaults:   # defaults values for collection scope
       rbar: "volby-2018"
   -
     scope:
-      path: "_teams"
+      path: "_vystavba"
     values:
-      layout: "team"
-      rbar: "team-summary, teams-toc"
+      layout: "vystavba"
+      rbar: "map, textbox"
+      img: "vystavba/mapa-vystavby.png"
+      mapycz_api: "mini-api"
+      textbox:
+        title: "Naše stanovisko"
+
 emptyArray: []
