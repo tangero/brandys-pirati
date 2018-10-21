@@ -1,7 +1,7 @@
 ---
 layout: blog
 category: CLANKY
-title: Svlékání do naha: kdo je Marek Řebíček
+title: Svlékání do naha - kdo je Marek Řebíček
 date: 2018-09-19T12:00:00.000Z
 author: Marek Řebíček
 authorId: marek.rebicek
