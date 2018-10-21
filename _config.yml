@@ -12,7 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Web místního sdružení České pirátské strany v Brandýse - Boleslavi.
 github_username:  jekyll
 url: "https://brandys.pirati.cz" # the base hostname & protocol for your site
-twitter_username: jekyllrb
+twitter_username: tangero
 
 # Build settings
 markdown: kramdown
@@ -65,6 +65,4 @@ defaults:   # defaults values for collection scope
     values:
       layout: "team"
       rbar: "team-summary, teams-toc"
-  
-
 emptyArray: []
