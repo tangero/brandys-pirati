@@ -1,7 +1,7 @@
 ---
 layout: blog
 category: CLANKY
-title: Novinky ve výstavbě? Dům č. 98 a Zahradní město II.
+title: Dům číslo 98 a Zahradní město II
 date: 2018-10-17T12:00:00.000Z
 author: Marek Řebíček
 authorId: marek.rebicek
