@@ -7,8 +7,8 @@ category:                   # kategorie: pms, clenove, priznivci
 - kandidat-komunalky-2018
 ordkomunal2018: 4
 img: people/marek-rebicek.jpg   # 165 x 220
-description: místopředseda místního pirátského sdružení, kandidát do zastupitelstva, povoláním podnikatel v dřevozpracujícím průmyslu  # kratký popis, max 160 znaků
-candidatedesc: dvojka na Pirátské kandidátce v komunálních volbách, člen Pirátů
+description: místopředseda místního pirátského sdružení, od října 2018 člen zastupitelstva města, povoláním podnikatel v dřevozpracujícím průmyslu  # kratký popis, max 160 znaků
+candidatedesc: od října 2018 člen zastupitelstva města, člen Pirátů
 mail:
 - marek.rebicek@pirati.cz
 profiles:
@@ -23,6 +23,6 @@ V roce 2001 odešel z Národního bezpečnostního úřadu a věnuje se podniká
 
 Věnuje se obnovitelným zdrojům energie, je členem předsednictva Klastru Česká peleta a Sdružení pro biomasu BIOM. Je renomovaným odborníkem v oboru vytápění, dřevařství a obnovitelných zdrojů.
 
-V Brandýse - Staré Boleslavi je kandidátem Pirátů do zastupitelstva města.
+V Brandýse - Staré Boleslavi je od října 2018 člen zastupitelstva města.
 
 ---
