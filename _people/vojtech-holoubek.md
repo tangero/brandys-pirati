@@ -8,7 +8,7 @@ category:                   # kategorie: pms, clenove, priznivci
 ordkomunal2018: 10
 img: people/vojtech-holoubek.png   # 165 x 220
 description: šéf staroboleslavské Atletiky v Houšťce, neúnavný organizátor městského sportu. Nezávislý.  # kratký popis, max 160 znaků
-candidatedesc: pětka na Pirátské kandidátce v komunálních volbách, nezávislý
+candidatedesc: nezávislý
 mail:
 - v.holoubek@houstka.com
 profiles:

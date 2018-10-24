@@ -8,7 +8,7 @@ category:                   # kategorie: pms, clenove, priznivci
 ordkomunal2018: 12
 img: people/milos-chmelar.jpg   # 165 x 220
 description: Designer digitálních služeb, kandidát do zastupitelstva  # kratký popis, max 160 znaků
-candidatedesc: šestka na Pirátské kandidátce v komunálních volbách, příznivec Pirátů
+candidatedesc: příznivec Pirátů
 mail:
 - milos.chmelar@gmail.com
 profiles:

@@ -8,7 +8,7 @@ category:                 # kategorie: pms, clenove, priznivci
 ordkomunal2018: 1
 img: people/patrick-zandl-late2018.png   # 165 x 220
 description: fanda moderních technologií, publicista, odborník na telekomunikace a předseda Pirátů v Brandýse  # kratký popis, max 160 znaků
-candidatedesc: leader kandidátky Pirátů pro komunální volby, člen Pirátů
+candidatedesc: od října 2018 člen zastupitelstva města, člen Pirátů a předseda MO Piráti Brandýs-Boleslav.
 
 mail:
 - patrick.zandl@pirati.cz

@@ -7,12 +7,12 @@
 
 # Site settings
 title: Pirátská strana | Brandýs nad Labem - Stará Boleslav
-email: to@pirati.cz
+email: patrick.zandl@pirati.cz
 description: > # this means to ignore newlines until "baseurl:"
   Web místního sdružení České pirátské strany v Brandýse - Boleslavi.
-url: "https://brandys.pirati.cz" # the base hostname & protocol for your site
-twitter_username: jekyllrb
 github_username:  jekyll
+url: "https://brandys.pirati.cz" # the base hostname & protocol for your site
+twitter_username: tangero
 
 # Build settings
 markdown: kramdown
@@ -39,9 +39,6 @@ collections:
   program:
     output: true
     permalink: /volby-2018/:path/
-  teams:
-    output: true
-    permalink: /pripoj-se/:title/
   vystavba:
     output: true
     permalink: /vystavba/:title.html
@@ -61,12 +58,6 @@ defaults:   # defaults values for collection scope
       rbar: "volby-2018"
   -
     scope:
-      path: "_teams"
-    values:
-      layout: "team"
-      rbar: "team-summary, teams-toc"
-
-        scope:
       path: "_vystavba"
     values:
       layout: "vystavba"
@@ -75,6 +66,5 @@ defaults:   # defaults values for collection scope
       mapycz_api: "mini-api"
       textbox:
         title: "Naše stanovisko"
-  
 
 emptyArray: []

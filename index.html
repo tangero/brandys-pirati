@@ -9,11 +9,11 @@ rbar: fb, calendar, em
     <section class="o-section o-section--spaceBot">
       <div class="o-section-inner o-section-inner--leftBlock">
 
-  
+
         <header class="o-section-header">
           <h1 class="o-section__heading">Aktuální témata</h1>
         </header>
-        {% for article in site.posts limit: 6 %}
+        {% for article in site.posts limit: 10 %}
         <article itemtype="http://schema.org/BlogPosting" class="c-BlogPosting-excerpt" itemscope="">
           <link itemprop="mainEntityOfPage" href="http://insertshownpagelinkhere.com">
           <div class="c-BlogPosting-excerpt-contentWrapper u-cf">
