@@ -20,9 +20,11 @@ markdown: kramdown
 # Excerpt settings
 excerpt_separator: "<!--more-->"
 
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
 paginate_path: "/aktuality/:num/"
 paginate: 11
 
