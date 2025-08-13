@@ -1,7 +1,4 @@
+pages_build_output_dir = "_site"
+
 [build]
 command = "bundle exec jekyll build"
-cwd = "."
-watch_dir = "."
-
-[build.upload]
-format = "service-worker"
