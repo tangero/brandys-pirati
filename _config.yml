@@ -31,7 +31,6 @@ paginate: 11
 exclude:
   - readme.md
   - Gemfile
-  - Gemfile.lock
 
 sass:
     style: compressed
