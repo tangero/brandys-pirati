@@ -537,3 +537,70 @@
   padding: 14px 32px;
   font-size: 16px;
 }
+
+// MD3 Strategy Card
+.md-strategy-card {
+  background: var(--md-sys-color-surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--md-sys-color-primary);
+  
+  &:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+  }
+}
+
+.md-strategy-card__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.md-strategy-card__icon {
+  font-size: 24px;
+  margin-right: 12px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-strategy-card__title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+  
+  a {
+    color: var(--md-sys-color-on-surface);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--md-sys-color-primary);
+    }
+  }
+}
+
+.md-strategy-card__content {
+  margin-bottom: 20px;
+}
+
+.md-strategy-card__excerpt {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.md-strategy-card__actions {
+  display: flex;
+  justify-content: flex-start;
+}
