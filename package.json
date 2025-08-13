@@ -2,7 +2,7 @@
   "name": "brandys-pirati",
   "version": "1.0.0",
   "scripts": {
-    "build": "cp _jekyll Gemfile && cp _config_yml _config.yml && bundle exec jekyll build"
+    "build": "cp _jekyll Gemfile && cp _config_yml _config.yml && bundle install --without development test && bundle exec jekyll build"
   },
   "engines": {
     "node": ">=14"
