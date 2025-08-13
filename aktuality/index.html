@@ -10,7 +10,8 @@ title: Aktuality
   </div>
   
   <div class="md-articles-grid">
-    {% for post in paginator.posts %}
+    {% assign aktuality_posts = site.posts | where_exp: "post", "post.category != 'mistostarosti'" %}
+    {% for post in aktuality_posts limit: 11 %}
     <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
       <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
       
@@ -54,34 +55,11 @@ title: Aktuality
     {% endfor %}
   </div>
   
-  <!-- Pagination -->
-  {% if paginator.total_pages > 1 %}
+  <!-- Simple pagination for filtered posts -->
+  {% assign total_posts = aktuality_posts | size %}
+  {% if total_posts > 11 %}
   <div class="md-pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}" class="md-pagination__button">
-        ←
-      </a>
-    {% else %}
-      <span class="md-pagination__button md-pagination__button--disabled">←</span>
-    {% endif %}
-    
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <span class="md-pagination__button md-pagination__button--active">{{ page }}</span>
-      {% elsif page == 1 %}
-        <a href="{{ '/aktuality/' | relative_url }}" class="md-pagination__button">{{ page }}</a>
-      {% else %}
-        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="md-pagination__button">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
-    
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" class="md-pagination__button">
-        →
-      </a>
-    {% else %}
-      <span class="md-pagination__button md-pagination__button--disabled">→</span>
-    {% endif %}
+    <p>Zobrazeno {{ aktuality_posts | size | at_most: 11 }} z {{ total_posts }} aktualit</p>
   </div>
   {% endif %}
 </div>
