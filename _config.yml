@@ -31,6 +31,7 @@ paginate: 11
 exclude:
   - readme.md
   - Gemfile
+  - _jekyll
 
 sass:
     style: compressed
