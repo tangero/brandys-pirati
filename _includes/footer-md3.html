@@ -1,0 +1,203 @@
+<style>
+  .md-footer {
+    background: var(--md-sys-color-surface-variant);
+    margin-top: auto;
+    padding: 48px 0 24px;
+  }
+  
+  .md-footer__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 48px;
+  }
+  
+  .md-footer__section-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 16px;
+  }
+  
+  .md-footer__list {
+    list-style: none;
+  }
+  
+  .md-footer__list-item {
+    margin-bottom: 8px;
+  }
+  
+  .md-footer__link {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 14px;
+    transition: color 0.2s ease;
+  }
+  
+  .md-footer__link:hover {
+    color: var(--md-sys-color-primary);
+    opacity: 1;
+  }
+  
+  .md-footer__social {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .md-footer__social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--md-sys-color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .md-footer__social-link:hover {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+  }
+  
+  .md-footer__social-link img {
+    width: 20px;
+    height: 20px;
+    filter: grayscale(100%);
+  }
+  
+  .md-footer__social-link:hover img {
+    filter: grayscale(0%) invert(1);
+  }
+  
+  .md-footer__divider {
+    border: none;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    margin: 32px 0 24px;
+  }
+  
+  .md-footer__bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .md-footer__copyright {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 12px;
+  }
+  
+  .md-footer__bottom-links {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .md-footer__bottom-link {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 12px;
+  }
+  
+  @media (max-width: 768px) {
+    .md-footer__content {
+      padding: 0 16px;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    
+    .md-footer__bottom {
+      padding: 0 16px;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .md-footer__bottom-links {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer__content">
+    <div>
+      <h3 class="md-footer__section-title">O nás</h3>
+      <ul class="md-footer__list">
+        <li class="md-footer__list-item">
+          <a href="{{ '/lide/' | relative_url }}" class="md-footer__link">Naši lidé</a>
+        </li>
+        <li class="md-footer__list-item">
+          <a href="{{ '/volby-2018/program/' | relative_url }}" class="md-footer__link">Program</a>
+        </li>
+        <li class="md-footer__list-item">
+          <a href="{{ '/aktuality/' | relative_url }}" class="md-footer__link">Aktuality</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div>
+      <h3 class="md-footer__section-title">Připoj se</h3>
+      <ul class="md-footer__list">
+        <li class="md-footer__list-item">
+          <a href="{{ '/pripoj-se/' | relative_url }}" class="md-footer__link">Jak se zapojit</a>
+        </li>
+        <li class="md-footer__list-item">
+          <a href="https://www.pirati.cz" target="_blank" class="md-footer__link">Celostátní web</a>
+        </li>
+        <li class="md-footer__list-item">
+          <a href="https://wiki.pirati.cz" target="_blank" class="md-footer__link">Wiki</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div>
+      <h3 class="md-footer__section-title">Kontakt</h3>
+      <ul class="md-footer__list">
+        <li class="md-footer__list-item">
+          <span class="md-footer__link">{{ site.email }}</span>
+        </li>
+        <li class="md-footer__list-item">
+          <a href="https://www.facebook.com/piratibrandysboleslav/" target="_blank" class="md-footer__link">Facebook</a>
+        </li>
+        <li class="md-footer__list-item">
+          <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="md-footer__link">Twitter</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div>
+      <h3 class="md-footer__section-title">Sledujte nás</h3>
+      <div class="md-footer__social">
+        <a href="https://www.facebook.com/piratibrandysboleslav/" target="_blank" class="md-footer__social-link">
+          <img src="{{ '/assets/img/icons/facebook.png' | relative_url }}" alt="Facebook">
+        </a>
+        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="md-footer__social-link">
+          <img src="{{ '/assets/img/icons/twitter.png' | relative_url }}" alt="Twitter">
+        </a>
+        <a href="https://github.com/pirati-web" target="_blank" class="md-footer__social-link">
+          <img src="{{ '/assets/img/icons/github.png' | relative_url }}" alt="GitHub">
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <hr class="md-footer__divider">
+  
+  <div class="md-footer__bottom">
+    <div class="md-footer__copyright">
+      © {{ 'now' | date: "%Y" }} Pirátská strana. Všechna práva vyhrazena.
+    </div>
+    <div class="md-footer__bottom-links">
+      <a href="https://www.pirati.cz" target="_blank" class="md-footer__bottom-link">Piráti.cz</a>
+      <a href="https://wiki.pirati.cz" target="_blank" class="md-footer__bottom-link">Wiki</a>
+      <a href="/pripoj-se/" class="md-footer__bottom-link">Připoj se</a>
+    </div>
+  </div>
+</footer>

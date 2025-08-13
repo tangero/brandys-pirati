@@ -1,17 +1,87 @@
 ---
 layout: default
+title: Aktuality
 ---
 
-<div class="row o-section-block o-section-block--divided">
-  <div class="medium-12 large-8 columns">
-    <section class="o-section o-section--noSpaceBottom o-section--bigger">
-      <div class="o-section-inner o-section-inner--leftBlock">
-      </div>
-    </section>
+<div class="md-section">
+  <div class="md-section__header">
+    <h1 class="md-section__title">Aktuality</h1>
+    <p class="md-section__subtitle">Všechny naše aktuality a zprávy z Brandýsa nad Labem</p>
   </div>
+  
+  <div class="md-articles-grid">
+    {% for post in paginator.posts %}
+    <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
+      <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
+      
+      {% if post.image %}
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="md-article-card__media" itemprop="image">
+      {% endif %}
+      
+      <div class="md-article-card__content">
+        <h2 itemprop="headline" class="md-article-card__headline">
+          <a href="{{ post.url | relative_url }}" itemprop="url">{{ post.title }}</a>
+        </h2>
+        
+        <div class="md-article-card__meta">
+          <span class="md-article-card__date" itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
+            📅 {{ post.date | date: "%d.%m.%Y" }}
+          </span>
+          {% if post.author %}
+          <span class="md-article-card__author" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
+            👤 <span itemprop="name">{{ post.author }}</span>
+          </span>
+          {% endif %}
+        </div>
+        
+        <div itemprop="description" class="md-article-card__excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 30 }}
+        </div>
+        
+        <div class="md-article-card__actions">
+          <a href="{{ post.url | relative_url }}" class="md-button md-button--text">Číst celý článek</a>
+        </div>
+      </div>
+      
+      <!-- Publisher metadata -->
+      <div itemprop="publisher" itemtype="http://schema.org/Organization" style="display: none;" itemscope="">
+        <div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
+          <meta itemprop="url" content="{{ 'assets/img/brand/logo.svg' | absolute_url }}">
+        </div>
+        <meta itemprop="name" content="Pirátská strana Brandýs nad Labem">
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <div class="md-pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="md-pagination__button">
+        ←
+      </a>
+    {% else %}
+      <span class="md-pagination__button md-pagination__button--disabled">←</span>
+    {% endif %}
+    
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <span class="md-pagination__button md-pagination__button--active">{{ page }}</span>
+      {% elsif page == 1 %}
+        <a href="{{ '/aktuality/' | relative_url }}" class="md-pagination__button">{{ page }}</a>
+      {% else %}
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="md-pagination__button">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+    
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="md-pagination__button">
+        →
+      </a>
+    {% else %}
+      <span class="md-pagination__button md-pagination__button--disabled">→</span>
+    {% endif %}
+  </div>
+  {% endif %}
 </div>
-
-{% assign posts = paginator.posts %}
-{% include article-list/list-3col.html param='posts' %}
-
-{% include article-list/pagination.html %}

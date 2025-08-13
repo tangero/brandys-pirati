@@ -7,3 +7,11 @@ _podklady/html/pirati.cz/
 Gemfile.lock
 desktop.ini
 .DS_Store
+.env
+/piratibrandys_markdown
+/substack
+/vendor
+material-design-demo.html
+MATERIAL_DESIGN_IMPLEMENTACE.md
+processed_articles.txt
+urls_from_file.txt

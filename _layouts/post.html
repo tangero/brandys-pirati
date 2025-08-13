@@ -2,109 +2,308 @@
 layout: default
 ---
 
-<article itemtype="http://schema.org/BlogPosting" class="c-BasicPage" itemscope="">
-  <div class="row">
-    <div class="medium-12 columns">
-      <div class="o-section o-section--noSpaceBottom">
-        <div class="">
-          <div class="o-section-block o-section-block--fill">
-            <div class="o-section-inner">
-              <div class="medium-12 columns">
-                <!-- Article -->
-                <link itemprop="mainEntityOfPage" href="http://insertshownpagelinkhere.com">
-                <header class="c-BasicPage-header">
-                  <h1 itemprop="headline" class="c-BasicPage__title"> {{page.title}} </h1>
-                  <div class="c-BasicPage__meta">
-                    <span itemprop="description" class="c-BasicPage__datePublished">
-                      <i class="fa fa-calendar-o" aria-hidden="true"></i> {{page.date | date: "%d. %m. %Y" }}
-                      <meta itemprop="datePublished" content="{{page.date | date_to_xmlschema }}">
-                      <meta itemprop="dateModified" content=""> </span>
-                    <br class="hide-for-medium">
-                    <!-- Authors -->
-                    <span itemprop="author" itemtype="http://schema.org/Person" class="c-BasicPage__authors" itemscope="">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      <span itemprop="name" class="c-BlogPosting-excerpt__author">{{page.author}}</span>
-                    </span>
-                    {% if page.tags %}
-                    <div class="c-BasicPage-tags">
-                      <span class="c-BasicPage-tags__headline">Tagy</span>
-                      <ul class="c-tag-list">
-                        {% for tag in page.tags %}
-                        <li>
-                          <a href="{{ tag | prepend: '/tags/#' | relative_url }}" class="c-tag">{{tag}}</a>
-                        </li>
-                        {% endfor %}
-                      </ul>
-                    </div>
-                    {% endif %}
-                  </div>
-                </header>
-              </div>
-            </div>
-          </div>
-        </div>
+<style>
+  .md-article {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .md-article__header {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  
+  .md-article__title {
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  
+  .md-article__meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface-variant);
+    flex-wrap: wrap;
+  }
+  
+  .md-article__date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .md-article__author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .md-article__image {
+    width: 100%;
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  }
+  
+  .md-article__content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .md-article__content h2 {
+    font-size: 28px;
+    font-weight: 400;
+    margin: 32px 0 16px;
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .md-article__content h3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 24px 0 12px;
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .md-article__content p {
+    margin-bottom: 16px;
+  }
+  
+  .md-article__content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 16px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  }
+  
+  .md-article__content blockquote {
+    background: var(--md-sys-color-surface-variant);
+    border-left: 4px solid var(--md-sys-color-primary);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  
+  .md-article__content ul,
+  .md-article__content ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+  
+  .md-article__content li {
+    margin-bottom: 8px;
+  }
+  
+  .md-article__actions {
+    margin: 48px 0;
+    padding: 24px;
+    background: var(--md-sys-color-surface-variant);
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .md-article__share-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 16px;
+  }
+  
+  .md-article__share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .md-share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .md-share-button--facebook {
+    background: #1877F2;
+    color: white;
+  }
+  
+  .md-share-button--twitter {
+    background: #1DA1F2;
+    color: white;
+  }
+  
+  .md-share-button--email {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+  }
+  
+  .md-share-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  .md-article__navigation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin: 48px 0;
+  }
+  
+  .md-nav-card {
+    background: var(--md-sys-color-surface);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .md-nav-card:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+    opacity: 1;
+  }
+  
+  .md-nav-card__label {
+    font-size: 12px;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .md-nav-card__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    line-height: 1.3;
+  }
+  
+  @media (max-width: 768px) {
+    .md-article__title {
+      font-size: 36px;
+    }
+    
+    .md-article__meta {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .md-article__image {
+      height: 250px;
+    }
+    
+    .md-article__share-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .md-share-button {
+      width: 200px;
+      justify-content: center;
+    }
+  }
+</style>
+
+<article class="md-article" itemscope itemtype="http://schema.org/BlogPosting">
+  <link itemprop="mainEntityOfPage" href="{{ page.url | absolute_url }}">
+  
+  <header class="md-article__header">
+    <h1 itemprop="headline" class="md-article__title">{{ page.title }}</h1>
+    
+    <div class="md-article__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" class="md-article__date">
+        📅 {{ page.date | date: "%d. %m. %Y" }}
+      </time>
+      
+      {% if page.author %}
+      <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="md-article__author">
+        👤 <span itemprop="name">{{ page.author }}</span>
       </div>
+      {% endif %}
+      
+      {% if page.tags and page.tags.size > 0 %}
+      <div class="md-tags">
+        {% for tag in page.tags %}
+        <a href="/tags/#{{ tag | slugify }}" class="md-tag">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    
+    {% if page.image %}
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="md-article__image" itemprop="image">
+    {% endif %}
+  </header>
+  
+  <div class="md-article__content" itemprop="articleBody">
+    {{ content }}
+  </div>
+  
+  <div class="md-article__actions">
+    <h3 class="md-article__share-title">Sdílejte tento článek</h3>
+    <div class="md-article__share-buttons">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" class="md-share-button md-share-button--facebook">
+        📘 Facebook
+      </a>
+      <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | uri_escape }}" target="_blank" class="md-share-button md-share-button--twitter">
+        🐦 Twitter
+      </a>
+      <a href="mailto:?subject={{ page.title | uri_escape }}&body={{ page.url | absolute_url }}" class="md-share-button md-share-button--email">
+        ✉️ Email
+      </a>
     </div>
   </div>
-  {% if page.image %}
-  <div class="o-section-block o-section-block-fill">
-    <div class="c-BasicPage-headline-img">
-      <div class="c-BasicPage-headline-bg">
-        <img src="{{ page.image | relative_url }}" alt="{{page.title}}"> </div>
-      <div class="row small-collapse medium-uncollapse">
-        <div class="small-12 columns">
-          <div class="o-section-inner--medium">
-            <img src="{{ page.image | relative_url }}" alt="{{page.title}}"> </div>
-        </div>
-      </div>
-    </div>
+  
+  <!-- Navigace mezi články -->
+  <nav class="md-article__navigation">
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="md-nav-card">
+      <div class="md-nav-card__label">← Předchozí článek</div>
+      <div class="md-nav-card__title">{{ page.previous.title }}</div>
+    </a>
+    {% endif %}
+    
+    {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="md-nav-card">
+      <div class="md-nav-card__label">Následující článek →</div>
+      <div class="md-nav-card__title">{{ page.next.title }}</div>
+    </a>
+    {% endif %}
+  </nav>
+  
+  <!-- Zpět na aktuality -->
+  <div style="text-align: center; margin: 32px 0;">
+    <a href="{{ '/aktuality/' | relative_url }}" class="md-button md-button--outlined">← Zpět na aktuality</a>
   </div>
-  {% endif %}
-  <div class="row o-section-block">
-    <div class="small-12 columns">
-      <div class="o-section o-section--noSpaceBottom">
-        <div class="">
-          <div class="o-section-block o-section-block--fill">
-            <div class="o-section-inner">
-              <div class="medium-12 large-8 columns">
-                <div itemprop="description" class="c-BasicPage-content">
-                  {{content}}
-                </div>
-              </div>
-              <div class="medium-12 large-4 columns">
-                <div class="c-widget-share-box c-widget-share-box--mediumstacked">
-                  <div class="c-widget-share-box-headline">Sdílení je aktem lásky</div>
-                  <div class="c-widget-share-box-content">
-                    <div class="c-widget-share-box__tweet">
-                      <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a>
-                      <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                    <div class="c-widget-share-box__fb">
-                      <div class="fb-like" data-href="{{page.url | relative_url}}" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
-                    </div>
-                  </div>
-                </div>
-                <!--
-                <div class="c-widget-simple-text c-widget-simple-text--stacked" id="relatives-box">
-                  <div class="c-widget-share-box-headline u-center">Kam dále?</div>
-                  <div class="c-widget-share-box-content">
-                    <ul id="relatives" />
-                  </div>
-                </div>
-                -->
-                <a href="//dary.pirati.cz" target="_blank">
-                  <div class="c-widget-share-box c-widget-share-box--directions c-widget-simple-text--stacked">
-                    <div class="c-widget-share-box-headline u-center">Kam dále?</div>
-                    <div class="c-widget-share-box-content u-center">
-                      Podpořte nás!
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+  
+  <!-- Strukturovaná data -->
+  <div style="display: none;">
+    <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+        <meta itemprop="url" content="{{ '/assets/img/brand/logo.svg' | absolute_url }}">
       </div>
+      <meta itemprop="name" content="Pirátská strana Brandýs nad Labem">
     </div>
+    <meta itemprop="dateModified" content="{{ page.date | date_to_xmlschema }}">
   </div>
 </article>

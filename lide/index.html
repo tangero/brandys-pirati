@@ -1,52 +1,128 @@
 ---
 layout: default
+title: Naši lidé
 ---
 
-<div class="row o-section-block o-section-block--divided">
-  <div class="medium-12 large-12 columns">
-    <section class="o-section">
-      <div class="o-section-inner">
-        <main class="o-section-block">
-          <div class="c-BasicPage">
-            <div class="c-BasicPage-content">
-              {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
-              {% if team.size > 0 %}
-              <ul class="c-simple-accordion" data-accordion="" data-options="allowAllClosed: true">
-                <li class="c-simple-accordion-item is-active" data-accordion-item="">
-                  <a href="#pms" class="c-simple-accordion-title">Místní předsednictvo</a>
-                  <div id="pms" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
-                  </div>
-                </li>
-              </ul>
-              {% endif %}
-              {% assign team = site.people | where_exp:"item","item.categories contains 'clenove'" %}
-              {% if team.size > 0 %}
-              <ul class="c-simple-accordion" data-accordion="" data-options="allowAllClosed: true">
-                <li class="c-simple-accordion-item is-active" data-accordion-item="">
-                  <a href="#clenove" class="c-simple-accordion-title">Členové</a>
-                  <div id="clenove" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
-                  </div>
-                </li>
-              </ul>
-              {% endif %}
-              {% assign team = site.people | where_exp:"item","item.categories contains 'priznivci'" %}
-              {% if team.size > 0 %}
-              <ul class="c-simple-accordion" data-accordion="" data-options="allowAllClosed: true">
-                <li class="c-simple-accordion-item is-active" data-accordion-item="">
-                  <a href="#clenove" class="c-simple-accordion-title">Aktivní příznivci</a>
-                  <div id="clenove" class="c-simple-accordion-content" data-tab-content="">
-                    {% include people/list-2col.html param=team %}
-                  </div>
-                </li>
-              </ul>
-              {% endif %}
-            </div>
+<div class="md-section">
+  <div class="md-section__header">
+    <h1 class="md-section__title">Naši lidé</h1>
+    <p class="md-section__subtitle">Poznávejte členy našeho místního sdružení a jejich aktivity v Brandýse nad Labem</p>
+  </div>
+
+  {% assign team = site.people | where_exp:"item","item.categories contains 'pms'" | sort:"ordpms" %}
+  {% if team.size > 0 %}
+  <div class="md-section">
+    <h2 class="md-section__title" style="font-size: 24px;">👑 Místní předsednictvo</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 24px;">
+      {% for person in team %}
+      <div class="md-person-card">
+        <div class="md-person-card__header">
+          {% if person.img %}
+          <img src="{{ person.img | relative_url }}" alt="{{ person.name }}" class="md-person-card__avatar">
+          {% else %}
+          <img src="{{ '/assets/img/people/piratska-strana.png' | relative_url }}" alt="{{ person.name }}" class="md-person-card__avatar">
+          {% endif %}
+          <div class="md-person-card__info">
+            <h3 class="md-person-card__name">{{ person.name }}</h3>
+            {% if person.description %}
+            <div class="md-person-card__title">{{ person.description }}</div>
+            {% endif %}
           </div>
-        </main>
+        </div>
+        {% if person.bio %}
+        <div class="md-person-card__description">{{ person.bio }}</div>
+        {% endif %}
+        <div class="md-person-card__actions">
+          <a href="{{ person.url | relative_url }}" class="md-button md-button--text">Více informací</a>
+          {% if person.mail %}
+          <a href="mailto:{{ person.mail }}" class="md-button md-button--outlined">✉️ Kontakt</a>
+          {% endif %}
+        </div>
       </div>
-    </section>
-    <!-- /. o-section -->
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% assign team = site.people | where_exp:"item","item.categories contains 'clenove'" %}
+  {% if team.size > 0 %}
+  <div class="md-section">
+    <h2 class="md-section__title" style="font-size: 24px;">🏴‍☠️ Členové</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 24px;">
+      {% for person in team %}
+      <div class="md-person-card">
+        <div class="md-person-card__header">
+          {% if person.img %}
+          <img src="{{ person.img | relative_url }}" alt="{{ person.name }}" class="md-person-card__avatar">
+          {% else %}
+          <img src="{{ '/assets/img/people/piratska-strana.png' | relative_url }}" alt="{{ person.name }}" class="md-person-card__avatar">
+          {% endif %}
+          <div class="md-person-card__info">
+            <h3 class="md-person-card__name">{{ person.name }}</h3>
+            {% if person.description %}
+            <div class="md-person-card__title">{{ person.description }}</div>
+            {% endif %}
+          </div>
+        </div>
+        {% if person.bio %}
+        <div class="md-person-card__description">{{ person.bio }}</div>
+        {% endif %}
+        <div class="md-person-card__actions">
+          <a href="{{ person.url | relative_url }}" class="md-button md-button--text">Více informací</a>
+          {% if person.mail %}
+          <a href="mailto:{{ person.mail }}" class="md-button md-button--outlined">✉️ Kontakt</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% assign team = site.people | where_exp:"item","item.categories contains 'priznivci'" %}
+  {% if team.size > 0 %}
+  <div class="md-section">
+    <h2 class="md-section__title" style="font-size: 24px;">⭐ Aktivní příznivci</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 24px;">
+      {% for person in team %}
+      <div class="md-person-card">
+        <div class="md-person-card__header">
+          {% if person.img %}
+          <img src="{{ person.img | relative_url }}" alt="{{ person.name }}" class="md-person-card__avatar">
+          {% else %}
+          <img src="{{ '/assets/img/people/piratska-strana.png' | relative_url }}" alt="{{ person.name }}" class="md-person-card__avatar">
+          {% endif %}
+          <div class="md-person-card__info">
+            <h3 class="md-person-card__name">{{ person.name }}</h3>
+            {% if person.description %}
+            <div class="md-person-card__title">{{ person.description }}</div>
+            {% endif %}
+          </div>
+        </div>
+        {% if person.bio %}
+        <div class="md-person-card__description">{{ person.bio }}</div>
+        {% endif %}
+        <div class="md-person-card__actions">
+          <a href="{{ person.url | relative_url }}" class="md-button md-button--text">Více informací</a>
+          {% if person.mail %}
+          <a href="mailto:{{ person.mail }}" class="md-button md-button--outlined">✉️ Kontakt</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Sekce připojení -->
+<div class="md-hero" style="margin-top: 48px;">
+  <div class="md-hero__content">
+    <h2 class="md-hero__headline" style="font-size: 36px;">Chceš se přidat?</h2>
+    <p class="md-hero__subhead">Hledáme aktivní lidi, kteří chtějí změnit Brandýs k lepšímu</p>
+    <div class="md-hero__actions">
+      <a href="{{ '/pripoj-se/' | relative_url }}" class="md-button md-button--filled">Připoj se k nám</a>
+      <a href="mailto:{{ site.email }}" class="md-button md-button--outlined">Napiš nám</a>
+    </div>
   </div>
 </div>

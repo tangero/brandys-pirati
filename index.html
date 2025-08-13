@@ -3,69 +3,106 @@ layout: default
 rbar: fb, calendar, em
 ---
 
-{% include title/title_header.html %}
-<div class="row">
-  <div class="medium-12 large-8 columns">
-    <section class="o-section o-section--spaceBot">
-      <div class="o-section-inner o-section-inner--leftBlock">
+<div class="md-hero">
+  <div class="md-hero__content">
+    <h1 class="md-hero__headline">Brandýs nad Labem-Stará Boleslav</h1>
+    <p class="md-hero__subhead">Místní sdružení České pirátské strany v Brandýse nad Labem - Staré Boleslavi</p>
+    <div class="md-hero__actions">
+      <a href="{{ '/pripoj-se/' | relative_url }}" class="md-button md-button--filled">Připoj se k nám</a>
+      <a href="{{ '/volby-2018/program/' | relative_url }}" class="md-button md-button--outlined">Naš program</a>
+    </div>
+  </div>
+</div>
 
-
-        <header class="o-section-header">
-          <h1 class="o-section__heading">Aktuální témata</h1>
-        </header>
-        {% for article in site.posts limit: 10 %}
-        <article itemtype="http://schema.org/BlogPosting" class="c-BlogPosting-excerpt" itemscope="">
-          <link itemprop="mainEntityOfPage" href="http://insertshownpagelinkhere.com">
-          <div class="c-BlogPosting-excerpt-contentWrapper u-cf">
-            <div class="c-BlogPosting-excerpt-photoBox">
-              <!-- BlogPosting image -->
-              <div itemprop="image" itemtype="http://schema.org/ImageObject" class="c-BlogPosting-excerpt__image" itemscope="">
-                <a href="{{article.url | relative_url}}">
-                  <img src="{{ article.image | relative_url }}" alt="{{article.title}}">
-                </a>
-                <meta itemprop="url" content="{{ article.image | relative_url }}">
-                <meta itemprop="width" content="">
-                <meta itemprop="height" content=""> </div>
-            </div>
-            <div class="c-BlogPosting-excerpt-contentBox">
-              <!-- Headline -->
-              <h2 itemprop="headline" class="c-BlogPosting-excerpt__title">
-                <a href="{{article.url | relative_url}}" itemprop="url">{{article.title}}</a>
-              </h2>
-              <!-- BlogPosting description-->
-              <div itemprop="description" class="c-BlogPosting-excerpt-content">{{ article.excerpt | truncatewords: 33 }} </div>
-              <a href="{{article.url | relative_url }}" class="c-BlogPosting-excerpt-readMore">Přečíst celý článek &rsaquo;</a>
-            </div>
-            <!-- Publisher -->
-            <div itemprop="publisher" itemtype="http://schema.org/Organization" class="u-hidden" itemscope="">
-              <div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
-                <meta itemprop="url" content="{{ 'assets/img/brand/logo.svg' | relative_url }}"> </div>
-              <meta itemprop="name" content="Česká pirátská strana"> </div>
-          </div>
-          <div class="c-BlogPosting-excerpt-infoBox">
-            <!-- Date published -->
-            <span itemprop="description" class="c-BlogPosting-excerpt__datePublished">
-              <i class="fa fa-calendar-o" aria-hidden="true"></i> {{article.date | date: "%d.%m.%Y"}}
-              <meta itemprop="datePublished" content="{{article.date | date_to_xmlschema }}">
-              <meta itemprop="dateModified" content=""> </span>
-            <br class="hide-for-medium">
-            <!-- Authors -->
-            <span itemprop="author" itemtype="http://schema.org/Person" class="c-BlogPosting-excerpt__authors" itemscope="">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              <span itemprop="name" class="c-BlogPosting-excerpt__author">{{ article.author }}</span>
-              <br class="hide-for-medium"> </span>
-          </div>
-        </article>
-        {% endfor %}
-        <div class="c-BlogPosting-excerpt-nextBox">
-          <a href="{{'/aktuality/' | relative_url}}" rel="next" class="button expanded large">Další články</a>
+<div class="md-section">
+  <div class="md-section__header">
+    <h2 class="md-section__title">Aktuální témata</h2>
+    <p class="md-section__subtitle">Sledujte nejnovější zprávy a aktuality z našeho města</p>
+  </div>
+  <div class="md-articles-grid">
+    {% for article in site.posts limit: 6 %}
+    <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
+      <link itemprop="mainEntityOfPage" href="{{ article.url | absolute_url }}">
+      
+      {% if article.image %}
+      <img src="{{ article.image | relative_url }}" alt="{{ article.title }}" class="md-article-card__media" itemprop="image">
+      {% endif %}
+      
+      <div class="md-article-card__content">
+        <h3 itemprop="headline" class="md-article-card__headline">
+          <a href="{{ article.url | relative_url }}" itemprop="url">{{ article.title }}</a>
+        </h3>
+        
+        <div class="md-article-card__meta">
+          <span class="md-article-card__date" itemprop="datePublished" content="{{ article.date | date_to_xmlschema }}">
+            📅 {{ article.date | date: "%d.%m.%Y" }}
+          </span>
+          {% if article.author %}
+          <span class="md-article-card__author" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
+            👤 <span itemprop="name">{{ article.author }}</span>
+          </span>
+          {% endif %}
+        </div>
+        
+        <div itemprop="description" class="md-article-card__excerpt">
+          {{ article.excerpt | strip_html | truncatewords: 25 }}
+        </div>
+        
+        <div class="md-article-card__actions">
+          <a href="{{ article.url | relative_url }}" class="md-button md-button--text">Číst dále</a>
         </div>
       </div>
-    </section>
+      
+      <!-- Publisher metadata -->
+      <div itemprop="publisher" itemtype="http://schema.org/Organization" style="display: none;" itemscope="">
+        <div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
+          <meta itemprop="url" content="{{ 'assets/img/brand/logo.svg' | absolute_url }}">
+        </div>
+        <meta itemprop="name" content="Pirátská strana Brandýs nad Labem">
+      </div>
+    </article>
+    {% endfor %}
   </div>
-  {% if page.rbar %}
-  <div class="medium-12 large-4 columns">
-    {% include right-bar/rbar.html param='rbar' %}
+  
+  <div style="text-align: center; margin-top: 32px;">
+    <a href="{{ '/aktuality/' | relative_url }}" class="md-button md-button--filled">Všechny aktuality</a>
+    <a href="{{ '/mistostarosti/' | relative_url }}" class="md-button md-button--outlined" style="margin-left: 16px;">Místostarosti</a>
   </div>
-  {% endif %}
+</div>
+
+<!-- Sekce o nás -->
+<div class="md-section">
+  <div class="md-section__header">
+    <h2 class="md-section__title">O nás</h2>
+    <p class="md-section__subtitle">Poznejte naše lidi a naše cíle</p>
+  </div>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+    <div class="md-program-card">
+      <h3 class="md-program-card__title">
+        <a href="{{ '/lide/' | relative_url }}">👥 Naši lidé</a>
+      </h3>
+      <p class="md-program-card__excerpt">
+        Seznamte se s členy našeho místního sdružení a jejich aktivitami v Brandýse nad Labem.
+      </p>
+    </div>
+    
+    <div class="md-program-card">
+      <h3 class="md-program-card__title">
+        <a href="{{ '/volby-2018/program/' | relative_url }}">📜 Naš program</a>
+      </h3>
+      <p class="md-program-card__excerpt">
+        Poznejte naše názory na kloušové otázky rozvoje města a života občanů.
+      </p>
+    </div>
+    
+    <div class="md-program-card">
+      <h3 class="md-program-card__title">
+        <a href="{{ '/pripoj-se/' | relative_url }}">✨ Připoj se</a>
+      </h3>
+      <p class="md-program-card__excerpt">
+        Chceš se zapojit do veřejného života? Přidej se k nám a pomoz změnit město k lepšímu.
+      </p>
+    </div>
+  </div>
 </div>

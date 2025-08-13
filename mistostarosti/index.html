@@ -1,0 +1,62 @@
+---
+layout: default
+title: Místostarosti
+permalink: /mistostarosti/
+---
+
+<div class="md-section">
+  <div class="md-section__header">
+    <h1 class="md-section__title">Místostarosti</h1>
+    <p class="md-section__subtitle">Newsletter Patricka Zandla o komunální politice v Brandýse nad Labem - Staré Boleslavi</p>
+  </div>
+  
+  <div class="md-articles-grid">
+    {% assign mistostarosti_posts = site.posts | where: "category", "mistostarosti" %}
+    {% for post in mistostarosti_posts %}
+    <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
+      <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
+      
+      {% if post.image %}
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="md-article-card__media" itemprop="image">
+      {% endif %}
+      
+      <div class="md-article-card__content">
+        <h2 itemprop="headline" class="md-article-card__headline">
+          <a href="{{ post.url | relative_url }}" itemprop="url">{{ post.title }}</a>
+        </h2>
+        
+        <div class="md-article-card__meta">
+          <span class="md-article-card__date" itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
+            📅 {{ post.date | date: "%d.%m.%Y" }}
+          </span>
+          {% if post.author %}
+          <span class="md-article-card__author" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
+            👤 <span itemprop="name">{{ post.author }}</span>
+          </span>
+          {% endif %}
+        </div>
+        
+        <div itemprop="description" class="md-article-card__excerpt">
+          {% if post.excerpt %}
+            {{ post.excerpt | strip_html | truncatewords: 30 }}
+          {% else %}
+            {{ post.content | strip_html | truncatewords: 30 }}
+          {% endif %}
+        </div>
+        
+        <div class="md-article-card__actions">
+          <a href="{{ post.url | relative_url }}" class="md-button md-button--text">Číst celý článek</a>
+        </div>
+      </div>
+      
+      <!-- Publisher metadata -->
+      <div itemprop="publisher" itemtype="http://schema.org/Organization" style="display: none;" itemscope="">
+        <div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
+          <meta itemprop="url" content="{{ 'assets/img/brand/logo.svg' | absolute_url }}">
+        </div>
+        <meta itemprop="name" content="Pirátská strana Brandýs nad Labem">
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>

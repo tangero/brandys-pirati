@@ -17,6 +17,9 @@ twitter_username: tangero
 # Build settings
 markdown: kramdown
 
+# Excerpt settings
+excerpt_separator: "<!--more-->"
+
 gems:
   - jekyll-paginate
   - jekyll-sitemap

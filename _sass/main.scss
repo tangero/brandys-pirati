@@ -6,6 +6,10 @@
 @import 'base';
 @import 'utilities/utilities';
 
+// Import Material Design 3
+@import 'material-design-3';
+@import 'md3-components';
+
 // Import Components
 @import 'components/BlogPosting';
 @import 'components/Person';

@@ -1,0 +1,539 @@
+// Material Design 3 Komponenty pro články a stránky
+// ================================================
+
+// MD3 Tlačítka
+.md-button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 4px;
+  text-transform: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &--filled {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: none;
+    
+    &:hover {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.9);
+    }
+  }
+  
+  &--outlined {
+    background: transparent;
+    color: var(--md-sys-color-primary);
+    border: 1px solid var(--md-sys-color-outline);
+    
+    &:hover {
+      background: rgba(0,0,0,0.08);
+    }
+  }
+  
+  &--text {
+    background: transparent;
+    color: var(--md-sys-color-primary);
+    padding: 10px 12px;
+    
+    &:hover {
+      background: rgba(0,0,0,0.08);
+    }
+  }
+  
+  &--elevated {
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-primary);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+    
+    &:hover {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    }
+  }
+  
+  &--tonal {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    
+    &:hover {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+      opacity: 0.9;
+    }
+  }
+}
+
+// MD3 Karty pro články
+.md-article-card {
+  background: var(--md-sys-color-surface);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  
+  &:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+  }
+  
+  &__media {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-secondary) 100%);
+  }
+  
+  &__content {
+    padding: 16px;
+  }
+  
+  &__headline {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+    line-height: 1.3;
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  &__excerpt {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 16px;
+  }
+  
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
+// MD3 Seznam článků
+.md-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+// MD3 Hero sekce
+.md-hero {
+  background: var(--md-sys-color-surface);
+  padding: 48px 0;
+  margin-bottom: 48px;
+  
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  &__headline {
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  
+  &__subhead {
+    font-size: 20px;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 32px;
+    line-height: 1.4;
+  }
+  
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 32px 0;
+    
+    &__headline {
+      font-size: 36px;
+    }
+    
+    &__subhead {
+      font-size: 18px;
+    }
+    
+    &__actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+// MD3 Breadcrumbs
+.md-breadcrumbs {
+  margin-bottom: 24px;
+  
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  
+  &__item {
+    display: flex;
+    align-items: center;
+    
+    &:not(:last-child)::after {
+      content: '>';
+      margin: 0 8px;
+      color: var(--md-sys-color-outline);
+    }
+  }
+  
+  &__link {
+    color: var(--md-sys-color-primary);
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// MD3 Person Card
+.md-person-card {
+  background: var(--md-sys-color-surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+  }
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  &__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  &__info {
+    flex: 1;
+  }
+  
+  &__name {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 4px;
+  }
+  
+  &__title {
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  
+  &__description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 16px;
+  }
+  
+  &__actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
+
+// MD3 Program Card
+.md-program-card {
+  background: var(--md-sys-color-surface);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    cursor: pointer;
+  }
+  
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--md-sys-color-primary);
+      }
+    }
+  }
+  
+  &__excerpt {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+}
+
+// MD3 Pagination
+.md-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 48px 0;
+  
+  &__button {
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    
+    &:hover {
+      background: rgba(0,0,0,0.08);
+    }
+    
+    &--active {
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      
+      &:hover {
+        background: rgba(0,0,0,0.9);
+      }
+    }
+    
+    &--disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+      
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+}
+
+// MD3 Tags
+.md-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.md-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 14px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--md-sys-color-tertiary);
+    color: var(--md-sys-color-on-primary);
+    opacity: 1;
+  }
+}
+
+// MD3 Section
+.md-section {
+  margin-bottom: 48px;
+  
+  &__header {
+    margin-bottom: 32px;
+  }
+  
+  &__title {
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 8px;
+  }
+  
+  &__subtitle {
+    font-size: 16px;
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.5;
+  }
+}
+
+// MD3 Search
+.md-search {
+  position: relative;
+  margin-bottom: 32px;
+  
+  &__input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px 0 48px;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 24px;
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-size: 16px;
+    transition: all 0.2s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--md-sys-color-primary);
+      box-shadow: 0 0 0 1px var(--md-sys-color-primary);
+    }
+    
+    &::placeholder {
+      color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+  
+  &__icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .md-articles-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .md-person-card__header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .md-person-card__actions {
+    justify-content: center;
+  }
+  
+  .page-content {
+    padding-top: 16px;
+  }
+}
+
+// Page content styling
+.page-content {
+  padding: 24px 0;
+  flex: 1;
+}
+
+// Fix pro starý obsah
+.o-section {
+  margin-bottom: 48px;
+}
+
+.o-section-header {
+  margin-bottom: 32px;
+}
+
+.o-section__heading {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 16px;
+}
+
+// Převod starých komponent na MD3
+.c-BlogPosting-excerpt {
+  @extend .md-article-card;
+}
+
+.c-BlogPosting-excerpt__title {
+  @extend .md-article-card__headline;
+}
+
+.c-BlogPosting-excerpt-content {
+  @extend .md-article-card__excerpt;
+}
+
+.button {
+  @extend .md-button;
+  @extend .md-button--filled;
+}
+
+.button.expanded {
+  width: 100%;
+}
+
+.button.large {
+  padding: 14px 32px;
+  font-size: 16px;
+}

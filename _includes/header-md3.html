@@ -1,0 +1,157 @@
+<style>
+  .md-top-app-bar {
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .md-top-app-bar__logo {
+    height: 40px;
+    margin-right: 16px;
+  }
+  
+  .md-top-app-bar__title {
+    font-size: 22px;
+    font-weight: 400;
+    flex: 1;
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .md-top-app-bar__nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .md-nav-button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 100px;
+    border: none;
+    background: transparent;
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  
+  .md-nav-button:hover {
+    background: rgba(0,0,0,0.08);
+  }
+  
+  .md-nav-button--active {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+  }
+  
+  .md-mobile-menu-button {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .md-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--md-sys-color-surface);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 999;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+  
+  .md-mobile-menu--open {
+    display: block;
+  }
+  
+  .md-mobile-menu__item {
+    display: block;
+    padding: 16px 24px;
+    color: var(--md-sys-color-on-surface);
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    transition: background 0.2s ease;
+  }
+  
+  .md-mobile-menu__item:hover {
+    background: rgba(0,0,0,0.08);
+  }
+  
+  @media (max-width: 768px) {
+    .md-top-app-bar {
+      padding: 0 16px;
+    }
+    
+    .md-top-app-bar__title {
+      font-size: 18px;
+    }
+    
+    .md-top-app-bar__nav {
+      display: none;
+    }
+    
+    .md-mobile-menu-button {
+      display: block;
+    }
+  }
+</style>
+
+<header class="md-top-app-bar">
+  <img src="{{ '/assets/img/brand/logo.svg' | relative_url }}" alt="Pirátská strana" class="md-top-app-bar__logo">
+  <div class="md-top-app-bar__title">Brandýs nad Labem - Stará Boleslav</div>
+  
+  <nav class="md-top-app-bar__nav">
+    <a href="{{ '/' | relative_url }}" class="md-nav-button {% if page.url == '/' %}md-nav-button--active{% endif %}">Úvod</a>
+    <a href="{{ '/aktuality/' | relative_url }}" class="md-nav-button {% if page.url contains '/aktuality' %}md-nav-button--active{% endif %}">Aktuality</a>
+    <a href="{{ '/mistostarosti/' | relative_url }}" class="md-nav-button {% if page.url contains '/mistostarosti' %}md-nav-button--active{% endif %}">Místostarosti</a>
+    <a href="{{ '/lide/' | relative_url }}" class="md-nav-button {% if page.url contains '/lide' %}md-nav-button--active{% endif %}">Lidé</a>
+    <a href="{{ '/volby-2018/program/' | relative_url }}" class="md-nav-button {% if page.url contains '/volby-2018' %}md-nav-button--active{% endif %}">Program</a>
+    <a href="{{ '/pripoj-se/' | relative_url }}" class="md-nav-button {% if page.url contains '/pripoj-se' %}md-nav-button--active{% endif %}">Připoj se</a>
+  </nav>
+  
+  <button class="md-mobile-menu-button" onclick="toggleMobileMenu()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+  </button>
+</header>
+
+<nav class="md-mobile-menu" id="mobileMenu">
+  <a href="{{ '/' | relative_url }}" class="md-mobile-menu__item">Úvod</a>
+  <a href="{{ '/aktuality/' | relative_url }}" class="md-mobile-menu__item">Aktuality</a>
+  <a href="{{ '/mistostarosti/' | relative_url }}" class="md-mobile-menu__item">Místostarosti</a>
+  <a href="{{ '/lide/' | relative_url }}" class="md-mobile-menu__item">Lidé</a>
+  <a href="{{ '/volby-2018/program/' | relative_url }}" class="md-mobile-menu__item">Program</a>
+  <a href="{{ '/pripoj-se/' | relative_url }}" class="md-mobile-menu__item">Připoj se</a>
+</nav>
+
+<script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('md-mobile-menu--open');
+  }
+  
+  // Zavřít menu při kliknutí mimo
+  document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobileMenu');
+    const button = document.querySelector('.md-mobile-menu-button');
+    if (!menu.contains(event.target) && !button.contains(event.target)) {
+      menu.classList.remove('md-mobile-menu--open');
+    }
+  });
+</script>

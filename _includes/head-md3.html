@@ -1,0 +1,107 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="57x57" href="{{ 'assets/favicon/apple-touch-icon-57x57.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="60x60" href="{{ 'assets/favicon/apple-touch-icon-60x60.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="72x72" href="{{ 'assets/favicon/apple-touch-icon-72x72.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ 'assets/favicon/apple-touch-icon-76x76.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="114x114" href="{{ 'assets/favicon/apple-touch-icon-114x114.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="120x120" href="{{ 'assets/favicon/apple-touch-icon-120x120.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="144x144" href="{{ 'assets/favicon/apple-touch-icon-144x144.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="152x152" href="{{ 'assets/favicon/apple-touch-icon-152x152.png' | relative_url }}">
+<link rel="favicon" type="image/png" href="{{ 'assets/favicon/favicon-32x32.png' | relative_url }}" sizes="32x32">
+<link rel="favicon" type="image/png" href="{{ 'assets/favicon/favicon-96x96.png' | relative_url }}" sizes="96x96">
+<link rel="favicon" type="image/png" href="{{ 'assets/favicon/favicon-16x16.png' | relative_url }}" sizes="16x16">
+
+<!-- Google Fonts - Roboto -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<!-- Material Design 3 CSS -->
+<style>
+  :root {
+    /* Barevné schéma */
+    --md-sys-color-primary: #000000;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #1C1C1C;
+    --md-sys-color-on-primary-container: #E3E3E3;
+    --md-sys-color-secondary: #424242;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #616161;
+    --md-sys-color-on-secondary-container: #F5F5F5;
+    --md-sys-color-tertiary: #757575;
+    --md-sys-color-surface: #FFFFFF;
+    --md-sys-color-surface-variant: #F5F5F5;
+    --md-sys-color-on-surface: #1C1C1C;
+    --md-sys-color-on-surface-variant: #424242;
+    --md-sys-color-background: #FAFAFA;
+    --md-sys-color-outline: #757575;
+    --md-sys-color-outline-variant: #C4C4C4;
+    --md-sys-color-error: #BA1A1A;
+    --md-sys-color-shadow: #000000;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-surface);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  a {
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  a:hover {
+    opacity: 0.8;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  h1 { font-size: 32px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 24px; }
+  h4 { font-size: 22px; }
+  h5 { font-size: 18px; }
+  h6 { font-size: 16px; }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 16px;
+    }
+  }
+</style>
+
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
