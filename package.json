@@ -1,0 +1,6 @@
+{
+  "name": "brandys-pirati",
+  "scripts": {
+    "build": "bundle exec jekyll build"
+  }
+}
