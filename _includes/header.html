@@ -39,8 +39,10 @@
       <div class="top-bar-title">
         <a href="{{ '/' | relative_url }}">
           <img src="{{ '/assets/img/brand/logo.svg' | relative_url }}" alt="Pirátská strana">
-          {% if site.data.links.group.short_name %}<span style="color:black; font-size: 1.45rem; text-transform: uppercase; padding-left:0.8em;">{{ site.data.links.group.short_name }}</span>{% endif %}
         </a>
+        {% if site.data.links.group.short_name %}
+        <a href="{{ '/' | relative_url }}" style="color:black; font-size: 1.45rem; text-transform: uppercase; padding-left:0.8em; text-decoration: none;">{{ site.data.links.group.short_name }}</a>
+        {% endif %}
       </div>
       <div class="menu-toggle-container hide-for-large">
         <span data-responsive-toggle="responsive-menu" id="menuTogge" data-hide-for="large">
