@@ -6,7 +6,7 @@ category:                 # kategorie: pms, clenove, priznivci
 - clenove
 - kandidat-komunalky-2018
 ordkomunal2018: 1
-img: people/patrick-zandl-late2018.png   # 165 x 220
+img: people/patrick_zandl_2018_small.jpg   # 165 x 220
 description: fanda moderních technologií, publicista, odborník na telekomunikace a předseda Pirátů v Brandýse  # kratký popis, max 160 znaků
 candidatedesc: od října 2018 člen zastupitelstva města, člen Pirátů a předseda MO Piráti Brandýs-Boleslav.
 

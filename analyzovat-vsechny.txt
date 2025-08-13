@@ -1,0 +1,134 @@
+VŠECHNY LAYOUTY:
+===============
+- blank.html ✓ POUŽÍVANÝ (api/index.md)
+- blog.html ✓ POUŽÍVANÝ (starší články 2018)
+- compress.html ❌ NEPOUŽÍVANÝ
+- default.html ✓ POUŽÍVANÝ (většina stránek)
+- landing.html ❌ NEPOUŽÍVANÝ
+- member.html ✓ POUŽÍVANÝ (_people kolekce)
+- page.html ✓ POUŽÍVANÝ (více stránek)
+- post.html ✓ POUŽÍVANÝ (novější články)
+- redirected.html ❌ NEPOUŽÍVANÝ
+- team.html ❌ NEPOUŽÍVANÝ
+
+VŠECHNY INCLUDES:
+=================
+
+accordeon/:
+- accordeon-column.html ❌ NEPOUŽÍVANÝ
+- accordeon.html ✓ POUŽÍVANÝ (z accordeon-column.html)
+
+article-list/:
+- featured_article.html ❌ NEPOUŽÍVANÝ  
+- list-3col.html ❌ NEPOUŽÍVANÝ
+- pagination.html ❌ NEPOUŽÍVANÝ
+- standard_article.html ✓ POUŽÍVANÝ (z list-3col.html)
+
+footer-md3.html ✓ POUŽÍVANÝ (z default.html)
+footer.html ❌ NEPOUŽÍVANÝ
+head-md3.html ✓ POUŽÍVANÝ (z default.html)
+head.html ✓ POUŽÍVANÝ (z blank.html, landing.html)
+header-md3.html ✓ POUŽÍVANÝ (z default.html)
+header.html ❌ NEPOUŽÍVANÝ
+
+js/:
+- back-top.js ✓ POUŽÍVANÝ
+- fb.js ✓ POUŽÍVANÝ
+- ga.js ❌ NEPOUŽÍVANÝ
+- gtm-body.html ✓ POUŽÍVANÝ
+- gtm-head.html ❌ NEPOUŽÍVANÝ
+- kraje.js ✓ POUŽÍVANÝ
+- main.html ✓ POUŽÍVANÝ
+- relatives.js ✓ POUŽÍVANÝ
+- search.js ✓ POUŽÍVANÝ
+- subscription-forms.js ✓ POUŽÍVANÝ
+- tw.js ✓ POUŽÍVANÝ
+
+kontakt/:
+- contact-card.html ❌ NEPOUŽÍVANÝ
+
+page/:
+- relatives.html ❌ NEPOUŽÍVANÝ
+
+people/:
+- autor-clanku.html ✓ POUŽÍVANÝ
+- carousel.html ❌ NEPOUŽÍVANÝ
+- item.html ✓ POUŽÍVANÝ
+- kandidat-small.html ❌ NEPOUŽÍVANÝ
+- kandidat.html ❌ NEPOUŽÍVANÝ
+- list-2col.html ❌ NEPOUŽÍVANÝ
+- list-candidates.html ✓ POUŽÍVANÝ
+- local-contact.html ✓ POUŽÍVANÝ
+- profiles.html ❌ NEPOUŽÍVANÝ
+- rbar_profile.html ✓ POUŽÍVANÝ
+- rbar_profile2.html ✓ POUŽÍVANÝ
+
+right-bar/:
+- bar_cal.html ✓ POUŽÍVANÝ
+- bar_fb.html ✓ POUŽÍVANÝ
+- bar_foto.html ✓ POUŽÍVANÝ
+- bar_newsletter.html ✓ POUŽÍVANÝ
+- bar_people.html ✓ POUŽÍVANÝ
+- bar_program.html ✓ POUŽÍVANÝ
+- bar_teams_summary.html ✓ POUŽÍVANÝ
+- bar_teams_toc.html ✓ POUŽÍVANÝ
+- bar_toc.html ✓ POUŽÍVANÝ
+- bar_tw.html ✓ POUŽÍVANÝ
+- bar_video.html ✓ POUŽÍVANÝ
+- rbar.html ✓ POUŽÍVANÝ
+- social-bar.html ❌ NEPOUŽÍVANÝ
+
+submenu.html ✓ POUŽÍVANÝ
+
+team/:
+- card.html ❌ NEPOUŽÍVANÝ
+- item.html ✓ POUŽÍVANÝ
+- list-3col.html ❌ NEPOUŽÍVANÝ
+
+title/:
+- title_header.html ❌ NEPOUŽÍVANÝ
+
+VŠECHNY SASS SOUBORY:
+====================
+_base.scss ✓ POUŽÍVANÝ
+_settings.scss ✓ POUŽÍVANÝ
+_sprites.scss ❌ NEPOUŽÍVANÝ
+main.scss ✓ POUŽÍVANÝ
+material-design-3.scss ✓ POUŽÍVANÝ
+md3-components.scss ✓ POUŽÍVANÝ
+scroll-top.scss ✓ POUŽÍVANÝ
+
+components/:
+- BasicPage.scss ✓ POUŽÍVANÝ
+- BlogPosting.scss ✓ POUŽÍVANÝ
+- Person.scss ✓ POUŽÍVANÝ
+- Slider.scss ✓ POUŽÍVANÝ
+- banner.scss ✓ POUŽÍVANÝ
+- blockquote.scss ✓ POUŽÍVANÝ
+- card.scss ✓ POUŽÍVANÝ
+- contact-bar.scss ✓ POUŽÍVANÝ
+- content-card.scss ✓ POUŽÍVANÝ
+- cta-button.scss ✓ POUŽÍVANÝ
+- header-bar.scss ✓ POUŽÍVANÝ
+- hero.scss ✓ POUŽÍVANÝ
+- icon.scss ✓ POUŽÍVANÝ
+- pagination.scss ✓ POUŽÍVANÝ
+- simple-accordion.scss ✓ POUŽÍVANÝ
+- tag.scss ✓ POUŽÍVANÝ
+- top-bar.scss ✓ POUŽÍVANÝ
+- top-sub-nav.scss ✓ POUŽÍVANÝ
+- vertical-navigation.scss ✓ POUŽÍVANÝ
+- welcome-header.scss ✓ POUŽÍVANÝ
+- widget-accordion.scss ✓ POUŽÍVANÝ
+- widget-share-box.scss ✓ POUŽÍVANÝ
+- widget-simple-text.scss ✓ POUŽÍVANÝ
+
+foundation/ - všechny jsou používané přes foundation.scss
+
+objects/:
+- media.scss ✓ POUŽÍVANÝ
+- section.scss ✓ POUŽÍVANÝ
+- space.scss ✓ POUŽÍVANÝ
+
+utilities/:
+- utilities.scss ✓ POUŽÍVANÝ

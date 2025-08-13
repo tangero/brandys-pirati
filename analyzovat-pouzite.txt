@@ -1,0 +1,112 @@
+POUŽITÉ LAYOUTY:
+==============
+
+Z _config.yml defaults:
+- member (pro _people)
+- page (pro _program) 
+- vystavba (pro _vystavba)
+
+Z front matter souborů:
+- default (aktuality/index.html, lide/index.html, index.html, volby-2018/kandidati.html, tags/index.html, program2018/index.html, mistostarosti/index.html, pripoj-se/index.html)
+- blog (starší články 2018)
+- post (novější články mistostarosti)
+- page (volby-2018/program.html, vystavba/faze-schvalovani.md, vystavba/uzemni-plan.md, volby-2018/index.html, vystavba/index.md, vystavba/petice-na-hupech.md, vystavba/zmena-planu.md, vystavba/petice-hluk-prazsky-okruh.md)
+- blank (api/index.md)
+
+Z layout dědičnosti:
+- member -> default
+- blog -> default
+- team -> default
+- page -> default
+- post -> default
+
+POUŽÍVANÉ INCLUDES:
+==================
+
+Z _layouts souborů:
+- head.html (z blank.html, landing.html)
+- head-md3.html (z default.html)
+- js/gtm-body.html (z default.html)
+- header-md3.html (z default.html)
+- footer-md3.html (z default.html)
+- js/main.html (z default.html)
+- submenu.html (z member.html, page.html, team.html, volby-2018/kandidati.html)
+- right-bar/rbar.html (z member.html, page.html, team.html)
+- people/autor-clanku.html (z blog.html)
+
+Z includes souborů (rekurzivně):
+- js/fb.js
+- js/tw.js
+- js/search.js
+- js/back-top.js
+- js/relatives.js
+- js/kraje.js
+- js/subscription-forms.js
+- article-list/standard_article.html
+- team/item.html
+- people/rbar_profile2.html
+- people/item.html
+- people/rbar_profile.html
+- right-bar/bar_newsletter.html
+- right-bar/bar_fb.html
+- right-bar/bar_foto.html
+- right-bar/bar_teams_summary.html
+- right-bar/bar_teams_toc.html
+- right-bar/bar_toc.html
+- right-bar/bar_program.html
+- right-bar/bar_cal.html
+- right-bar/bar_people.html
+- right-bar/bar_video.html
+- right-bar/bar_tw.html
+- accordeon/accordeon.html
+- people/local-contact.html
+- people/list-candidates.html
+
+Z ostatních HTML souborů:
+- pripoj-se/index.html používá people/local-contact.html
+- volby-2018/kandidati.html používá people/list-candidates.html
+
+POUŽÍVANÉ SCSS SOUBORY:
+======================
+
+Z assets/css/main.scss:
+- material-design-3.scss
+- md3-components.scss
+
+Z _sass/main.scss:
+- settings
+- foundation/foundation
+- base
+- utilities/utilities
+- material-design-3
+- md3-components
+- components/BlogPosting
+- components/Person
+- components/BasicPage
+- components/vertical-navigation
+- components/icon
+- components/contact-bar
+- components/header-bar
+- components/top-bar
+- components/banner
+- components/top-sub-nav
+- components/widget-accordion
+- components/content-card
+- components/card
+- components/welcome-header
+- components/tag
+- components/widget-share-box
+- components/widget-simple-text
+- components/pagination
+- components/Slider
+- components/simple-accordion
+- components/hero
+- components/blockquote
+- components/cta-button
+- objects/section
+- objects/media
+- objects/space
+- scroll-top
+
+Foundation framework (kompletní):
+- všechny soubory v foundation/ složce jsou používané přes foundation.scss

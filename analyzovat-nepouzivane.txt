@@ -1,0 +1,80 @@
+NEPOUŽÍVANÉ SOUBORY ŠABLON:
+===========================
+
+LAYOUTY:
+- compress.html
+- landing.html
+- redirected.html
+- team.html
+
+INCLUDES:
+- accordeon/accordeon-column.html
+- article-list/featured_article.html
+- article-list/list-3col.html
+- article-list/pagination.html
+- footer.html
+- header.html
+- js/ga.js
+- js/gtm-head.html
+- kontakt/contact-card.html
+- page/relatives.html
+- people/carousel.html
+- people/kandidat-small.html
+- people/kandidat.html
+- people/list-2col.html
+- people/profiles.html
+- right-bar/social-bar.html
+- team/card.html
+- team/list-3col.html
+- title/title_header.html
+
+SASS:
+- _sprites.scss
+
+POZNÁMKY:
+- accordeon.html se používá pouze z accordeon-column.html, který není používaný, takže oba jsou nepoužívané
+- standard_article.html se používá pouze z list-3col.html, který není používaný, takže oba jsou nepoužívané
+- team/item.html se používá pouze z team/list-3col.html, který není používaný, ale team/item.html může být použito jinde, tak ho ponechám
+
+OPRAVA po detailnějším prozkoumání:
+- accordeon/accordeon.html - NEPOUŽÍVANÝ (používá se jen z accordeon-column.html)
+- article-list/standard_article.html - NEPOUŽÍVANÝ (používá se jen z list-3col.html)  
+- team/item.html - NEPOUŽÍVANÝ (používá se jen z team/list-3col.html)
+
+FINÁLNÍ SEZNAM NEPOUŽÍVANÝCH:
+=============================
+
+LAYOUTY (4 soubory):
+- compress.html
+- landing.html  
+- redirected.html
+- team.html
+
+INCLUDES (22 souborů):
+- accordeon/accordeon-column.html
+- accordeon/accordeon.html
+- article-list/featured_article.html
+- article-list/list-3col.html
+- article-list/pagination.html
+- article-list/standard_article.html
+- footer.html
+- header.html
+- js/ga.js
+- js/gtm-head.html
+- kontakt/contact-card.html
+- page/relatives.html
+- people/carousel.html
+- people/kandidat-small.html
+- people/kandidat.html
+- people/list-2col.html
+- people/profiles.html
+- right-bar/social-bar.html
+- team/card.html
+- team/item.html
+- team/list-3col.html
+- title/title_header.html
+
+SASS (1 soubor):
+- _sprites.scss
+
+CELKEM: 27 nepoužívaných souborů
