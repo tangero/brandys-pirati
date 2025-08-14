@@ -112,8 +112,10 @@
 </style>
 
 <header class="md-top-app-bar">
-  <img src="{{ '/assets/img/brand/logo.svg' | relative_url }}" alt="Pirátská strana" class="md-top-app-bar__logo">
-  <div class="md-top-app-bar__title">Brandýs nad Labem - Stará Boleslav</div>
+  <a href="{{ '/' | relative_url }}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+    <img src="{{ '/assets/img/brand/logo.svg' | relative_url }}" alt="Pirátská strana" class="md-top-app-bar__logo">
+    <div class="md-top-app-bar__title">Brandýs nad Labem - Stará Boleslav</div>
+  </a>
   
   <nav class="md-top-app-bar__nav">
     <a href="{{ '/' | relative_url }}" class="md-nav-button {% if page.url == '/' %}md-nav-button--active{% endif %}">Úvod</a>
