@@ -14,6 +14,7 @@ image: /assets/mistostarosti/mistostarosti2142024zamoreneme-e55cb8b2.jpg
 
 Kultivace města není jen otázkou estetiky nebo designu – je to především **komunikační projekt**, který se zaměřuje na vytvoření společenského konsenzu a vzájemné spolupráce mezi všemi, kteří město denně používají. Jde o komplexní cestu ke kultivaci města jako prostoru k setkávání, prožívání a vzájemnému respektu, kde je v jádru spokojenost občanů.
 
+**Obsah:**
 * TOC
 {:toc}
 
