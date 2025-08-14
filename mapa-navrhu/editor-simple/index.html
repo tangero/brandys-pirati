@@ -1,0 +1,517 @@
+---
+layout: default
+title: Jednoduchý editor návrhů
+---
+
+<style>
+  .simple-editor {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    min-height: 80vh;
+  }
+  
+  .map-container {
+    flex: 2;
+    position: relative;
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .form-container {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .btn {
+    background: #007cba;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .btn:hover {
+    background: #005a87;
+  }
+  
+  .btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .tools {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .status {
+    background: #e7f3ff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+  
+  .password-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .password-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+</style>
+
+<div class="md-section">
+  <h1>Jednoduchý editor návrhů</h1>
+  
+  <div id="password-screen" class="password-form">
+    <h3>🔐 Přístup do editoru</h3>
+    <p>Pro vytváření návrhů je potřeba heslo.</p>
+    <input type="password" id="password" placeholder="Zadejte heslo" />
+    <br><br>
+    <button class="btn" onclick="login()">Přihlásit se</button>
+  </div>
+  
+  <div id="editor-screen" style="display: none;">
+    <div class="simple-editor">
+      <div class="map-container">
+        <div class="tools">
+          <button class="btn" onclick="setMode('point')" id="btn-point">📍 Bod</button>
+          <button class="btn" onclick="clearMap()">🗑️ Smazat</button>
+        </div>
+        <div id="map"></div>
+      </div>
+      
+      <div class="form-container">
+        <div class="status" id="status">
+          Klikněte na tlačítko "📍 Bod" a pak na mapu pro označení místa.
+        </div>
+        
+        <form id="proposal-form">
+          <div class="form-group">
+            <label>Název návrhu *</label>
+            <input type="text" id="title" required />
+          </div>
+          
+          <div class="form-group">
+            <label>Autor *</label>
+            <input type="text" id="author" required />
+          </div>
+          
+          <div class="form-group">
+            <label>Kategorie *</label>
+            <select id="category" required>
+              <option value="">Vyberte...</option>
+              <option value="infrastruktura">🏗️ Infrastruktura</option>
+              <option value="zelen">🌳 Veřejná zeleň</option>
+              <option value="doprava">🚌 Doprava</option>
+              <option value="sportoviste">🎮 Sportoviště</option>
+              <option value="budovy">🏢 Veřejné budovy</option>
+              <option value="smart-city">💡 Smart city</option>
+              <option value="prostredi">♻️ Životní prostředí</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Status</label>
+            <select id="status">
+              <option value="navrh">🔵 Návrh</option>
+              <option value="schvaleno">🟡 Schváleno</option>
+              <option value="realizace">🟣 V realizaci</option>
+              <option value="hotovo">🟢 Hotovo</option>
+              <option value="zamitnuto">🔴 Zamítnuto</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Rozpočet</label>
+            <input type="text" id="budget" placeholder="např. 2.5M Kč" />
+          </div>
+          
+          <div class="form-group">
+            <label>Adresa</label>
+            <input type="text" id="address" readonly />
+          </div>
+          
+          <div class="form-group">
+            <label>Popis *</label>
+            <textarea id="description" required placeholder="Detailní popis návrhu..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <button type="button" class="btn" onclick="generateMd()" id="btn-generate" disabled>
+              💾 Stáhnout .md soubor
+            </button>
+            <button type="button" class="btn" onclick="showPreview()">
+              👁️ Náhled
+            </button>
+            <button type="button" class="btn" onclick="resetForm()" style="background: #dc3545;">
+              🔄 Reset
+            </button>
+          </div>
+        </form>
+        
+        <div id="coordinates" style="font-size: 12px; color: #666; margin-top: 10px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// Globální proměnné
+let map = null;
+let currentMarker = null;
+let currentMode = null;
+let markerData = null;
+
+// Přihlášení
+function login() {
+  const password = document.getElementById('password').value;
+  if (password === 'brandys2025') {
+    document.getElementById('password-screen').style.display = 'none';
+    document.getElementById('editor-screen').style.display = 'block';
+    setTimeout(initializeMap, 100);
+  } else {
+    alert('Nesprávné heslo!');
+  }
+}
+
+// Inicializace mapy
+function initializeMap() {
+  console.log('Inicializuji mapu...');
+  
+  try {
+    if (typeof L === 'undefined') {
+      console.error('Leaflet není dostupný!');
+      return;
+    }
+    
+    // Vytvoření mapy
+    map = L.map('map').setView([50.1872, 14.6634], 15);
+    
+    // Základní vrstva
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Katastrální vrstva
+    L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
+      layers: 'DEF_PARCELY,DEF_BUDOVY',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© ČÚZK',
+      opacity: 0.6
+    }).addTo(map);
+    
+    // Event pro kliknutí na mapu
+    map.on('click', onMapClick);
+    
+    console.log('Mapa inicializována úspěšně');
+    updateStatus('Mapa načtena. Vyberte nástroj a klikněte na mapu.');
+    
+  } catch (error) {
+    console.error('Chyba při inicializaci mapy:', error);
+    updateStatus('Chyba při načítání mapy: ' + error.message);
+  }
+}
+
+// Nastavení režimu kreslení
+function setMode(mode) {
+  currentMode = mode;
+  
+  // Reset všech tlačítek
+  document.querySelectorAll('.tools .btn').forEach(btn => {
+    btn.style.background = '#007cba';
+  });
+  
+  // Zvýrazní aktivní tlačítko
+  document.getElementById('btn-' + mode).style.background = '#28a745';
+  
+  updateStatus('Režim: ' + mode + '. Klikněte na mapu pro označení.');
+  
+  // Změna kurzoru
+  if (map) {
+    map.getContainer().style.cursor = 'crosshair';
+  }
+}
+
+// Kliknutí na mapu
+function onMapClick(e) {
+  if (!currentMode) {
+    updateStatus('Nejdříve vyberte nástroj (📍 Bod)');
+    return;
+  }
+  
+  if (currentMode === 'point') {
+    // Smaže předchozí marker
+    if (currentMarker) {
+      map.removeLayer(currentMarker);
+    }
+    
+    // Vytvoří nový marker
+    currentMarker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+    
+    // Uloží data
+    markerData = {
+      type: 'point',
+      coordinates: [e.latlng.lat, e.latlng.lng]
+    };
+    
+    // Aktivuje tlačítko generování
+    document.getElementById('btn-generate').disabled = false;
+    
+    // Zobrazí souřadnice
+    document.getElementById('coordinates').innerHTML = 
+      `📍 Souřadnice: ${e.latlng.lat.toFixed(6)}, ${e.latlng.lng.toFixed(6)}`;
+    
+    // Získá adresu
+    getAddress(e.latlng.lat, e.latlng.lng);
+    
+    updateStatus('✅ Místo označeno! Vyplňte formulář a vygenerujte .md soubor.');
+  }
+}
+
+// Získání adresy
+async function getAddress(lat, lng) {
+  try {
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=cs`
+    );
+    const data = await response.json();
+    if (data.display_name) {
+      document.getElementById('address').value = data.display_name;
+    }
+  } catch (error) {
+    console.log('Chyba při získávání adresy:', error);
+  }
+}
+
+// Smazání mapy
+function clearMap() {
+  if (currentMarker && map) {
+    map.removeLayer(currentMarker);
+    currentMarker = null;
+    markerData = null;
+    document.getElementById('btn-generate').disabled = true;
+    document.getElementById('coordinates').innerHTML = '';
+    document.getElementById('address').value = '';
+    updateStatus('Mapa vymazána. Označte nové místo.');
+  }
+}
+
+// Aktualizace statusu
+function updateStatus(text) {
+  document.getElementById('status').innerHTML = text;
+}
+
+// Generování MD souboru
+function generateMd() {
+  if (!markerData) {
+    alert('Nejdříve označte místo na mapě!');
+    return;
+  }
+  
+  const title = document.getElementById('title').value.trim();
+  const author = document.getElementById('author').value.trim();
+  const category = document.getElementById('category').value;
+  const status = document.getElementById('status').value;
+  const budget = document.getElementById('budget').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const description = document.getElementById('description').value.trim();
+  
+  if (!title || !author || !category || !description) {
+    alert('Vyplňte všechna povinná pole!');
+    return;
+  }
+  
+  // Slug pro název souboru
+  const slug = title.toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s]/g, '')
+    .replace(/\s+/g, '-');
+  
+  // Generování markdown
+  const markdown = `---
+layout: post
+title: "${title}"
+author: "${author}"
+category: "${category}"
+status: "${status}"
+date: ${new Date().toISOString().split('T')[0]}
+location:
+  type: "${markerData.type}"
+  coordinates: ${JSON.stringify(markerData.coordinates)}
+  address: "${address}"
+${budget ? `budget: "${budget}"` : ''}
+excerpt: "${description.split('.')[0]}."
+---
+
+# ${title}
+
+${description}
+
+## Základní informace
+
+- **Autor návrhu:** ${author}
+- **Kategorie:** ${getCategoryName(category)}
+- **Status:** ${getStatusName(status)}
+- **Lokace:** ${address || 'Označeno na mapě'}
+${budget ? `- **Rozpočet:** ${budget}` : ''}
+- **Datum návrhu:** ${new Date().toLocaleDateString('cs-CZ')}
+
+## Technické údaje
+
+- **Typ označení:** ${markerData.type}
+- **Souřadnice:** ${JSON.stringify(markerData.coordinates)}
+`;
+  
+  // Stažení souboru
+  downloadFile(`${slug}.md`, markdown);
+  updateStatus('✅ Markdown soubor byl stažen!');
+}
+
+// Náhled
+function showPreview() {
+  if (!markerData) {
+    alert('Nejdříve označte místo na mapě!');
+    return;
+  }
+  
+  const title = document.getElementById('title').value || 'Náhled návrhu';
+  const author = document.getElementById('author').value || 'Autor';
+  const description = document.getElementById('description').value || 'Popis';
+  
+  const preview = `
+    <h1>${title}</h1>
+    <p><strong>Autor:</strong> ${author}</p>
+    <p><strong>Souřadnice:</strong> ${JSON.stringify(markerData.coordinates)}</p>
+    <h2>Popis</h2>
+    <p>${description}</p>
+  `;
+  
+  const win = window.open('', '_blank', 'width=600,height=400');
+  win.document.write(`
+    <html>
+      <head><title>Náhled - ${title}</title></head>
+      <body style="font-family: Arial; margin: 20px;">
+        ${preview}
+      </body>
+    </html>
+  `);
+}
+
+// Reset formuláře
+function resetForm() {
+  if (confirm('Vymazat všechna data?')) {
+    document.getElementById('proposal-form').reset();
+    clearMap();
+    updateStatus('Formulář vymazán.');
+  }
+}
+
+// Stažení souboru
+function downloadFile(filename, content) {
+  const element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
+
+// Pomocné funkce
+function getCategoryName(category) {
+  const names = {
+    infrastruktura: '🏗️ Infrastruktura',
+    zelen: '🌳 Veřejná zeleň',
+    doprava: '🚌 Doprava',
+    sportoviste: '🎮 Sportoviště',
+    budovy: '🏢 Veřejné budovy',
+    'smart-city': '💡 Smart city',
+    prostredi: '♻️ Životní prostředí'
+  };
+  return names[category] || category;
+}
+
+function getStatusName(status) {
+  const names = {
+    navrh: '🔵 Návrh',
+    schvaleno: '🟡 Schváleno',
+    realizace: '🟣 V realizaci',
+    hotovo: '🟢 Hotovo',
+    zamitnuto: '🔴 Zamítnuto'
+  };
+  return names[status] || status;
+}
+
+// Enter pro přihlášení
+document.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter' && document.getElementById('password-screen').style.display !== 'none') {
+    login();
+  }
+});
+
+// Focus na heslo
+setTimeout(() => {
+  const passwordInput = document.getElementById('password');
+  if (passwordInput) passwordInput.focus();
+}, 100);
+</script>
