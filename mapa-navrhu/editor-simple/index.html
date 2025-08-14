@@ -130,7 +130,10 @@ title: Jednoduchý editor návrhů
       <div class="map-container">
         <div class="tools">
           <button class="btn" onclick="setMode('point')" id="btn-point">📍 Bod</button>
+          <button class="btn" onclick="setMode('line')" id="btn-line">➖ Linie</button>
+          <button class="btn" onclick="setMode('polygon')" id="btn-polygon">🔷 Oblast</button>
           <button class="btn" onclick="clearMap()">🗑️ Smazat</button>
+          <button class="btn" onclick="finishDrawing()" id="btn-finish" style="display:none; background:#28a745;">✅ Dokončit</button>
         </div>
         <div id="map"></div>
       </div>
@@ -219,6 +222,9 @@ let map = null;
 let currentMarker = null;
 let currentMode = null;
 let markerData = null;
+let drawingPoints = [];
+let currentDrawing = null;
+let tempMarkers = [];
 
 // Přihlášení
 function login() {
@@ -251,15 +257,17 @@ function initializeMap() {
     }).addTo(map);
     
     // Katastrální vrstva
-    L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
+    const cadastralLayer = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
       layers: 'DEF_PARCELY,DEF_BUDOVY',
       format: 'image/png',
       transparent: true,
       attribution: '© ČÚZK',
-      opacity: 0.6
-    }).addTo(map);
+      opacity: 0.6,
+      interactive: false  // Důležité - vrstva nebude blokovat kliknutí
+    });
+    cadastralLayer.addTo(map);
     
-    // Event pro kliknutí na mapu
+    // Event pro kliknutí na mapu - bude fungovat všude
     map.on('click', onMapClick);
     
     console.log('Mapa inicializována úspěšně');
@@ -273,28 +281,53 @@ function initializeMap() {
 
 // Nastavení režimu kreslení
 function setMode(mode) {
+  console.log('Setting mode to:', mode);
+  
+  // Vyčistí předchozí kreslení
+  clearMap();
+  
   currentMode = mode;
+  drawingPoints = [];
+  
+  console.log('Current mode set to:', currentMode);
   
   // Reset všech tlačítek
   document.querySelectorAll('.tools .btn').forEach(btn => {
     btn.style.background = '#007cba';
   });
   
-  // Zvýrazní aktivní tlačítko
-  document.getElementById('btn-' + mode).style.background = '#28a745';
+  // Skryje tlačítko dokončit
+  document.getElementById('btn-finish').style.display = 'none';
   
-  updateStatus('Režim: ' + mode + '. Klikněte na mapu pro označení.');
+  // Zvýrazní aktivní tlačítko
+  const activeBtn = document.getElementById('btn-' + mode);
+  if (activeBtn) {
+    activeBtn.style.background = '#28a745';
+  }
   
   // Změna kurzoru
   if (map) {
     map.getContainer().style.cursor = 'crosshair';
   }
+  
+  // Specifické instrukce pro různé režimy
+  if (mode === 'point') {
+    updateStatus('📍 Režim BOD: Klikněte na mapu pro označení místa.');
+  } else if (mode === 'line') {
+    updateStatus('➖ Režim LINIE: Klikejte body pro vytvoření cesty. Pak klikněte "✅ Dokončit".');
+    document.getElementById('btn-finish').style.display = 'inline-block';
+  } else if (mode === 'polygon') {
+    updateStatus('🔷 Režim OBLAST: Klikejte rohy oblasti. Pak klikněte "✅ Dokončit".');
+    document.getElementById('btn-finish').style.display = 'inline-block';
+  }
 }
 
 // Kliknutí na mapu
 function onMapClick(e) {
+  console.log('Map clicked:', e.latlng, 'Current mode:', currentMode);
+  
   if (!currentMode) {
-    updateStatus('Nejdříve vyberte nástroj (📍 Bod)');
+    updateStatus('Nejdříve vyberte nástroj kreslení!');
     return;
   }
   
@@ -323,8 +356,109 @@ function onMapClick(e) {
     // Získá adresu
     getAddress(e.latlng.lat, e.latlng.lng);
     
-    updateStatus('✅ Místo označeno! Vyplňte formulář a vygenerujte .md soubor.');
+    updateStatus('✅ Bod označen! Vyplňte formulář a vygenerujte .md soubor.');
+    
+  } else if (currentMode === 'line' || currentMode === 'polygon') {
+    console.log('Adding point to drawing:', e.latlng);
+    
+    // Přidá bod do kreslení
+    drawingPoints.push([e.latlng.lat, e.latlng.lng]);
+    
+    // Vytvoří dočasný marker pro zobrazení bodu
+    const marker = L.circleMarker([e.latlng.lat, e.latlng.lng], {
+      radius: 5,
+      color: '#007cba',
+      fillColor: '#007cba',
+      fillOpacity: 0.8
+    }).addTo(map);
+    tempMarkers.push(marker);
+    
+    console.log('Drawing points now:', drawingPoints.length);
+    
+    if (currentMode === 'line') {
+      // Aktualizuje nebo vytvoří linii
+      if (currentDrawing) {
+        map.removeLayer(currentDrawing);
+      }
+      currentDrawing = L.polyline(drawingPoints, {color: '#007cba', weight: 3}).addTo(map);
+      
+      updateStatus(`➖ Linie: ${drawingPoints.length} bodů. Přidejte další body nebo klikněte "✅ Dokončit".`);
+      
+    } else if (currentMode === 'polygon') {
+      // Aktualizuje nebo vytvoří polygon
+      if (currentDrawing) {
+        map.removeLayer(currentDrawing);
+      }
+      if (drawingPoints.length >= 3) {
+        currentDrawing = L.polygon(drawingPoints, {
+          color: '#007cba',
+          weight: 2,
+          fillColor: '#007cba',
+          fillOpacity: 0.2
+        }).addTo(map);
+        console.log('Polygon created with', drawingPoints.length, 'points');
+      } else {
+        console.log('Need at least 3 points for polygon, currently have', drawingPoints.length);
+      }
+      
+      updateStatus(`🔷 Oblast: ${drawingPoints.length} bodů. Potřebujete minimálně 3 body. Klikněte "✅ Dokončit".`);
+    }
+    
+    // Zobrazí souřadnice
+    document.getElementById('coordinates').innerHTML = 
+      `📊 Počet bodů: ${drawingPoints.length}<br>Souřadnice: ${JSON.stringify(drawingPoints)}`;
   }
+}
+
+// Dokončení kreslení linie nebo polygonu
+function finishDrawing() {
+  if (!currentMode || currentMode === 'point') {
+    return;
+  }
+  
+  if (currentMode === 'line' && drawingPoints.length < 2) {
+    alert('Linie potřebuje minimálně 2 body!');
+    return;
+  }
+  
+  if (currentMode === 'polygon' && drawingPoints.length < 3) {
+    alert('Oblast potřebuje minimálně 3 body!');
+    return;
+  }
+  
+  // Uloží data podle typu
+  if (currentMode === 'line') {
+    markerData = {
+      type: 'polyline',
+      coordinates: [...drawingPoints]
+    };
+  } else if (currentMode === 'polygon') {
+    markerData = {
+      type: 'polygon',
+      coordinates: [...drawingPoints]
+    };
+  }
+  
+  // Aktivuje tlačítko generování
+  document.getElementById('btn-generate').disabled = false;
+  
+  // Skryje tlačítko dokončit
+  document.getElementById('btn-finish').style.display = 'none';
+  
+  // Resetuje kurzor
+  if (map) {
+    map.getContainer().style.cursor = '';
+  }
+  
+  // Resetuje režim
+  currentMode = null;
+  
+  // Získá adresu z prvního bodu
+  if (drawingPoints.length > 0) {
+    getAddress(drawingPoints[0][0], drawingPoints[0][1]);
+  }
+  
+  updateStatus(`✅ ${markerData.type === 'polyline' ? 'Linie' : 'Oblast'} dokončena! Vyplňte formulář a vygenerujte .md soubor.`);
 }
 
 // Získání adresy
@@ -344,14 +478,47 @@ async function getAddress(lat, lng) {
 
 // Smazání mapy
 function clearMap() {
-  if (currentMarker && map) {
-    map.removeLayer(currentMarker);
-    currentMarker = null;
+  if (map) {
+    // Smaže marker
+    if (currentMarker) {
+      map.removeLayer(currentMarker);
+      currentMarker = null;
+    }
+    
+    // Smaže aktuální kreslení
+    if (currentDrawing) {
+      map.removeLayer(currentDrawing);
+      currentDrawing = null;
+    }
+    
+    // Smaže dočasné markery
+    tempMarkers.forEach(marker => {
+      if (map.hasLayer(marker)) {
+        map.removeLayer(marker);
+      }
+    });
+    tempMarkers = [];
+    
+    // Resetuje data
     markerData = null;
+    drawingPoints = [];
+    currentMode = null;
+    
+    // Reset UI
     document.getElementById('btn-generate').disabled = true;
     document.getElementById('coordinates').innerHTML = '';
     document.getElementById('address').value = '';
-    updateStatus('Mapa vymazána. Označte nové místo.');
+    document.getElementById('btn-finish').style.display = 'none';
+    
+    // Reset tlačítek
+    document.querySelectorAll('.tools .btn').forEach(btn => {
+      btn.style.background = '#007cba';
+    });
+    
+    // Reset kurzoru
+    map.getContainer().style.cursor = '';
+    
+    updateStatus('Mapa vymazána. Vyberte nástroj a začněte znovu.');
   }
 }
 
