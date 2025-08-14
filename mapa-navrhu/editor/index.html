@@ -307,15 +307,20 @@ title: Editor návrhů
           </div>
           
           <div class="action-buttons">
-            <button type="button" onclick="generateMarkdown()" class="btn btn-primary" id="btn-generate" disabled>
+            <button type="button" onclick="console.log('Generate clicked'); generateMarkdown()" class="btn btn-primary" id="btn-generate" disabled>
               💾 Vygenerovat .md soubor
             </button>
-            <button type="button" onclick="previewProposal()" class="btn btn-secondary" id="btn-preview" disabled>
+            <button type="button" onclick="console.log('Preview clicked'); previewProposal()" class="btn btn-secondary" id="btn-preview" disabled>
               👁️ Náhled
             </button>
-            <button type="reset" onclick="resetForm()" class="btn btn-danger">
+            <button type="reset" onclick="console.log('Reset clicked'); resetForm()" class="btn btn-danger">
               🔄 Vymazat vše
             </button>
+          </div>
+          
+          <div style="margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; font-size: 12px;">
+            <strong>Debug:</strong>
+            <div id="debug-info">Označte místo na mapě pro aktivaci tlačítek</div>
           </div>
         </form>
       </div>
@@ -453,12 +458,20 @@ map.on('dblclick', function(e) {
 
 // Dokončení kreslení
 function onDrawingComplete(type, coordinates) {
+  console.log('Drawing completed:', type, coordinates);
+  
   document.getElementById('btn-generate').disabled = false;
   document.getElementById('btn-preview').disabled = false;
   
   const form = document.getElementById('proposal-form');
   form.dataset.locationType = type;
   form.dataset.locationCoords = JSON.stringify(coordinates);
+  
+  // Update debug info
+  const debugEl = document.getElementById('debug-info');
+  if (debugEl) {
+    debugEl.innerHTML = `Typ: ${type}<br>Souřadnice: ${JSON.stringify(coordinates)}<br>Tlačítka aktivována!`;
+  }
   
   updateCoordinatesDisplay();
 }
@@ -534,27 +547,39 @@ async function getAddressFromCoords(lat, lng) {
 // Generování Markdown souboru
 function generateMarkdown() {
   const form = document.getElementById('proposal-form');
-  const formData = new FormData(form);
   
-  // Validace
+  // Validace místa na mapě
   if (!form.dataset.locationCoords) {
     alert('Nejdříve označte místo na mapě!');
     return;
   }
   
-  if (!form.checkValidity()) {
-    alert('Vyplňte prosím všechna povinná pole!');
-    return;
-  }
-  
-  // Získání dat
-  const title = document.getElementById('proposal-title').value;
-  const author = document.getElementById('proposal-author').value;
+  // Získání dat z formuláře
+  const title = document.getElementById('proposal-title').value.trim();
+  const author = document.getElementById('proposal-author').value.trim();
   const category = document.getElementById('proposal-category').value;
   const status = document.getElementById('proposal-status').value;
-  const budget = document.getElementById('proposal-budget').value;
-  const address = document.getElementById('proposal-address').value;
-  const description = document.getElementById('proposal-description').value;
+  const budget = document.getElementById('proposal-budget').value.trim();
+  const address = document.getElementById('proposal-address').value.trim();
+  const description = document.getElementById('proposal-description').value.trim();
+  
+  // Validace povinných polí
+  if (!title) {
+    alert('Vyplňte název návrhu!');
+    return;
+  }
+  if (!author) {
+    alert('Vyplňte autora návrhu!');
+    return;
+  }
+  if (!category) {
+    alert('Vyberte kategorii!');
+    return;
+  }
+  if (!description) {
+    alert('Vyplňte popis návrhu!');
+    return;
+  }
   
   const locationType = form.dataset.locationType;
   const coordinates = JSON.parse(form.dataset.locationCoords);
@@ -617,11 +642,13 @@ function previewProposal() {
     return;
   }
   
-  const title = document.getElementById('proposal-title').value || 'Náhled návrhu';
-  const author = document.getElementById('proposal-author').value || 'Neznámý autor';
+  const title = document.getElementById('proposal-title').value.trim() || 'Náhled návrhu';
+  const author = document.getElementById('proposal-author').value.trim() || 'Neznámý autor';
   const category = document.getElementById('proposal-category').value;
   const status = document.getElementById('proposal-status').value;
-  const description = document.getElementById('proposal-description').value || 'Popis nebyl vyplněn';
+  const budget = document.getElementById('proposal-budget').value.trim();
+  const address = document.getElementById('proposal-address').value.trim();
+  const description = document.getElementById('proposal-description').value.trim() || 'Popis nebyl vyplněn';
   
   const previewWindow = window.open('', '_blank', 'width=600,height=800');
   previewWindow.document.write(`
@@ -646,10 +673,16 @@ function previewProposal() {
           <p><strong>Kategorie:</strong> ${getCategoryName(category)}</p>
           <p><strong>Typ označení:</strong> ${form.dataset.locationType}</p>
           <p><strong>Datum:</strong> ${new Date().toLocaleDateString('cs-CZ')}</p>
+          ${budget ? `<p><strong>Rozpočet:</strong> ${budget}</p>` : ''}
+          ${address ? `<p><strong>Adresa:</strong> ${address}</p>` : ''}
         </div>
         <div class="content">
           <h2>Popis</h2>
           <p>${description.replace(/\n/g, '<br>')}</p>
+        </div>
+        <div style="margin-top: 30px; padding: 15px; background: #f0f0f0; border-radius: 5px;">
+          <h3>Debug informace</h3>
+          <p><strong>Souřadnice:</strong> ${form.dataset.locationCoords || 'Neoznačeno'}</p>
         </div>
       </body>
     </html>
