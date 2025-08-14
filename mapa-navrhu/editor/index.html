@@ -381,7 +381,8 @@ function initMap() {
       format: 'image/png',
       transparent: true,
       attribution: '© ČÚZK',
-      opacity: 0.5
+      opacity: 0.5,
+      interactive: false  // Důležité - vrstva nebude blokovat kliknutí
     }).addTo(map);
     
     // Vrstva pro kreslení
@@ -393,8 +394,11 @@ function initMap() {
     
     // Event listenery pro dvojklik
     map.on('dblclick', function(e) {
+      console.log('Double click detected, drawing mode:', drawingMode);
+      
       if (drawingMode === 'polyline' && currentDrawing) {
         const coords = currentDrawing.getLatLngs().map(ll => [ll.lat, ll.lng]);
+        console.log('Completing polyline with coords:', coords);
         onDrawingComplete('polyline', coords);
         drawingMode = null;
         clearActiveButtons();
@@ -403,6 +407,7 @@ function initMap() {
         
       } else if (drawingMode === 'polygon' && currentDrawing) {
         const coords = currentDrawing.getLatLngs()[0].map(ll => [ll.lat, ll.lng]);
+        console.log('Completing polygon with coords:', coords);
         onDrawingComplete('polygon', coords);
         drawingMode = null;
         clearActiveButtons();
@@ -421,6 +426,7 @@ function initMap() {
 
 // Zahájení kreslení
 function startDrawing(type) {
+  console.log('Starting drawing:', type);
   drawingMode = type;
   clearActiveButtons();
   document.getElementById(`btn-${type}`).classList.add('active');
@@ -433,19 +439,27 @@ function startDrawing(type) {
     updateMapInfo('Klikněte pro začátek linie, pak další body. Dvojklik pro dokončení.');
     currentDrawing = L.polyline([], {color: '#2196F3', weight: 4});
     currentDrawing.addTo(drawnItems);
+    console.log('Polyline created');
   } else if (type === 'polygon') {
     map.getContainer().style.cursor = 'crosshair';
     updateMapInfo('Klikněte pro rohové body oblasti. Dvojklik pro dokončení.');
     currentDrawing = L.polygon([], {color: '#2196F3', weight: 2, fillOpacity: 0.3});
     currentDrawing.addTo(drawnItems);
+    console.log('Polygon created');
   }
 }
 
 // Klik na mapu
 function onMapClick(e) {
-  if (!drawingMode) return;
+  console.log('Map clicked:', e.latlng, 'Drawing mode:', drawingMode);
+  
+  if (!drawingMode) {
+    console.log('No drawing mode selected');
+    return;
+  }
   
   if (drawingMode === 'marker') {
+    console.log('Creating marker');
     clearDrawing();
     const marker = L.marker(e.latlng, {
       icon: L.divIcon({
@@ -461,10 +475,12 @@ function onMapClick(e) {
     getAddressFromCoords(e.latlng.lat, e.latlng.lng);
     
   } else if (drawingMode === 'polyline' && currentDrawing) {
+    console.log('Adding point to polyline');
     currentDrawing.addLatLng(e.latlng);
     updateCoordinatesDisplay();
     
   } else if (drawingMode === 'polygon' && currentDrawing) {
+    console.log('Adding point to polygon');
     currentDrawing.addLatLng(e.latlng);
     updateCoordinatesDisplay();
   }
