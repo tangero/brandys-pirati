@@ -12,6 +12,9 @@ collections:
   vystavba:
     output: true
     permalink: /vystavba/:name/
+  proposals:
+    output: true
+    permalink: /navrhy/:name/
 
 defaults:
   - scope:

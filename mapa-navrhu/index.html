@@ -1,0 +1,580 @@
+---
+layout: default
+title: Mapa návrhů
+---
+
+<style>
+  .map-container {
+    display: flex;
+    height: calc(100vh - 120px);
+    gap: 16px;
+    margin: 24px 0;
+  }
+  
+  .map-panel {
+    flex: 1;
+    background: var(--md-sys-color-surface);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  }
+  
+  .sidebar {
+    width: 320px;
+    background: var(--md-sys-color-surface-variant);
+    border-radius: 12px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  }
+  
+  .sidebar h3 {
+    margin: 0 0 16px;
+    color: var(--md-sys-color-on-surface);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .filter-section {
+    margin-bottom: 24px;
+  }
+  
+  .filter-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  
+  .filter-section select,
+  .filter-section input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 8px;
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-size: 14px;
+  }
+  
+  .filter-section select:focus,
+  .filter-section input:focus {
+    outline: 2px solid var(--md-sys-color-primary);
+    border-color: var(--md-sys-color-primary);
+  }
+  
+  .proposal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .proposal-card {
+    background: var(--md-sys-color-surface);
+    border-radius: 8px;
+    padding: 16px;
+    border-left: 4px solid var(--md-sys-color-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .proposal-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .proposal-card.status-navrh { border-left-color: #2196F3; }
+  .proposal-card.status-schvaleno { border-left-color: #FF9800; }
+  .proposal-card.status-realizace { border-left-color: #9C27B0; }
+  .proposal-card.status-hotovo { border-left-color: #4CAF50; }
+  .proposal-card.status-zamitnuto { border-left-color: #F44336; }
+  
+  .proposal-title {
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .proposal-meta {
+    font-size: 12px;
+    color: var(--md-sys-color-on-surface-variant);
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .proposal-status {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .proposal-status.status-navrh { background: #E3F2FD; color: #1976D2; }
+  .proposal-status.status-schvaleno { background: #FFF3E0; color: #F57C00; }
+  .proposal-status.status-realizace { background: #F3E5F5; color: #7B1FA2; }
+  .proposal-status.status-hotovo { background: #E8F5E8; color: #388E3C; }
+  .proposal-status.status-zamitnuto { background: #FFEBEE; color: #D32F2F; }
+  
+  .map-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .map-control-btn {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .map-control-btn:hover {
+    background: var(--md-sys-color-primary);
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .map-container {
+      flex-direction: column;
+      height: auto;
+    }
+    
+    .sidebar {
+      width: 100%;
+      order: -1;
+    }
+    
+    .map-panel {
+      height: 60vh;
+    }
+  }
+</style>
+
+<div class="md-section">
+  <div class="md-section__header">
+    <h1 class="md-section__title">Mapa návrhů</h1>
+    <p class="md-section__subtitle">Interaktivní mapa s návrhy změn a úprav ve městě</p>
+  </div>
+  
+  <div class="map-container">
+    <div class="map-panel">
+      <div class="map-controls">
+        <button class="map-control-btn" onclick="toggleLayer('cadastral')" id="btn-cadastral">
+          🗺️ Katastr
+        </button>
+        <button class="map-control-btn" onclick="toggleLayer('proposals')" id="btn-proposals">
+          📍 Návrhy
+        </button>
+        <button class="map-control-btn" onclick="fitToBrandys()">
+          🎯 Brandýs
+        </button>
+      </div>
+      <div id="map"></div>
+    </div>
+    
+    <div class="sidebar">
+      <h3>Filtry</h3>
+      
+      <div class="filter-section">
+        <label for="filter-status">Status návrhu:</label>
+        <select id="filter-status" onchange="filterProposals()">
+          <option value="">Všechny statusy</option>
+          <option value="navrh">🔵 Návrh</option>
+          <option value="schvaleno">🟡 Schváleno</option>
+          <option value="realizace">🟣 V realizaci</option>
+          <option value="hotovo">🟢 Hotovo</option>
+          <option value="zamitnuto">🔴 Zamítnuto</option>
+        </select>
+      </div>
+      
+      <div class="filter-section">
+        <label for="filter-category">Kategorie:</label>
+        <select id="filter-category" onchange="filterProposals()">
+          <option value="">Všechny kategorie</option>
+          <option value="infrastruktura">🏗️ Infrastruktura</option>
+          <option value="zelen">🌳 Veřejná zeleň</option>
+          <option value="doprava">🚌 Doprava</option>
+          <option value="sportoviste">🎮 Sportoviště</option>
+          <option value="budovy">🏢 Veřejné budovy</option>
+          <option value="smart-city">💡 Smart city</option>
+          <option value="prostredi">♻️ Životní prostředí</option>
+        </select>
+      </div>
+      
+      <div class="filter-section">
+        <label for="filter-search">Vyhledat:</label>
+        <input type="text" id="filter-search" placeholder="Název, autor, popis..." oninput="filterProposals()">
+      </div>
+      
+      <h3>Návrhy (<span id="proposals-count">0</span>)</h3>
+      <div id="proposals-list" class="proposal-list">
+        <!-- Návrhy se načtou dynamicky -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Leaflet CSS a JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// Globální proměnné
+let map;
+let cadastralLayer;
+let proposalsLayer;
+let allProposals = [];
+let activeFilters = {
+  status: '',
+  category: '',
+  search: ''
+};
+
+// Inicializace mapy
+function initMap() {
+  // Střed Brandýsa nad Labem-Staré Boleslavi
+  const brandysCenter = [50.1872, 14.6634];
+  
+  map = L.map('map').setView(brandysCenter, 14);
+  
+  // Základní mapa OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+  
+  // Vytvoření vrstev
+  cadastralLayer = L.layerGroup().addTo(map);
+  proposalsLayer = L.layerGroup().addTo(map);
+  
+  // Načtení dat
+  loadCadastralData();
+  loadProposalsData();
+}
+
+// Načtení katastrálních dat (WMS služba ČÚZK)
+function loadCadastralData() {
+  // Katastrální mapa z ČÚZK
+  const cadastralWMS = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
+    layers: 'DEF_PARCELY,DEF_BUDOVY',
+    format: 'image/png',
+    transparent: true,
+    attribution: '© ČÚZK',
+    opacity: 0.7
+  });
+  
+  cadastralLayer.addLayer(cadastralWMS);
+}
+
+// Ukázková data návrhů
+function loadProposalsData() {
+  allProposals = [
+    {
+      id: 1,
+      title: "Nové dětské hřiště u základní školy",
+      author: "Patrick Zandl",
+      category: "sportoviste",
+      status: "navrh",
+      description: "Moderní dětské hřiště s prvky pro děti 3-12 let",
+      location: {
+        type: "polygon",
+        coordinates: [
+          [50.1875, 14.6630],
+          [50.1878, 14.6630],
+          [50.1878, 14.6635],
+          [50.1875, 14.6635],
+          [50.1875, 14.6630]
+        ]
+      },
+      budget: "2.5M Kč",
+      dateProposed: "2025-08-14"
+    },
+    {
+      id: 2,
+      title: "Cyklistická stezka podél Labe",
+      author: "Jan Prokop",
+      category: "doprava",
+      status: "schvaleno",
+      description: "Nová cyklistická stezka spojující centrum s přístavem",
+      location: {
+        type: "polyline",
+        coordinates: [
+          [50.1850, 14.6600],
+          [50.1865, 14.6620],
+          [50.1880, 14.6640]
+        ]
+      },
+      budget: "5.2M Kč",
+      dateProposed: "2025-07-20"
+    },
+    {
+      id: 3,
+      title: "Revitalizace parku na náměstí",
+      author: "Eva Tylová",
+      category: "zelen",
+      status: "realizace",
+      description: "Obnova zeleně a mobiliáře v centru města",
+      location: {
+        type: "polygon",
+        coordinates: [
+          [50.1870, 14.6640],
+          [50.1875, 14.6640],
+          [50.1875, 14.6650],
+          [50.1870, 14.6650],
+          [50.1870, 14.6640]
+        ]
+      },
+      budget: "3.8M Kč",
+      dateProposed: "2025-06-15"
+    },
+    {
+      id: 4,
+      title: "Smart lavičky s Wi-Fi",
+      author: "Lukáš Findeis",
+      category: "smart-city",
+      status: "hotovo",
+      description: "Instalace chytrých laviček s nabíjením a Wi-Fi",
+      location: {
+        type: "point",
+        coordinates: [50.1860, 14.6625]
+      },
+      budget: "450K Kč",
+      dateProposed: "2025-05-10"
+    },
+    {
+      id: 5,
+      title: "Rozšíření parkoviště u nádraží",
+      author: "Marek Řebíček",
+      category: "infrastruktura",
+      status: "zamitnuto",
+      description: "Nová parkovací místa pro cestující",
+      location: {
+        type: "polygon",
+        coordinates: [
+          [50.1855, 14.6615],
+          [50.1860, 14.6615],
+          [50.1860, 14.6620],
+          [50.1855, 14.6620],
+          [50.1855, 14.6615]
+        ]
+      },
+      budget: "1.2M Kč",
+      dateProposed: "2025-04-25"
+    }
+  ];
+  
+  renderProposalsOnMap();
+  renderProposalsList();
+}
+
+// Vykreslení návrhů na mapě
+function renderProposalsOnMap() {
+  proposalsLayer.clearLayers();
+  
+  const filteredProposals = getFilteredProposals();
+  
+  filteredProposals.forEach(proposal => {
+    let layer;
+    const color = getStatusColor(proposal.status);
+    
+    if (proposal.location.type === 'point') {
+      const icon = L.divIcon({
+        className: 'custom-marker',
+        html: `<div style="background: ${color}; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+        iconSize: [20, 20],
+        iconAnchor: [10, 10]
+      });
+      
+      layer = L.marker(proposal.location.coordinates, { icon });
+    } else if (proposal.location.type === 'polyline') {
+      layer = L.polyline(proposal.location.coordinates, {
+        color: color,
+        weight: 4,
+        opacity: 0.8
+      });
+    } else if (proposal.location.type === 'polygon') {
+      layer = L.polygon(proposal.location.coordinates, {
+        color: color,
+        weight: 2,
+        fillColor: color,
+        fillOpacity: 0.3
+      });
+    }
+    
+    if (layer) {
+      layer.bindPopup(createProposalPopup(proposal));
+      layer.on('click', () => selectProposal(proposal.id));
+      proposalsLayer.addLayer(layer);
+    }
+  });
+}
+
+// Vytvoření popup obsahu
+function createProposalPopup(proposal) {
+  const statusName = getStatusName(proposal.status);
+  const statusIcon = getStatusIcon(proposal.status);
+  
+  return `
+    <div style="min-width: 200px;">
+      <h4 style="margin: 0 0 8px; color: #333;">${proposal.title}</h4>
+      <div style="font-size: 12px; color: #666; margin-bottom: 8px;">
+        <div>${statusIcon} ${statusName}</div>
+        <div>👤 ${proposal.author}</div>
+        <div>💰 ${proposal.budget}</div>
+        <div>📅 ${new Date(proposal.dateProposed).toLocaleDateString('cs-CZ')}</div>
+      </div>
+      <p style="margin: 0; font-size: 13px;">${proposal.description}</p>
+    </div>
+  `;
+}
+
+// Vykreslení seznamu návrhů
+function renderProposalsList() {
+  const filteredProposals = getFilteredProposals();
+  const listEl = document.getElementById('proposals-list');
+  const countEl = document.getElementById('proposals-count');
+  
+  countEl.textContent = filteredProposals.length;
+  
+  listEl.innerHTML = filteredProposals.map(proposal => {
+    const statusName = getStatusName(proposal.status);
+    const statusIcon = getStatusIcon(proposal.status);
+    
+    return `
+      <div class="proposal-card status-${proposal.status}" onclick="selectProposal(${proposal.id})">
+        <div class="proposal-title">${proposal.title}</div>
+        <div class="proposal-meta">
+          <span>👤 ${proposal.author}</span>
+          <span>💰 ${proposal.budget}</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <span class="proposal-status status-${proposal.status}">${statusIcon} ${statusName}</span>
+        </div>
+        <div style="font-size: 13px; color: #666;">${proposal.description}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Filtrování návrhů
+function filterProposals() {
+  activeFilters.status = document.getElementById('filter-status').value;
+  activeFilters.category = document.getElementById('filter-category').value;
+  activeFilters.search = document.getElementById('filter-search').value.toLowerCase();
+  
+  renderProposalsOnMap();
+  renderProposalsList();
+}
+
+// Získání filtrovaných návrhů
+function getFilteredProposals() {
+  return allProposals.filter(proposal => {
+    if (activeFilters.status && proposal.status !== activeFilters.status) return false;
+    if (activeFilters.category && proposal.category !== activeFilters.category) return false;
+    if (activeFilters.search) {
+      const searchText = `${proposal.title} ${proposal.author} ${proposal.description}`.toLowerCase();
+      if (!searchText.includes(activeFilters.search)) return false;
+    }
+    return true;
+  });
+}
+
+// Výběr návrhu
+function selectProposal(proposalId) {
+  const proposal = allProposals.find(p => p.id === proposalId);
+  if (!proposal) return;
+  
+  // Přiblížení na návrh
+  if (proposal.location.type === 'point') {
+    map.setView(proposal.location.coordinates, 17);
+  } else {
+    const bounds = L.latLngBounds(proposal.location.coordinates);
+    map.fitBounds(bounds, { padding: [20, 20] });
+  }
+}
+
+// Přepínání vrstev
+function toggleLayer(layerName) {
+  const btn = document.getElementById(`btn-${layerName}`);
+  
+  if (layerName === 'cadastral') {
+    if (map.hasLayer(cadastralLayer)) {
+      map.removeLayer(cadastralLayer);
+      btn.style.opacity = '0.5';
+    } else {
+      map.addLayer(cadastralLayer);
+      btn.style.opacity = '1';
+    }
+  } else if (layerName === 'proposals') {
+    if (map.hasLayer(proposalsLayer)) {
+      map.removeLayer(proposalsLayer);
+      btn.style.opacity = '0.5';
+    } else {
+      map.addLayer(proposalsLayer);
+      btn.style.opacity = '1';
+    }
+  }
+}
+
+// Přiblížení na Brandýs
+function fitToBrandys() {
+  map.setView([50.1872, 14.6634], 14);
+}
+
+// Pomocné funkce
+function getStatusColor(status) {
+  const colors = {
+    navrh: '#2196F3',
+    schvaleno: '#FF9800',
+    realizace: '#9C27B0',
+    hotovo: '#4CAF50',
+    zamitnuto: '#F44336'
+  };
+  return colors[status] || '#666';
+}
+
+function getStatusName(status) {
+  const names = {
+    navrh: 'Návrh',
+    schvaleno: 'Schváleno',
+    realizace: 'V realizaci',
+    hotovo: 'Hotovo',
+    zamitnuto: 'Zamítnuto'
+  };
+  return names[status] || status;
+}
+
+function getStatusIcon(status) {
+  const icons = {
+    navrh: '🔵',
+    schvaleno: '🟡',
+    realizace: '🟣',
+    hotovo: '🟢',
+    zamitnuto: '🔴'
+  };
+  return icons[status] || '⚪';
+}
+
+// Inicializace po načtení stránky
+document.addEventListener('DOMContentLoaded', initMap);
+</script>
