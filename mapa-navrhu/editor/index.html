@@ -330,9 +330,7 @@ title: Editor návrhů
 
 <!-- Leaflet CSS a JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
 
 <script>
 // Globální proměnné
@@ -358,31 +356,67 @@ function checkAccess() {
 
 // Inicializace mapy
 function initMap() {
+  // Kontrola zda je Leaflet načten
+  if (typeof L === 'undefined') {
+    console.error('Leaflet není načten!');
+    setTimeout(initMap, 100); // Zkusí znovu za 100ms
+    return;
+  }
+  
+  console.log('Initializing map...');
   const brandysCenter = [50.1872, 14.6634];
   
-  map = L.map('map').setView(brandysCenter, 15);
-  
-  // Základní mapa
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 19
-  }).addTo(map);
-  
-  // Katastrální vrstva
-  const cadastralWMS = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
-    layers: 'DEF_PARCELY,DEF_BUDOVY',
-    format: 'image/png',
-    transparent: true,
-    attribution: '© ČÚZK',
-    opacity: 0.5
-  }).addTo(map);
-  
-  // Vrstva pro kreslení
-  drawnItems = new L.FeatureGroup();
-  map.addLayer(drawnItems);
-  
-  // Event listenery
-  map.on('click', onMapClick);
+  try {
+    map = L.map('map').setView(brandysCenter, 15);
+    
+    // Základní mapa
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+    
+    // Katastrální vrstva
+    const cadastralWMS = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
+      layers: 'DEF_PARCELY,DEF_BUDOVY',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© ČÚZK',
+      opacity: 0.5
+    }).addTo(map);
+    
+    // Vrstva pro kreslení
+    drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
+    
+    // Event listenery
+    map.on('click', onMapClick);
+    
+    // Event listenery pro dvojklik
+    map.on('dblclick', function(e) {
+      if (drawingMode === 'polyline' && currentDrawing) {
+        const coords = currentDrawing.getLatLngs().map(ll => [ll.lat, ll.lng]);
+        onDrawingComplete('polyline', coords);
+        drawingMode = null;
+        clearActiveButtons();
+        map.getContainer().style.cursor = '';
+        updateMapInfo('Linie dokončena. Vyplňte formulář.');
+        
+      } else if (drawingMode === 'polygon' && currentDrawing) {
+        const coords = currentDrawing.getLatLngs()[0].map(ll => [ll.lat, ll.lng]);
+        onDrawingComplete('polygon', coords);
+        drawingMode = null;
+        clearActiveButtons();
+        map.getContainer().style.cursor = '';
+        updateMapInfo('Oblast dokončena. Vyplňte formulář.');
+      }
+    });
+    
+    console.log('Map initialized successfully');
+    
+  } catch (error) {
+    console.error('Chyba při inicializaci mapy:', error);
+    document.getElementById('map').innerHTML = '<div style="padding: 20px; text-align: center; color: red;">Chyba při načítání mapy. Zkuste obnovit stránku.</div>';
+  }
 }
 
 // Zahájení kreslení
@@ -436,25 +470,6 @@ function onMapClick(e) {
   }
 }
 
-// Dokončení kreslení
-map.on('dblclick', function(e) {
-  if (drawingMode === 'polyline' && currentDrawing) {
-    const coords = currentDrawing.getLatLngs().map(ll => [ll.lat, ll.lng]);
-    onDrawingComplete('polyline', coords);
-    drawingMode = null;
-    clearActiveButtons();
-    map.getContainer().style.cursor = '';
-    updateMapInfo('Linie dokončena. Vyplňte formulář.');
-    
-  } else if (drawingMode === 'polygon' && currentDrawing) {
-    const coords = currentDrawing.getLatLngs()[0].map(ll => [ll.lat, ll.lng]);
-    onDrawingComplete('polygon', coords);
-    drawingMode = null;
-    clearActiveButtons();
-    map.getContainer().style.cursor = '';
-    updateMapInfo('Oblast dokončena. Vyplňte formulář.');
-  }
-});
 
 // Dokončení kreslení
 function onDrawingComplete(type, coordinates) {
@@ -753,13 +768,29 @@ function getStatusName(status) {
   return names[status] || status;
 }
 
-// Enter pro přihlášení
+// Enter pro přihlášení a kontrola načtení knihoven
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded');
+  
+  // Kontrola načtení Leaflet
+  if (typeof L === 'undefined') {
+    console.log('Leaflet není ještě načten, čekám...');
+  } else {
+    console.log('Leaflet je načten');
+  }
+  
   const passwordInput = document.getElementById('password-input');
-  passwordInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      checkAccess();
-    }
-  });
+  if (passwordInput) {
+    passwordInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        checkAccess();
+      }
+    });
+  }
+  
+  // Focus na heslo
+  if (passwordInput) {
+    passwordInput.focus();
+  }
 });
 </script>
