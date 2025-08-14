@@ -14,6 +14,8 @@ image: /assets/mistostarosti/mistostarosti2142024zamoreneme-e55cb8b2.jpg
 
 Kultivace města není jen otázkou estetiky nebo designu – je to především **komunikační projekt**, který se zaměřuje na vytvoření společenského konsenzu a vzájemné spolupráce mezi všemi, kteří město denně používají. Jde o komplexní cestu ke kultivaci města jako prostoru k setkávání, prožívání a vzájemnému respektu, kde je v jádru spokojenost občanů.
 
+> Pro lepší představu je vhodné projít si [prezentaci Veroniky Rút Fullerové k možnostem kultivace veřejného prostoru v Brandýse-Boleslavi](/assets/pdf/Brandys_Boleslav_strategie_19_12_2023_F.pdf).
+
 ### **Definice kultivace jako komunikačního projektu**
 
 Na rozdíl od tradičního urbanistického plánování, které často pracuje s velkými investicemi a radikálními změnami, kultivace města stojí na **pravidelné, velmi důkladné péči o každý detail veřejného prostoru**. Nejde o megalomanské investice, ale o pečlivou, kontinuální údržbu a postupné zlepšování. Každý krok by měl být vždy nazírán touto optikou.
