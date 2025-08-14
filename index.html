@@ -20,7 +20,8 @@ rbar: fb, calendar, em
     <p class="md-section__subtitle">Sledujte nejnovější zprávy a aktuality z našeho města</p>
   </div>
   <div class="md-articles-grid">
-    {% for article in site.posts limit: 6 %}
+    {% assign aktuality_posts = site.posts | where_exp: "item", "item.category != 'strategie'" %}
+    {% for article in aktuality_posts limit: 6 %}
     <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
       <link itemprop="mainEntityOfPage" href="{{ article.url | absolute_url }}">
       
