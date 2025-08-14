@@ -20,8 +20,15 @@
   .md-top-app-bar__title {
     font-size: 22px;
     font-weight: 400;
-    flex: 1;
     color: var(--md-sys-color-on-surface);
+  }
+  
+  .md-top-app-bar__logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
   }
   
   .md-top-app-bar__nav {
@@ -112,7 +119,7 @@
 </style>
 
 <header class="md-top-app-bar">
-  <a href="{{ '/' | relative_url }}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+  <a href="{{ '/' | relative_url }}" class="md-top-app-bar__logo-link">
     <img src="{{ '/assets/img/brand/logo.svg' | relative_url }}" alt="Pirátská strana" class="md-top-app-bar__logo">
     <div class="md-top-app-bar__title">Brandýs nad Labem - Stará Boleslav</div>
   </a>
