@@ -2,7 +2,7 @@
 layout: post
 title: "Kultivační strategie veřejného prostoru"
 excerpt: "Kultivace veřejného prostoru je cestou ke spokojenějšímu životu ve městě. Jak na to?"
-date: 2025-08-14 12:00:00 +0100
+date: 2025-08-14 11:00:00 +0100
 author: "Patrick Zandl"
 category: "strategie"
 image: /assets/mistostarosti/mistostarosti2142024zamoreneme-e55cb8b2.jpg
