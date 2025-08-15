@@ -638,6 +638,7 @@ location:
   address: "${address}"
 ${budget ? `budget: "${budget}"` : ''}
 excerpt: "${description.split('.')[0]}"
+proposal: true
 ---
 
 # ${title}
@@ -659,8 +660,9 @@ ${budget ? `- **Rozpočet:** ${budget}` : ''}
 - **Souřadnice:** ${JSON.stringify(coordinates)}
 `;
   
-  // Stažení souboru
-  downloadFile(`${slug}.md`, markdown);
+  // Stažení souboru s datem pro _posts
+  const dateStr = new Date().toISOString().split('T')[0];
+  downloadFile(`${dateStr}-${slug}.md`, markdown);
   
   // Zobrazení zprávy
   showSuccessMessage('Markdown soubor byl vygenerován a stažen!');
