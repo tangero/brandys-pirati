@@ -385,13 +385,40 @@ function initMap() {
       maxZoom: 18
     });
 
+    // Překryvné vrstvy
+    
+    // Územní plán - hlavní výkres
+    const uzemniPlan = L.tileLayer.wms('https://gis.kr-stredocesky.cz/wagisas01/services/USR/USR_UPN_UPD_OBEC_HLV/MapServer/WMSServer', {
+      layers: '0,1,2,3,4,5,6,7,8,9',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© Středočeský kraj - územní plány',
+      opacity: 0.6,
+      maxZoom: 20
+    });
+
+    // Zásady územního rozvoje (koridory komunikací)
+    const zur = L.tileLayer.wms('https://gis.kr-stredocesky.cz/wagisas01/services/USR/USR_UPN_UPD_KRAJ_ZUR_UZ_11_2023/MapServer/WMSServer', {
+      layers: '0,1,2,3,4,5',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© Středočeský kraj - ZÚR',
+      opacity: 0.5,
+      maxZoom: 20
+    });
+    
     // Layer control
     const baseLayers = {
       "Uliční mapa": streetMap,
       "Ortofoto": orthophoto
     };
     
-    L.control.layers(baseLayers).addTo(map);
+    const overlayLayers = {
+      "📋 Územní plán": uzemniPlan,
+      "🛣️ Plánované komunikace (ZÚR)": zur
+    };
+    
+    L.control.layers(baseLayers, overlayLayers).addTo(map);
     
     // Vrstva pro kreslení
     drawnItems = new L.FeatureGroup();
