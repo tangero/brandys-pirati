@@ -14,13 +14,13 @@ location:
     - [50.17133232429186, 14.651191234588625]
   address: "Jasmínová, Brandýs nad Labem, Brandýs nad Labem-Stará Boleslav, okres Praha-východ, Střední Čechy, 250 01, Česko"
 budget: "15M Kč"
-excerpt: "Bytové domy stavěné firmou Sládek Group a schválené za starosty Vl."
+excerpt: "Bytové domy stavěné firmou Sládek Group a schválené za starosty Picka"
 proposal: true
 ---
 
 # Bytové domy SG
 
-Bytové domy stavěné firmou Sládek Group a schválené za starosty Vl. Picka.
+Bytové domy stavěné firmou Sládek Group a schválené za starosty Vl. Picka. Půjde o trojici domů se čtyřmi nadzemními podlažími. Původně byla navrhovaná vyšší varianta.
 
 ## Základní informace
 
@@ -28,7 +28,7 @@ Bytové domy stavěné firmou Sládek Group a schválené za starosty Vl. Picka.
 - **Kategorie:** 🏗️ Infrastruktura
 - **Status:** 🟣 V realizaci
 - **Lokace:** Jasmínová, Brandýs nad Labem, Brandýs nad Labem-Stará Boleslav, okres Praha-východ, Střední Čechy, 250 01, Česko
-- **Rozpočet:** 15M Kč
+- **Rozpočet:** 
 - **Datum návrhu:** 15. 8. 2025
 
 ## Technické údaje
