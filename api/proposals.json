@@ -1,24 +1,31 @@
 ---
 layout: null
 ---
-[
+{
+  "count": {{ site.proposals | size }},
+  "debug": {
+    "collections_available": [{% for coll in site.collections %}"{{ coll.label }}"{% unless forloop.last %},{% endunless %}{% endfor %}],
+    "proposals_path": {% if site.proposals.first %}"{{ site.proposals.first.path }}"{% else %}null{% endif %}
+  },
+  "proposals": [
 {% for proposal in site.proposals %}
-  {
-    "id": {{ forloop.index }},
-    "title": {{ proposal.title | jsonify }},
-    "author": {{ proposal.author | jsonify }},
-    "category": {{ proposal.category | jsonify }},
-    "status": {{ proposal.status | jsonify }},
-    "description": {{ proposal.excerpt | strip_html | strip | jsonify }},
-    "location": {
-      "type": {{ proposal.location.type | jsonify }},
-      "coordinates": {{ proposal.location.coordinates | jsonify }},
-      "address": {{ proposal.location.address | jsonify }}
-    },
-    "budget": {{ proposal.budget | jsonify }},
-    "dateProposed": {{ proposal.date | date: "%Y-%m-%d" | jsonify }},
-    "url": {{ proposal.url | jsonify }},
-    "content": {{ proposal.content | strip_html | strip | jsonify }}
-  }{% unless forloop.last %},{% endunless %}
+    {
+      "id": {{ forloop.index }},
+      "title": {{ proposal.title | jsonify }},
+      "author": {{ proposal.author | jsonify }},
+      "category": {{ proposal.category | jsonify }},
+      "status": {{ proposal.status | jsonify }},
+      "description": {{ proposal.excerpt | strip_html | strip | jsonify }},
+      "location": {
+        "type": {{ proposal.location.type | jsonify }},
+        "coordinates": {{ proposal.location.coordinates | jsonify }},
+        "address": {{ proposal.location.address | jsonify }}
+      },
+      "budget": {{ proposal.budget | jsonify }},
+      "dateProposed": {{ proposal.date | date: "%Y-%m-%d" | jsonify }},
+      "url": {{ proposal.url | jsonify }},
+      "content": {{ proposal.content | strip_html | strip | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
 {% endfor %}
-]
+  ]
+}

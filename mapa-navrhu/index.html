@@ -291,70 +291,99 @@ function loadCadastralData() {
 }
 
 // Načtení dat návrhů z Jekyll kolekce
-function loadProposalsData() {
-  console.log('Načítám data návrhů z Jekyll kolekce...');
-  console.log('Jekyll site.proposals length:', {{ site.proposals | size }});
+async function loadProposalsData() {
+  console.log('Načítám data návrhů z Jekyll API...');
   
-  // Debug info o Jekyll kolekci
-  {% if site.proposals.size > 0 %}
-    console.log('Jekyll proposals found:');
-    {% for proposal in site.proposals %}
-      console.log('- {{ proposal.title | jsonify }} ({{ proposal.path }})');
-    {% endfor %}
-  {% else %}
-    console.log('Jekyll proposals kolekce je prázdná!');
-    console.log('Zkontrolujte:');
-    console.log('1. Existují soubory v _proposals/ adresáři');
-    console.log('2. Jekyll server byl restartován po změnách');
-    console.log('3. Soubory mají správný front matter');
-  {% endif %}
-  
-  // Data z Jekyll kolekce (vložená přímo do stránky)
-  const jekyllData = [
-    {% for proposal in site.proposals %}
-    {
-      "id": {{ forloop.index }},
-      "title": {{ proposal.title | jsonify }},
-      "author": {{ proposal.author | jsonify }},
-      "category": {{ proposal.category | jsonify }},
-      "status": {{ proposal.status | jsonify }},
-      "description": {{ proposal.excerpt | strip_html | strip | jsonify }},
-      "location": {
-        "type": {{ proposal.location.type | jsonify }},
-        "coordinates": {{ proposal.location.coordinates | jsonify }},
-        "address": {{ proposal.location.address | jsonify }}
-      },
-      "budget": {{ proposal.budget | jsonify }},
-      "dateProposed": {{ proposal.date | date: "%Y-%m-%d" | jsonify }},
-      "url": {{ proposal.url | jsonify }},
-      "content": {{ proposal.content | strip_html | strip | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
-  
-  console.log('Načteno návrhů z Jekyll:', jekyllData.length);
-  
-  if (jekyllData.length === 0) {
-    // Žádná data z Jekyll kolekce - hlásíme chybu
-    console.error('CHYBA: Žádné návrhy nebyly načteny z Jekyll kolekce _proposals');
+  try {
+    // Načtení dat z JSON API
+    const response = await fetch('{{ "/api/proposals.json" | relative_url }}');
     
-    // Zobrazíme chybovou zprávu uživateli
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    console.log('Načtená data z API:', data);
+    console.log('Počet návrhů:', data.count);
+    console.log('Dostupné kolekce:', data.debug.collections_available);
+    
+    if (data.count === 0) {
+      // Žádná data z Jekyll kolekce - hlásíme chybu
+      console.error('CHYBA: Žádné návrhy nebyly načteny z Jekyll kolekce _proposals');
+      console.error('Debug info:', data.debug);
+      
+      // Zobrazíme chybovou zprávu uživateli
+      const listEl = document.getElementById('proposals-list');
+      const countEl = document.getElementById('proposals-count');
+      
+      if (listEl) {
+        listEl.innerHTML = `
+          <div style="text-align: center; padding: 40px; color: #d32f2f; background: #ffebee; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin: 0 0 16px 0;">⚠️ Chyba při načítání návrhů</h3>
+            <p style="margin: 0;">Nepodařilo se načíst návrhy z Jekyll kolekce. Kontaktujte správce webu.</p>
+            <details style="margin-top: 16px; text-align: left;">
+              <summary style="cursor: pointer; font-weight: bold;">Technické informace</summary>
+              <p style="font-family: monospace; font-size: 12px; background: #f5f5f5; padding: 8px; border-radius: 4px; margin-top: 8px;">
+                Jekyll kolekce '_proposals' je prázdná nebo se nepodařila zpracovat.<br>
+                Počet návrhů: ${data.count}<br>
+                Dostupné kolekce: ${data.debug.collections_available.join(', ')}<br>
+                První návrh: ${data.debug.proposals_path || 'žádný'}<br><br>
+                Zkontrolujte:<br>
+                1. Existují soubory v adresáři _proposals/<br>
+                2. Jekyll server správně zpracovává kolekci<br>
+                3. Soubory mají správnou YAML strukturu
+              </p>
+            </details>
+          </div>
+        `;
+      }
+      
+      if (countEl) {
+        countEl.textContent = '0';
+      }
+      
+      // Ukončíme funkci - žádné fallback data
+      return;
+    }
+    
+    // Zpracujeme načtená data
+    allProposals = data.proposals.map(proposal => {
+      // Zajistíme správný formát dat
+      return {
+        ...proposal,
+        // Převedeme status na správný formát pokud je undefined
+        status: proposal.status === 'undefined' ? 'navrh' : proposal.status,
+        // Zajistíme že coordinates jsou správný formát
+        location: {
+          ...proposal.location,
+          coordinates: Array.isArray(proposal.location.coordinates) ? proposal.location.coordinates : []
+        }
+      };
+    });
+    
+    console.log('Zpracované návrhy:', allProposals);
+    
+    renderProposalsOnMap();
+    renderProposalsList();
+    
+  } catch (error) {
+    console.error('Chyba při načítání návrhů z API:', error);
+    
+    // Zobrazíme chybovou zprávu pro síťové chyby
     const listEl = document.getElementById('proposals-list');
     const countEl = document.getElementById('proposals-count');
     
     if (listEl) {
       listEl.innerHTML = `
         <div style="text-align: center; padding: 40px; color: #d32f2f; background: #ffebee; border-radius: 8px; margin: 20px 0;">
-          <h3 style="margin: 0 0 16px 0;">⚠️ Chyba při načítání návrhů</h3>
-          <p style="margin: 0;">Nepodařilo se načíst návrhy z Jekyll kolekce. Kontaktujte správce webu.</p>
+          <h3 style="margin: 0 0 16px 0;">⚠️ Chyba při načítání dat</h3>
+          <p style="margin: 0;">Nepodařilo se načíst data z API. Zkuste obnovit stránku.</p>
           <details style="margin-top: 16px; text-align: left;">
             <summary style="cursor: pointer; font-weight: bold;">Technické informace</summary>
             <p style="font-family: monospace; font-size: 12px; background: #f5f5f5; padding: 8px; border-radius: 4px; margin-top: 8px;">
-              Jekyll kolekce '_proposals' je prázdná nebo se nepodařila zpracovat.<br>
-              Zkontrolujte:<br>
-              1. Existují soubory v adresáři _proposals/<br>
-              2. Jekyll server správně zpracovává kolekci<br>
-              3. Soubory mají správnou YAML strukturu
+              Chyba: ${error.message}<br>
+              API endpoint: {{ "/api/proposals.json" | relative_url }}
             </p>
           </details>
         </div>
@@ -364,30 +393,7 @@ function loadProposalsData() {
     if (countEl) {
       countEl.textContent = '0';
     }
-    
-    // Ukončíme funkci - žádné fallback data
-    return;
   }
-  
-  // Zpracujeme načtená data
-  allProposals = jekyllData.map(proposal => {
-    // Zajistíme správný formát dat
-    return {
-      ...proposal,
-      // Převedeme status na správný formát pokud je undefined
-      status: proposal.status === 'undefined' ? 'navrh' : proposal.status,
-      // Zajistíme že coordinates jsou správný formát
-      location: {
-        ...proposal.location,
-        coordinates: Array.isArray(proposal.location.coordinates) ? proposal.location.coordinates : []
-      }
-    };
-  });
-  
-  console.log('Zpracované návrhy z Jekyll:', allProposals);
-  
-  renderProposalsOnMap();
-  renderProposalsList();
 }
 
 // Vykreslení návrhů na mapě
