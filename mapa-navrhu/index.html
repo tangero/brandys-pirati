@@ -178,17 +178,6 @@ title: Mapa návrhů
   
   <div class="map-container">
     <div class="map-panel">
-      <div class="map-controls">
-        <button class="map-control-btn" onclick="toggleLayer('cadastral')" id="btn-cadastral">
-          🗺️ Katastr
-        </button>
-        <button class="map-control-btn" onclick="toggleLayer('proposals')" id="btn-proposals">
-          📍 Návrhy
-        </button>
-        <button class="map-control-btn" onclick="fitToBrandys()">
-          🎯 Brandýs
-        </button>
-      </div>
       <div id="map"></div>
     </div>
     
@@ -196,14 +185,15 @@ title: Mapa návrhů
       <h3>Filtry</h3>
       
       <div class="filter-section">
-        <label for="filter-status">Status návrhu:</label>
-        <select id="filter-status" onchange="filterProposals()">
-          <option value="">Všechny statusy</option>
-          <option value="navrh">🔵 Návrh</option>
-          <option value="schvaleno">🟡 Schváleno</option>
-          <option value="realizace">🟣 V realizaci</option>
-          <option value="hotovo">🟢 Hotovo</option>
-          <option value="zamitnuto">🔴 Zamítnuto</option>
+        <label for="filter-location">Oblast:</label>
+        <select id="filter-location" onchange="zoomToArea(this.value)">
+          <option value="">Vyberte oblast</option>
+          <option value="brandys">🏛️ Brandýs</option>
+          <option value="boleslav">⛪ Stará Boleslav</option>
+          <option value="kralovice">🏡 Královice</option>
+          <option value="vrabi">🌾 Vrábí</option>
+          <option value="popovice">🌳 Popovice</option>
+          <option value="sidliste">🏢 Sídliště Brandýs</option>
         </select>
       </div>
       
@@ -218,6 +208,7 @@ title: Mapa návrhů
           <option value="budovy">🏢 Veřejné budovy</option>
           <option value="smart-city">💡 Smart city</option>
           <option value="prostredi">♻️ Životní prostředí</option>
+          <option value="developerske">🏘️ Developerské projekty</option>
         </select>
       </div>
       
@@ -245,7 +236,6 @@ let cadastralLayer;
 let proposalsLayer;
 let allProposals = [];
 let activeFilters = {
-  status: '',
   category: '',
   search: ''
 };
@@ -511,7 +501,6 @@ function renderProposalsList() {
 
 // Filtrování návrhů
 function filterProposals() {
-  activeFilters.status = document.getElementById('filter-status').value;
   activeFilters.category = document.getElementById('filter-category').value;
   activeFilters.search = document.getElementById('filter-search').value.toLowerCase();
   
@@ -522,7 +511,6 @@ function filterProposals() {
 // Získání filtrovaných návrhů
 function getFilteredProposals() {
   return allProposals.filter(proposal => {
-    if (activeFilters.status && proposal.status !== activeFilters.status) return false;
     if (activeFilters.category && proposal.category !== activeFilters.category) return false;
     if (activeFilters.search) {
       const searchText = `${proposal.title} ${proposal.author} ${proposal.description}`.toLowerCase();
@@ -546,32 +534,49 @@ function selectProposal(proposalId) {
   }
 }
 
-// Přepínání vrstev
-function toggleLayer(layerName) {
-  const btn = document.getElementById(`btn-${layerName}`);
-  
-  if (layerName === 'cadastral') {
-    if (map.hasLayer(cadastralLayer)) {
-      map.removeLayer(cadastralLayer);
-      btn.style.opacity = '0.5';
-    } else {
-      map.addLayer(cadastralLayer);
-      btn.style.opacity = '1';
-    }
-  } else if (layerName === 'proposals') {
-    if (map.hasLayer(proposalsLayer)) {
-      map.removeLayer(proposalsLayer);
-      btn.style.opacity = '0.5';
-    } else {
-      map.addLayer(proposalsLayer);
-      btn.style.opacity = '1';
-    }
-  }
-}
 
-// Přiblížení na Brandýs
-function fitToBrandys() {
-  map.setView([50.1872, 14.6634], 14);
+// Přiblížení na vybranou oblast
+function zoomToArea(area) {
+  if (!area) return;
+  
+  const areas = {
+    'brandys': {
+      center: [50.1872, 14.6634],
+      zoom: 15,
+      name: 'Brandýs nad Labem'
+    },
+    'boleslav': {
+      center: [50.1836, 14.6789],
+      zoom: 15,
+      name: 'Stará Boleslav'
+    },
+    'kralovice': {
+      center: [50.1745, 14.6912],
+      zoom: 16,
+      name: 'Královice'
+    },
+    'vrabi': {
+      center: [50.1923, 14.7123],
+      zoom: 16,
+      name: 'Vrábí'
+    },
+    'popovice': {
+      center: [50.1656, 14.6445],
+      zoom: 16,
+      name: 'Popovice'
+    },
+    'sidliste': {
+      center: [50.1834, 14.6576],
+      zoom: 16,
+      name: 'Sídliště Brandýs'
+    }
+  };
+  
+  const selectedArea = areas[area];
+  if (selectedArea) {
+    map.setView(selectedArea.center, selectedArea.zoom);
+    console.log(`Přiblíženo na: ${selectedArea.name}`);
+  }
 }
 
 // Pomocné funkce
