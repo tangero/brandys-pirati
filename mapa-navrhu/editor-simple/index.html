@@ -251,23 +251,28 @@ function initializeMap() {
     // Vytvoření mapy
     map = L.map('map').setView([50.1872, 14.6634], 15);
     
-    // Základní vrstva
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+    // Základní vrstvy
+    const streetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
     }).addTo(map);
-    
-    // Katastrální vrstva - pouze parcely a budovy, bez popisků
-    const cadastralLayer = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
-      layers: 'DEF_PARCELY,DEF_BUDOVY',
+
+    // Ortofoto z ČÚZK
+    const orthophoto = L.tileLayer.wms('https://geoportal.cuzk.cz/WMS_ORTOFOTO_PUB/WMService.aspx', {
+      layers: 'GR_ORTFOTORGB',
       format: 'image/png',
-      transparent: true,
-      attribution: '© ČÚZK',
-      opacity: 0.5,
-      interactive: false,  // Důležité - vrstva nebude blokovat kliknutí
-      styles: '',  // Skryjeme textové popisky parcel
+      transparent: false,
+      attribution: '© ČÚZK - ortofoto',
       maxZoom: 18
     });
-    cadastralLayer.addTo(map);
+
+    // Layer control
+    const baseLayers = {
+      "Uliční mapa": streetMap,
+      "Ortofoto": orthophoto
+    };
+    
+    L.control.layers(baseLayers).addTo(map);
     
     // Event pro kliknutí na mapu - bude fungovat všude
     map.on('click', onMapClick);
@@ -592,7 +597,7 @@ ${budget ? `- **Rozpočet:** ${budget}` : ''}
 - **Souřadnice:** ${JSON.stringify(markerData.coordinates)}
 `;
   
-  // Stažení souboru s datem pro _posts
+  // Stažení souboru s datem pro _posts/proposals
   const dateStr = new Date().toISOString().split('T')[0];
   downloadFile(`${dateStr}-${slug}.md`, markdown);
   updateStatus('✅ Markdown soubor byl stažen!');

@@ -257,37 +257,41 @@ function initMap() {
   
   map = L.map('map').setView(brandysCenter, 14);
   
-  // Základní mapa OpenStreetMap
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 19
-  }).addTo(map);
-  
-  // Vytvoření vrstev
-  cadastralLayer = L.layerGroup().addTo(map);
+  // Vytvoření vrstev pro návrhy
   proposalsLayer = L.layerGroup().addTo(map);
   
   // Načtení dat
-  loadCadastralData();
+  setupBaseLayers();
   loadProposalsData();
 }
 
-// Načtení katastrálních dat (WMS služba ČÚZK)
-function loadCadastralData() {
-  // Katastrální mapa z ČÚZK - pouze parcely a budovy, bez popisků
-  const cadastralWMS = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
-    layers: 'DEF_PARCELY,DEF_BUDOVY',
+// Přidání layer control s výběrem map
+function setupBaseLayers() {
+  // Základní vrstvy
+  const streetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  });
+
+  // Ortofoto z ČÚZK
+  const orthophoto = L.tileLayer.wms('https://geoportal.cuzk.cz/WMS_ORTOFOTO_PUB/WMService.aspx', {
+    layers: 'GR_ORTFOTORGB',
     format: 'image/png',
-    transparent: true,
-    attribution: '© ČÚZK',
-    opacity: 0.5,
-    interactive: false,
-    // Skryjeme textové popisky parcel
-    styles: '',
+    transparent: false,
+    attribution: '© ČÚZK - ortofoto',
     maxZoom: 18
   });
+
+  // Výchozí mapa
+  streetMap.addTo(map);
   
-  cadastralLayer.addLayer(cadastralWMS);
+  // Layer control
+  const baseLayers = {
+    "Uliční mapa": streetMap,
+    "Ortofoto": orthophoto
+  };
+  
+  L.control.layers(baseLayers).addTo(map);
 }
 
 // Načtení dat návrhů z Jekyll kolekce

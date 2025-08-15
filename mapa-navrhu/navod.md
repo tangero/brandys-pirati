@@ -68,7 +68,7 @@ title: Návod k mapě návrhů
 - **🔄 Vymazat vše** - reset formuláře
 
 ### Umístění souborů
-Vygenerovaný `.md` soubor vložte do složky `_posts/` v GitHub repozitáři.
+Vygenerovaný `.md` soubor vložte do složky `_posts/proposals/` v GitHub repozitáři.
 
 **Formát názvu souboru:** `YYYY-MM-DD-nazev-navrhu.md`  
 **Příklad:** `2025-08-15-detske-hriste-centrum.md`
