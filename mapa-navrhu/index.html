@@ -293,6 +293,21 @@ function loadCadastralData() {
 // Načtení dat návrhů z Jekyll kolekce
 function loadProposalsData() {
   console.log('Načítám data návrhů z Jekyll kolekce...');
+  console.log('Jekyll site.proposals length:', {{ site.proposals | size }});
+  
+  // Debug info o Jekyll kolekci
+  {% if site.proposals.size > 0 %}
+    console.log('Jekyll proposals found:');
+    {% for proposal in site.proposals %}
+      console.log('- {{ proposal.title | jsonify }} ({{ proposal.path }})');
+    {% endfor %}
+  {% else %}
+    console.log('Jekyll proposals kolekce je prázdná!');
+    console.log('Zkontrolujte:');
+    console.log('1. Existují soubory v _proposals/ adresáři');
+    console.log('2. Jekyll server byl restartován po změnách');
+    console.log('3. Soubory mají správný front matter');
+  {% endif %}
   
   // Data z Jekyll kolekce (vložená přímo do stránky)
   const jekyllData = [
@@ -319,84 +334,57 @@ function loadProposalsData() {
   
   console.log('Načteno návrhů z Jekyll:', jekyllData.length);
   
-  if (jekyllData.length > 0) {
-    allProposals = jekyllData.map(proposal => {
-      // Zajistíme správný formát dat
-      return {
-        ...proposal,
-        // Převedeme status na správný formát pokud je undefined
-        status: proposal.status === 'undefined' ? 'navrh' : proposal.status,
-        // Zajistíme že coordinates jsou správný formát
-        location: {
-          ...proposal.location,
-          coordinates: Array.isArray(proposal.location.coordinates) ? proposal.location.coordinates : []
-        }
-      };
-    });
+  if (jekyllData.length === 0) {
+    // Žádná data z Jekyll kolekce - hlásíme chybu
+    console.error('CHYBA: Žádné návrhy nebyly načteny z Jekyll kolekce _proposals');
     
-    console.log('Zpracované návrhy z Jekyll:', allProposals);
+    // Zobrazíme chybovou zprávu uživateli
+    const listEl = document.getElementById('proposals-list');
+    const countEl = document.getElementById('proposals-count');
     
-    renderProposalsOnMap();
-    renderProposalsList();
+    if (listEl) {
+      listEl.innerHTML = `
+        <div style="text-align: center; padding: 40px; color: #d32f2f; background: #ffebee; border-radius: 8px; margin: 20px 0;">
+          <h3 style="margin: 0 0 16px 0;">⚠️ Chyba při načítání návrhů</h3>
+          <p style="margin: 0;">Nepodařilo se načíst návrhy z Jekyll kolekce. Kontaktujte správce webu.</p>
+          <details style="margin-top: 16px; text-align: left;">
+            <summary style="cursor: pointer; font-weight: bold;">Technické informace</summary>
+            <p style="font-family: monospace; font-size: 12px; background: #f5f5f5; padding: 8px; border-radius: 4px; margin-top: 8px;">
+              Jekyll kolekce '_proposals' je prázdná nebo se nepodařila zpracovat.<br>
+              Zkontrolujte:<br>
+              1. Existují soubory v adresáři _proposals/<br>
+              2. Jekyll server správně zpracovává kolekci<br>
+              3. Soubory mají správnou YAML strukturu
+            </p>
+          </details>
+        </div>
+      `;
+    }
+    
+    if (countEl) {
+      countEl.textContent = '0';
+    }
+    
+    // Ukončíme funkci - žádné fallback data
     return;
   }
   
-  // Fallback na ukázková data
-  console.log('Žádná data z Jekyll kolekce, používám ukázková data...');
-  allProposals = [
-      {
-        id: 1,
-        title: "Nové dětské hřiště u základní školy",
-        author: "Patrick Zandl",
-        category: "sportoviste",
-        status: "navrh",
-        description: "Moderní dětské hřiště s prvky pro děti 3-12 let",
-        location: {
-          type: "polygon",
-          coordinates: [
-            [50.1875, 14.6630],
-            [50.1878, 14.6630],
-            [50.1878, 14.6635],
-            [50.1875, 14.6635],
-            [50.1875, 14.6630]
-          ]
-        },
-        budget: "2.5M Kč",
-        dateProposed: "2025-08-14"
-      },
-      {
-        id: 2,
-        title: "Cyklistická stezka podél Labe",
-        author: "Jan Prokop",
-        category: "doprava",
-        status: "schvaleno",
-        description: "Nová cyklistická stezka spojující centrum s přístavem",
-        location: {
-          type: "polyline",
-          coordinates: [
-            [50.1850, 14.6600],
-            [50.1865, 14.6620],
-            [50.1880, 14.6640]
-          ]
-        },
-        budget: "5.2M Kč",
-        dateProposed: "2025-07-20"
-      },
-      {
-        id: 3,
-        title: "Smart lavičky s Wi-Fi",
-        author: "Lukáš Findeis",
-        category: "smart-city",
-        status: "hotovo",
-        description: "Instalace chytrých laviček s nabíjením a Wi-Fi",
-        location: {
-          type: "point",
-          coordinates: [50.1860, 14.6625]
-        },
-        budget: "450K Kč",
-        dateProposed: "2025-05-10"
+  // Zpracujeme načtená data
+  allProposals = jekyllData.map(proposal => {
+    // Zajistíme správný formát dat
+    return {
+      ...proposal,
+      // Převedeme status na správný formát pokud je undefined
+      status: proposal.status === 'undefined' ? 'navrh' : proposal.status,
+      // Zajistíme že coordinates jsou správný formát
+      location: {
+        ...proposal.location,
+        coordinates: Array.isArray(proposal.location.coordinates) ? proposal.location.coordinates : []
       }
-  ];
+    };
+  });
+  
+  console.log('Zpracované návrhy z Jekyll:', allProposals);
   
   renderProposalsOnMap();
   renderProposalsList();

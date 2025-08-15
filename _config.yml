@@ -29,3 +29,7 @@ defaults:
       path: "_program"
     values:
       layout: "page"
+  - scope:
+      path: "_proposals"
+    values:
+      layout: "proposal"
