@@ -279,13 +279,13 @@ function initializeMap() {
       maxZoom: 20
     });
 
-    // Zásady územního rozvoje (koridory komunikací)
+    // Plánované silnice a železnice (ZÚR)
     const zur = L.tileLayer.wms('https://gis.kr-stredocesky.cz/wagisas01/services/USR/USR_UPN_UPD_KRAJ_ZUR_UZ_11_2023/MapServer/WMSServer', {
-      layers: '0,1,2,3,4,5',
+      layers: '12,13,34,9,33', // silniční síť, křižovatky, územní rezervy silnic a železnic
       format: 'image/png',
       transparent: true,
-      attribution: '© Středočeský kraj - ZÚR',
-      opacity: 0.5,
+      attribution: '© Středočeský kraj - plánované komunikace',
+      opacity: 0.7,
       maxZoom: 20
     });
     
@@ -296,7 +296,7 @@ function initializeMap() {
     };
     
     const overlayLayers = {
-      "🛣️ Plánované komunikace (ZÚR)": zur
+      "🛣️ Plánované silnice a železnice": zur
     };
     
     L.control.layers(baseLayers, overlayLayers).addTo(map);
