@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: proposal
 title: "Bytové domy SG"
 author: "Patrick Zandl"
 category: "infrastruktura"
-status: "undefined"
+status: "realizace"
 date: 2025-08-15
 location:
   type: "polygon"

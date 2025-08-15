@@ -286,105 +286,104 @@ function loadCadastralData() {
   cadastralLayer.addLayer(cadastralWMS);
 }
 
-// Ukázková data návrhů
-function loadProposalsData() {
-  allProposals = [
-    {
-      id: 1,
-      title: "Nové dětské hřiště u základní školy",
-      author: "Patrick Zandl",
-      category: "sportoviste",
-      status: "navrh",
-      description: "Moderní dětské hřiště s prvky pro děti 3-12 let",
-      location: {
-        type: "polygon",
-        coordinates: [
-          [50.1875, 14.6630],
-          [50.1878, 14.6630],
-          [50.1878, 14.6635],
-          [50.1875, 14.6635],
-          [50.1875, 14.6630]
-        ]
-      },
-      budget: "2.5M Kč",
-      dateProposed: "2025-08-14"
-    },
-    {
-      id: 2,
-      title: "Cyklistická stezka podél Labe",
-      author: "Jan Prokop",
-      category: "doprava",
-      status: "schvaleno",
-      description: "Nová cyklistická stezka spojující centrum s přístavem",
-      location: {
-        type: "polyline",
-        coordinates: [
-          [50.1850, 14.6600],
-          [50.1865, 14.6620],
-          [50.1880, 14.6640]
-        ]
-      },
-      budget: "5.2M Kč",
-      dateProposed: "2025-07-20"
-    },
-    {
-      id: 3,
-      title: "Revitalizace parku na náměstí",
-      author: "Eva Tylová",
-      category: "zelen",
-      status: "realizace",
-      description: "Obnova zeleně a mobiliáře v centru města",
-      location: {
-        type: "polygon",
-        coordinates: [
-          [50.1870, 14.6640],
-          [50.1875, 14.6640],
-          [50.1875, 14.6650],
-          [50.1870, 14.6650],
-          [50.1870, 14.6640]
-        ]
-      },
-      budget: "3.8M Kč",
-      dateProposed: "2025-06-15"
-    },
-    {
-      id: 4,
-      title: "Smart lavičky s Wi-Fi",
-      author: "Lukáš Findeis",
-      category: "smart-city",
-      status: "hotovo",
-      description: "Instalace chytrých laviček s nabíjením a Wi-Fi",
-      location: {
-        type: "point",
-        coordinates: [50.1860, 14.6625]
-      },
-      budget: "450K Kč",
-      dateProposed: "2025-05-10"
-    },
-    {
-      id: 5,
-      title: "Rozšíření parkoviště u nádraží",
-      author: "Marek Řebíček",
-      category: "infrastruktura",
-      status: "zamitnuto",
-      description: "Nová parkovací místa pro cestující",
-      location: {
-        type: "polygon",
-        coordinates: [
-          [50.1855, 14.6615],
-          [50.1860, 14.6615],
-          [50.1860, 14.6620],
-          [50.1855, 14.6620],
-          [50.1855, 14.6615]
-        ]
-      },
-      budget: "1.2M Kč",
-      dateProposed: "2025-04-25"
+// Načtení dat návrhů z Jekyll kolekce
+async function loadProposalsData() {
+  try {
+    console.log('Načítám data návrhů z Jekyll kolekce...');
+    
+    // Načtení dat z JSON API
+    const response = await fetch('{{ "/api/proposals.json" | relative_url }}');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  ];
-  
-  renderProposalsOnMap();
-  renderProposalsList();
+    
+    const data = await response.json();
+    
+    console.log('Načteno návrhů:', data.length);
+    
+    allProposals = data.map(proposal => {
+      // Zajistíme správný formát dat
+      return {
+        ...proposal,
+        // Převedeme status na správný formát pokud je undefined
+        status: proposal.status === 'undefined' ? 'navrh' : proposal.status,
+        // Zajistíme že coordinates jsou správný formát
+        location: {
+          ...proposal.location,
+          coordinates: Array.isArray(proposal.location.coordinates) ? proposal.location.coordinates : []
+        }
+      };
+    });
+    
+    console.log('Zpracované návrhy:', allProposals);
+    
+    renderProposalsOnMap();
+    renderProposalsList();
+    
+  } catch (error) {
+    console.error('Chyba při načítání návrhů:', error);
+    
+    // Fallback na ukázková data
+    console.log('Používám ukázková data...');
+    allProposals = [
+      {
+        id: 1,
+        title: "Nové dětské hřiště u základní školy",
+        author: "Patrick Zandl",
+        category: "sportoviste",
+        status: "navrh",
+        description: "Moderní dětské hřiště s prvky pro děti 3-12 let",
+        location: {
+          type: "polygon",
+          coordinates: [
+            [50.1875, 14.6630],
+            [50.1878, 14.6630],
+            [50.1878, 14.6635],
+            [50.1875, 14.6635],
+            [50.1875, 14.6630]
+          ]
+        },
+        budget: "2.5M Kč",
+        dateProposed: "2025-08-14"
+      },
+      {
+        id: 2,
+        title: "Cyklistická stezka podél Labe",
+        author: "Jan Prokop",
+        category: "doprava",
+        status: "schvaleno",
+        description: "Nová cyklistická stezka spojující centrum s přístavem",
+        location: {
+          type: "polyline",
+          coordinates: [
+            [50.1850, 14.6600],
+            [50.1865, 14.6620],
+            [50.1880, 14.6640]
+          ]
+        },
+        budget: "5.2M Kč",
+        dateProposed: "2025-07-20"
+      },
+      {
+        id: 3,
+        title: "Smart lavičky s Wi-Fi",
+        author: "Lukáš Findeis",
+        category: "smart-city",
+        status: "hotovo",
+        description: "Instalace chytrých laviček s nabíjením a Wi-Fi",
+        location: {
+          type: "point",
+          coordinates: [50.1860, 14.6625]
+        },
+        budget: "450K Kč",
+        dateProposed: "2025-05-10"
+      }
+    ];
+    
+    renderProposalsOnMap();
+    renderProposalsList();
+  }
 }
 
 // Vykreslení návrhů na mapě
@@ -434,16 +433,26 @@ function createProposalPopup(proposal) {
   const statusName = getStatusName(proposal.status);
   const statusIcon = getStatusIcon(proposal.status);
   
+  // Vytvoříme odkaz na detail pouze pokud máme URL
+  const detailLink = proposal.url ? `
+    <div style="margin-top: 12px; text-align: center;">
+      <a href="${proposal.url}" style="display: inline-block; padding: 6px 12px; background: #007cba; color: white; text-decoration: none; border-radius: 4px; font-size: 12px;">
+        📄 Detail návrhu
+      </a>
+    </div>
+  ` : '';
+  
   return `
-    <div style="min-width: 200px;">
+    <div style="min-width: 220px;">
       <h4 style="margin: 0 0 8px; color: #333;">${proposal.title}</h4>
       <div style="font-size: 12px; color: #666; margin-bottom: 8px;">
         <div>${statusIcon} ${statusName}</div>
         <div>👤 ${proposal.author}</div>
-        <div>💰 ${proposal.budget}</div>
+        ${proposal.budget ? `<div>💰 ${proposal.budget}</div>` : ''}
         <div>📅 ${new Date(proposal.dateProposed).toLocaleDateString('cs-CZ')}</div>
       </div>
-      <p style="margin: 0; font-size: 13px;">${proposal.description}</p>
+      <p style="margin: 0; font-size: 13px; line-height: 1.4;">${proposal.description}</p>
+      ${detailLink}
     </div>
   `;
 }
@@ -460,17 +469,27 @@ function renderProposalsList() {
     const statusName = getStatusName(proposal.status);
     const statusIcon = getStatusIcon(proposal.status);
     
+    // Odkaz na detail
+    const detailButton = proposal.url ? `
+      <div style="margin-top: 12px;">
+        <a href="${proposal.url}" style="display: inline-block; padding: 6px 12px; background: #007cba; color: white; text-decoration: none; border-radius: 4px; font-size: 12px;">
+          📄 Detail
+        </a>
+      </div>
+    ` : '';
+    
     return `
       <div class="proposal-card status-${proposal.status}" onclick="selectProposal(${proposal.id})">
         <div class="proposal-title">${proposal.title}</div>
         <div class="proposal-meta">
           <span>👤 ${proposal.author}</span>
-          <span>💰 ${proposal.budget}</span>
+          ${proposal.budget ? `<span>💰 ${proposal.budget}</span>` : ''}
         </div>
         <div style="margin-bottom: 8px;">
           <span class="proposal-status status-${proposal.status}">${statusIcon} ${statusName}</span>
         </div>
-        <div style="font-size: 13px; color: #666;">${proposal.description}</div>
+        <div style="font-size: 13px; color: #666; margin-bottom: 8px;">${proposal.description}</div>
+        ${detailButton}
       </div>
     `;
   }).join('');

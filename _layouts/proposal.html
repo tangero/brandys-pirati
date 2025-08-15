@@ -1,0 +1,195 @@
+---
+layout: default
+---
+
+<div class="md-section">
+  <div class="md-section__header">
+    <h1 class="md-section__title">{{ page.title }}</h1>
+    <div class="proposal-metadata">
+      <div class="proposal-status status-{{ page.status }}">
+        {% assign status_icon = '' %}
+        {% case page.status %}
+          {% when 'navrh' %}
+            {% assign status_icon = '🔵' %}
+            {% assign status_name = 'Návrh' %}
+          {% when 'schvaleno' %}
+            {% assign status_icon = '🟡' %}
+            {% assign status_name = 'Schváleno' %}
+          {% when 'realizace' %}
+            {% assign status_icon = '🟣' %}
+            {% assign status_name = 'V realizaci' %}
+          {% when 'hotovo' %}
+            {% assign status_icon = '🟢' %}
+            {% assign status_name = 'Hotovo' %}
+          {% when 'zamitnuto' %}
+            {% assign status_icon = '🔴' %}
+            {% assign status_name = 'Zamítnuto' %}
+          {% else %}
+            {% assign status_icon = '🔵' %}
+            {% assign status_name = 'Návrh' %}
+        {% endcase %}
+        {{ status_icon }} {{ status_name }}
+      </div>
+      <div class="proposal-meta">
+        <span>👤 {{ page.author }}</span>
+        {% if page.budget %}<span>💰 {{ page.budget }}</span>{% endif %}
+        <span>📅 {{ page.date | date: "%d. %m. %Y" }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="md-grid md-grid--2-col">
+    <div class="md-card">
+      <div class="md-card__content">
+        <div class="md-card__body">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    <div class="md-card">
+      <div class="md-card__content">
+        <div class="md-card__header">
+          <h3 class="md-card__title">🗺️ Mapa</h3>
+        </div>
+        <div class="md-card__body">
+          <!-- Mapa návrhu -->
+          <div id="proposal-map" style="height: 300px; border-radius: 8px; overflow: hidden;"></div>
+          
+          <div style="margin-top: 16px; font-size: 14px; color: #666;">
+            <strong>Lokace:</strong><br>
+            {% if page.location.address %}{{ page.location.address }}{% else %}Označeno na mapě{% endif %}<br>
+            <strong>Typ:</strong> {{ page.location.type }}<br>
+            <strong>Souřadnice:</strong> {{ page.location.coordinates }}
+          </div>
+          
+          <div style="margin-top: 16px;">
+            <a href="{{ '/mapa-navrhu/' | relative_url }}" class="md-button md-button--secondary">
+              🔙 Zpět na mapu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mapEl = document.getElementById('proposal-map');
+  if (mapEl && typeof L !== 'undefined') {
+    
+    // Data návrhu z Jekyll
+    const proposalData = {
+      location: {
+        type: "{{ page.location.type }}",
+        coordinates: {{ page.location.coordinates | jsonify }},
+        address: "{{ page.location.address }}"
+      },
+      title: "{{ page.title }}",
+      status: "{{ page.status }}"
+    };
+    
+    // Vytvoření mapy
+    let center, zoom;
+    if (proposalData.location.type === 'point') {
+      center = proposalData.location.coordinates;
+      zoom = 16;
+    } else {
+      // Pro polygon/polyline spočítáme střed
+      const coords = proposalData.location.coordinates;
+      const lats = coords.map(c => c[0]);
+      const lngs = coords.map(c => c[1]);
+      center = [
+        (Math.min(...lats) + Math.max(...lats)) / 2,
+        (Math.min(...lngs) + Math.max(...lngs)) / 2
+      ];
+      zoom = 15;
+    }
+    
+    const map = L.map('proposal-map').setView(center, zoom);
+    
+    // Základní mapa
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Katastrální vrstva
+    L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
+      layers: 'DEF_PARCELY,DEF_BUDOVY',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© ČÚZK',
+      opacity: 0.6,
+      interactive: false
+    }).addTo(map);
+    
+    // Zobrazení návrhu na mapě
+    const statusColors = {
+      'navrh': '#2196F3',
+      'schvaleno': '#FF9800', 
+      'realizace': '#9C27B0',
+      'hotovo': '#4CAF50',
+      'zamitnuto': '#F44336'
+    };
+    
+    const color = statusColors[proposalData.status] || '#2196F3';
+    
+    if (proposalData.location.type === 'point') {
+      const icon = L.divIcon({
+        className: 'custom-marker',
+        html: `<div style="background: ${color}; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+      });
+      L.marker(proposalData.location.coordinates, { icon }).addTo(map);
+    } else if (proposalData.location.type === 'polyline') {
+      L.polyline(proposalData.location.coordinates, {
+        color: color,
+        weight: 5,
+        opacity: 0.8
+      }).addTo(map);
+    } else if (proposalData.location.type === 'polygon') {
+      L.polygon(proposalData.location.coordinates, {
+        color: color,
+        weight: 3,
+        fillColor: color,
+        fillOpacity: 0.3
+      }).addTo(map);
+    }
+  }
+});
+</script>
+
+<style>
+.proposal-metadata {
+  margin: 16px 0;
+}
+
+.proposal-status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.proposal-status.status-navrh { background: #e3f2fd; color: #1976d2; }
+.proposal-status.status-schvaleno { background: #fff3e0; color: #f57c00; }
+.proposal-status.status-realizace { background: #f3e5f5; color: #7b1fa2; }
+.proposal-status.status-hotovo { background: #e8f5e8; color: #388e3c; }
+.proposal-status.status-zamitnuto { background: #ffebee; color: #d32f2f; }
+
+.proposal-meta {
+  font-size: 14px;
+  color: #666;
+}
+
+.proposal-meta span {
+  margin-right: 16px;
+}
+</style>
