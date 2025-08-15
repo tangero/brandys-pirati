@@ -1,98 +1,165 @@
 ---
 layout: default
-img: brand/logo.svg
+title: Připoj se
 ---
 
-<div class="row">
-  <div class="medium-12 large-12 columns">
-    <section class="o-section o-section--spaceBot">
-      <div class="o-section-inner">
-        <div class="o-section-block" data-equalizer data-equalize-on="medium">
-          <div class="column medium-4">
-            <ul class="pricing-table no-bullet text-center" data-equalizer-watch>
-              <li class="pricing-table-header-img" style="background-image:url('{{ 'odberatel.jpg' | prepend: '/assets/img/teams/' | relative_url}}')"></li>
-              <!--CC-BY Kartik Malik source https://flic.kr/p/aQaGzX -->
-              <li class="price">Odběratel novinek</li>
-              <li class="description">získá...</li>
-              <li>✓ pozvánky na akce</li>
-              <li>✓ pravidelné novinky do e-mailu</li>
-              <li>
-              Nezapomeň sledovat <a href="{{ site.data.links.group.facebook_page }}">náš Facebook!
-              <i class="fa fa-facebook-official" aria-hidden="true"></i>
-              </a></li>
-            </ul>
-          </div>
-          <div class="column medium-4">
-            <ul class="pricing-table no-bullet text-center" data-equalizer-watch>
-              <li class="pricing-table-header-img" style="background-image:url('{{ 'priznivec.jpg' | prepend: '/assets/img/teams/' | relative_url}}')"></li>
-              <li class="price"  title="Doporučujeme!">Registrovaný příznivec <span style="color:yellow"><i class="fa fa-star"></i></span></li>
-              <li class="description">získá...</li>
-              <li>✓ možnost účasti ve vnitřní diskusi</li>
-              <li>✓ možnost kandidatury</li>
-              <li>+ možnosti odběratele novinek</li>
-            </ul>
-          </div>
-          <div class="column medium-4">
-            <ul class="pricing-table no-bullet text-center" data-equalizer-watch>
-              <li class="pricing-table-header-img" style="background-image:url('{{ 'clen.jpg' | prepend: '/assets/img/teams/' | relative_url}}')"></li>
-              <li class="price">Člen strany</li>
-              <li class="description">získá...</li>
-              <li>✓ možnost hlasovat ve straně</li>
-              <li>✓ adresu @pirati.cz</li>
-              <li>+ možnosti registrovaného příznivce</li>
-            </ul>
-          </div>
+<div class="md-section">
+  <div class="md-section__header">
+    <h1 class="md-section__title">Připoj se k nám</h1>
+    <p class="md-section__subtitle">Vyberte si způsob zapojení, který vám nejvíce vyhovuje</p>
+  </div>
+  
+  <div class="md-grid md-grid--3-col">
+    <!-- Odběratel novinek -->
+    <div class="md-card">
+      <div class="md-card__media">
+        <img src="{{ '/assets/img/teams/odberatel.jpg' | relative_url }}" alt="Odběratel novinek" class="md-card__image">
+      </div>
+      <div class="md-card__content">
+        <div class="md-card__header">
+          <h3 class="md-card__title">📧 Odběratel novinek</h3>
+          <p class="md-card__subtitle">Základní informovanost</p>
+        </div>
+        
+        <div class="md-card__body">
+          <ul class="md-list">
+            <li class="md-list__item">
+              <span class="md-list__icon">✓</span>
+              <span class="md-list__text">Pozvánky na akce</span>
+            </li>
+            <li class="md-list__item">
+              <span class="md-list__icon">✓</span>
+              <span class="md-list__text">Pravidelné novinky do e-mailu</span>
+            </li>
+            <li class="md-list__item">
+              <span class="md-list__icon">📱</span>
+              <span class="md-list__text">Sledujte náš <a href="{{ site.data.links.group.facebook_page | default: '#' }}">Facebook</a></span>
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
-  </div>
-</div>
+    </div>
 
-<div class="row">
-  <div class="medium-12 large-12 columns">
-    <div id="tlacitko" style="    text-align: center;">
+    <!-- Registrovaný příznivec -->
+    <div class="md-card md-card--elevated">
+      <div class="md-card__media">
+        <img src="{{ '/assets/img/teams/priznivec.jpg' | relative_url }}" alt="Registrovaný příznivec" class="md-card__image">
+        <div class="md-card__badge">⭐ Doporučujeme</div>
+      </div>
+      <div class="md-card__content">
+        <div class="md-card__header">
+          <h3 class="md-card__title">🤝 Registrovaný příznivec</h3>
+          <p class="md-card__subtitle">Aktivní zapojení</p>
+        </div>
+        
+        <div class="md-card__body">
+          <ul class="md-list">
+            <li class="md-list__item">
+              <span class="md-list__icon">✓</span>
+              <span class="md-list__text">Účast ve vnitřní diskusi</span>
+            </li>
+            <li class="md-list__item">
+              <span class="md-list__icon">✓</span>
+              <span class="md-list__text">Možnost kandidatury</span>
+            </li>
+            <li class="md-list__item">
+              <span class="md-list__icon">+</span>
+              <span class="md-list__text">Všechny možnosti odběratele</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-        <p style="width: 350px; margin-top: 10px; text-align: center; padding: 22px; font-size: 22px; background-color: #5cb85c;border-color: #5cb85c; color: white;" class="c-cta-button c-cta-button--primary">
-        Kontaktuj
-          <br> místní kontakt
-        </a>
+    <!-- Člen strany -->
+    <div class="md-card">
+      <div class="md-card__media">
+        <img src="{{ '/assets/img/teams/clen.jpg' | relative_url }}" alt="Člen strany" class="md-card__image">
+      </div>
+      <div class="md-card__content">
+        <div class="md-card__header">
+          <h3 class="md-card__title">🏴‍☠️ Člen strany</h3>
+          <p class="md-card__subtitle">Plné členství</p>
+        </div>
+        
+        <div class="md-card__body">
+          <ul class="md-list">
+            <li class="md-list__item">
+              <span class="md-list__icon">✓</span>
+              <span class="md-list__text">Možnost hlasovat ve straně</span>
+            </li>
+            <li class="md-list__item">
+              <span class="md-list__icon">✓</span>
+              <span class="md-list__text">Adresa @pirati.cz</span>
+            </li>
+            <li class="md-list__item">
+              <span class="md-list__icon">+</span>
+              <span class="md-list__text">Všechny možnosti příznivce</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="medium-12 large-12 columns">
-    <section class="o-section o-section">
-      <div class="o-section-inner">
-        <div class="o-section-block">
-          <div class="c-BasicPage">
-            <div class="c-BasicPage-content">
-              <h2 itemprop="headline" class="c-BasicPage__title">Místní kontakt</h2>
-              <div class="row collapse">
+<!-- CTA Sekce -->
+<div class="md-section md-section--accent">
+  <div class="md-section__content">
+    <div style="text-align: center; margin: 40px 0;">
+      <a href="#kontakt" class="md-button md-button--primary md-button--large">
+        📞 Kontaktujte místní kontakt
+      </a>
+    </div>
+  </div>
+</div>
 
-                <div class="large-6 small-12 columns end o-section-mediumdown-divided-small">
-                  {% if site.data.links.group.local_contact_uid %}
-                    {% assign item =  site.people | where_exp:"item","item.uid contains site.data.links.group.local_contact_uid" | first %}
-                    {% include people/local-contact.html param=""%}
-                  {% endif %}
-                </div>
-
-                <div class="large-6 small-12 columns end o-section-mediumdown-divided-small">
-                  <div class="o-media">
-                    <div class="o-media__body">
-                      <blockquote class="c-blockquote c-blockquote--wicon">Pirátská strana funguje na principu dobrovolnosti.
-                        Pokud něco chceš dělat, nečekej na ostatní
-                        a zapoj se. Samozřejmě respektuj ostatní dobrovolníky
-                        a pravidla
-                        <a href="https://redmine.pirati.cz/projects/po/wiki/Pir%C3%A1tsk%C3%A1_netiketa">netikety</a>.</blockquote>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<!-- Kontaktní sekce -->
+<div class="md-section" id="kontakt">
+  <div class="md-section__header">
+    <h2 class="md-section__title">Místní kontakt</h2>
+    <p class="md-section__subtitle">Máte otázky nebo se chcete zapojit? Kontaktujte nás!</p>
+  </div>
+  
+  <div class="md-grid md-grid--2-col">
+    <div class="md-card">
+      {% if site.data.links.group.local_contact_uid %}
+        {% assign item = site.people | where_exp:"item","item.uid contains site.data.links.group.local_contact_uid" | first %}
+        {% include people/local-contact.html param=""%}
+      {% else %}
+        <div class="md-card__content">
+          <div class="md-card__header">
+            <h3 class="md-card__title">Kontaktní osoba</h3>
+          </div>
+          <div class="md-card__body">
+            <p>Kontaktní údaje zatím nejsou dostupné. Můžete nás kontaktovat přes:</p>
+            <ul class="md-list">
+              <li class="md-list__item">
+                <span class="md-list__icon">📧</span>
+                <span class="md-list__text">E-mail</span>
+              </li>
+              <li class="md-list__item">
+                <span class="md-list__icon">📱</span>
+                <span class="md-list__text">Facebook</span>
+              </li>
+            </ul>
           </div>
         </div>
+      {% endif %}
+    </div>
+
+    <div class="md-card">
+      <div class="md-card__content">
+        <div class="md-card__header">
+          <h3 class="md-card__title">💡 Jak to funguje</h3>
+        </div>
+        <div class="md-card__body">
+          <blockquote class="md-blockquote">
+            <p>Pirátská strana funguje na principu dobrovolnosti. Pokud něco chceš dělat, nečekej na ostatní a zapoj se.</p>
+            <p>Samozřejmě respektuj ostatní dobrovolníky a pravidla <a href="https://redmine.pirati.cz/projects/po/wiki/Pir%C3%A1tsk%C3%A1_netiketa" target="_blank">netikety</a>.</p>
+          </blockquote>
+        </div>
       </div>
-    </section>
+    </div>
   </div>
 </div>
