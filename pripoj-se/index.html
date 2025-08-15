@@ -3,163 +3,288 @@ layout: default
 title: Připoj se
 ---
 
+<style>
+  /* Grid pro karty */
+  .participation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+  }
+  
+  /* Kartičky */
+  .participation-card {
+    background: var(--md-sys-color-surface, #fff);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .participation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.1);
+  }
+  
+  /* Doporučená karta */
+  .participation-card--recommended {
+    border: 2px solid var(--md-sys-color-primary, #007cba);
+    position: relative;
+  }
+  
+  .participation-card__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--md-sys-color-primary, #007cba);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1;
+  }
+  
+  /* Obrázek */
+  .participation-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  /* Obsah karty */
+  .participation-card__content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .participation-card__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    color: var(--md-sys-color-on-surface, #333);
+  }
+  
+  .participation-card__subtitle {
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface-variant, #666);
+    margin: 0 0 20px 0;
+  }
+  
+  /* Seznam výhod */
+  .participation-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .participation-benefits__item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .participation-benefits__icon {
+    margin-right: 12px;
+    color: var(--md-sys-color-primary, #007cba);
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+  
+  /* CTA tlačítko */
+  .participation-cta {
+    text-align: center;
+    margin: 48px 0;
+  }
+  
+  .participation-cta__button {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--md-sys-color-primary, #007cba);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .participation-cta__button:hover {
+    background: var(--md-sys-color-primary-dark, #005a87);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  
+  /* Kontaktní sekce */
+  .contact-section {
+    background: var(--md-sys-color-surface-variant, #f5f5f5);
+    border-radius: 12px;
+    padding: 32px;
+    margin: 48px 0;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+  
+  .contact-card {
+    background: var(--md-sys-color-surface, #fff);
+    padding: 24px;
+    border-radius: 8px;
+  }
+  
+  .contact-card__title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+  }
+  
+  /* Responsivní design */
+  @media (max-width: 768px) {
+    .participation-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
 <div class="md-section">
   <div class="md-section__header">
     <h1 class="md-section__title">Připoj se k nám</h1>
     <p class="md-section__subtitle">Vyberte si způsob zapojení, který vám nejvíce vyhovuje</p>
   </div>
   
-  <div class="md-grid md-grid--3-col">
+  <div class="participation-grid">
     <!-- Odběratel novinek -->
-    <div class="md-card">
-      <div class="md-card__media">
-        <img src="{{ '/assets/img/teams/odberatel.jpg' | relative_url }}" alt="Odběratel novinek" class="md-card__image">
-      </div>
-      <div class="md-card__content">
-        <div class="md-card__header">
-          <h3 class="md-card__title">📧 Odběratel novinek</h3>
-          <p class="md-card__subtitle">Základní informovanost</p>
-        </div>
+    <div class="participation-card">
+      <img src="{{ '/assets/img/teams/odberatel.jpg' | relative_url }}" alt="Odběratel novinek" class="participation-card__image">
+      <div class="participation-card__content">
+        <h3 class="participation-card__title">📧 Odběratel novinek</h3>
+        <p class="participation-card__subtitle">Základní informovanost</p>
         
-        <div class="md-card__body">
-          <ul class="md-list">
-            <li class="md-list__item">
-              <span class="md-list__icon">✓</span>
-              <span class="md-list__text">Pozvánky na akce</span>
-            </li>
-            <li class="md-list__item">
-              <span class="md-list__icon">✓</span>
-              <span class="md-list__text">Pravidelné novinky do e-mailu</span>
-            </li>
-            <li class="md-list__item">
-              <span class="md-list__icon">📱</span>
-              <span class="md-list__text">Sledujte náš <a href="{{ site.data.links.group.facebook_page | default: '#' }}">Facebook</a></span>
-            </li>
-          </ul>
-        </div>
+        <ul class="participation-benefits">
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">✓</span>
+            <span>Pozvánky na akce</span>
+          </li>
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">✓</span>
+            <span>Pravidelné novinky do e-mailu</span>
+          </li>
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">📱</span>
+            <span>Sledujte náš <a href="{{ site.data.links.group.facebook_page | default: '#' }}">Facebook</a></span>
+          </li>
+        </ul>
       </div>
     </div>
 
     <!-- Registrovaný příznivec -->
-    <div class="md-card md-card--elevated">
-      <div class="md-card__media">
-        <img src="{{ '/assets/img/teams/priznivec.jpg' | relative_url }}" alt="Registrovaný příznivec" class="md-card__image">
-        <div class="md-card__badge">⭐ Doporučujeme</div>
-      </div>
-      <div class="md-card__content">
-        <div class="md-card__header">
-          <h3 class="md-card__title">🤝 Registrovaný příznivec</h3>
-          <p class="md-card__subtitle">Aktivní zapojení</p>
-        </div>
+    <div class="participation-card participation-card--recommended">
+      <div class="participation-card__badge">⭐ Doporučujeme</div>
+      <img src="{{ '/assets/img/teams/priznivec.jpg' | relative_url }}" alt="Registrovaný příznivec" class="participation-card__image">
+      <div class="participation-card__content">
+        <h3 class="participation-card__title">🤝 Registrovaný příznivec</h3>
+        <p class="participation-card__subtitle">Aktivní zapojení</p>
         
-        <div class="md-card__body">
-          <ul class="md-list">
-            <li class="md-list__item">
-              <span class="md-list__icon">✓</span>
-              <span class="md-list__text">Účast ve vnitřní diskusi</span>
-            </li>
-            <li class="md-list__item">
-              <span class="md-list__icon">✓</span>
-              <span class="md-list__text">Možnost kandidatury</span>
-            </li>
-            <li class="md-list__item">
-              <span class="md-list__icon">+</span>
-              <span class="md-list__text">Všechny možnosti odběratele</span>
-            </li>
-          </ul>
-        </div>
+        <ul class="participation-benefits">
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">✓</span>
+            <span>Účast ve vnitřní diskusi</span>
+          </li>
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">✓</span>
+            <span>Možnost kandidatury</span>
+          </li>
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">+</span>
+            <span>Všechny možnosti odběratele</span>
+          </li>
+        </ul>
       </div>
     </div>
 
     <!-- Člen strany -->
-    <div class="md-card">
-      <div class="md-card__media">
-        <img src="{{ '/assets/img/teams/clen.jpg' | relative_url }}" alt="Člen strany" class="md-card__image">
-      </div>
-      <div class="md-card__content">
-        <div class="md-card__header">
-          <h3 class="md-card__title">🏴‍☠️ Člen strany</h3>
-          <p class="md-card__subtitle">Plné členství</p>
-        </div>
+    <div class="participation-card">
+      <img src="{{ '/assets/img/teams/clen.jpg' | relative_url }}" alt="Člen strany" class="participation-card__image">
+      <div class="participation-card__content">
+        <h3 class="participation-card__title">🏴‍☠️ Člen strany</h3>
+        <p class="participation-card__subtitle">Plné členství</p>
         
-        <div class="md-card__body">
-          <ul class="md-list">
-            <li class="md-list__item">
-              <span class="md-list__icon">✓</span>
-              <span class="md-list__text">Možnost hlasovat ve straně</span>
-            </li>
-            <li class="md-list__item">
-              <span class="md-list__icon">✓</span>
-              <span class="md-list__text">Adresa @pirati.cz</span>
-            </li>
-            <li class="md-list__item">
-              <span class="md-list__icon">+</span>
-              <span class="md-list__text">Všechny možnosti příznivce</span>
-            </li>
-          </ul>
-        </div>
+        <ul class="participation-benefits">
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">✓</span>
+            <span>Možnost hlasovat ve straně</span>
+          </li>
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">✓</span>
+            <span>Adresa @pirati.cz</span>
+          </li>
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">+</span>
+            <span>Všechny možnosti příznivce</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
 
 <!-- CTA Sekce -->
-<div class="md-section md-section--accent">
-  <div class="md-section__content">
-    <div style="text-align: center; margin: 40px 0;">
-      <a href="#kontakt" class="md-button md-button--primary md-button--large">
-        📞 Kontaktujte místní kontakt
-      </a>
-    </div>
-  </div>
+<div class="participation-cta">
+  <a href="#kontakt" class="participation-cta__button">
+    📞 Kontaktujte místní kontakt
+  </a>
 </div>
 
 <!-- Kontaktní sekce -->
-<div class="md-section" id="kontakt">
-  <div class="md-section__header">
-    <h2 class="md-section__title">Místní kontakt</h2>
-    <p class="md-section__subtitle">Máte otázky nebo se chcete zapojit? Kontaktujte nás!</p>
-  </div>
+<div class="contact-section" id="kontakt">
+  <h2 class="contact-card__title" style="text-align: center; font-size: 28px; margin-bottom: 8px;">Místní kontakt</h2>
+  <p style="text-align: center; color: #666; margin-bottom: 32px;">Máte otázky nebo se chcete zapojit? Kontaktujte nás!</p>
   
-  <div class="md-grid md-grid--2-col">
-    <div class="md-card">
+  <div class="contact-grid">
+    <div class="contact-card">
       {% if site.data.links.group.local_contact_uid %}
         {% assign item = site.people | where_exp:"item","item.uid contains site.data.links.group.local_contact_uid" | first %}
         {% include people/local-contact.html param=""%}
       {% else %}
-        <div class="md-card__content">
-          <div class="md-card__header">
-            <h3 class="md-card__title">Kontaktní osoba</h3>
-          </div>
-          <div class="md-card__body">
-            <p>Kontaktní údaje zatím nejsou dostupné. Můžete nás kontaktovat přes:</p>
-            <ul class="md-list">
-              <li class="md-list__item">
-                <span class="md-list__icon">📧</span>
-                <span class="md-list__text">E-mail</span>
-              </li>
-              <li class="md-list__item">
-                <span class="md-list__icon">📱</span>
-                <span class="md-list__text">Facebook</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <h3 class="contact-card__title">👤 Kontaktní osoba</h3>
+        <p>Kontaktní údaje zatím nejsou dostupné. Můžete nás kontaktovat přes:</p>
+        <ul class="participation-benefits" style="margin-top: 16px;">
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">📧</span>
+            <span>E-mail</span>
+          </li>
+          <li class="participation-benefits__item">
+            <span class="participation-benefits__icon">📱</span>
+            <span>Facebook</span>
+          </li>
+        </ul>
       {% endif %}
     </div>
 
-    <div class="md-card">
-      <div class="md-card__content">
-        <div class="md-card__header">
-          <h3 class="md-card__title">💡 Jak to funguje</h3>
-        </div>
-        <div class="md-card__body">
-          <blockquote class="md-blockquote">
-            <p>Pirátská strana funguje na principu dobrovolnosti. Pokud něco chceš dělat, nečekej na ostatní a zapoj se.</p>
-            <p>Samozřejmě respektuj ostatní dobrovolníky a pravidla <a href="https://redmine.pirati.cz/projects/po/wiki/Pir%C3%A1tsk%C3%A1_netiketa" target="_blank">netikety</a>.</p>
-          </blockquote>
-        </div>
-      </div>
+    <div class="contact-card">
+      <h3 class="contact-card__title">💡 Jak to funguje</h3>
+      <blockquote style="border-left: 4px solid var(--md-sys-color-primary, #007cba); padding-left: 16px; margin: 0; font-style: italic;">
+        <p>Pirátská strana funguje na principu dobrovolnosti. Pokud něco chceš dělat, nečekej na ostatní a zapoj se.</p>
+        <p>Samozřejmě respektuj ostatní dobrovolníky a pravidla <a href="https://redmine.pirati.cz/projects/po/wiki/Pir%C3%A1tsk%C3%A1_netiketa" target="_blank">netikety</a>.</p>
+      </blockquote>
     </div>
   </div>
 </div>
