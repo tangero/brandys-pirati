@@ -277,13 +277,13 @@ function setupBaseLayers() {
   
   // Překryvné vrstvy
   
-  // Územní plán - hlavní výkres
-  const uzemniPlan = L.tileLayer.wms('https://gis.kr-stredocesky.cz/wagisas01/services/USR/USR_UPN_UPD_OBEC_HLV/MapServer/WMSServer', {
-    layers: '0,1,2,3,4,5,6,7,8,9',
+  // Územní plán Brandýs nad Labem-Stará Boleslav z Gepro
+  const uzemniPlan = L.tileLayer.wms('https://wms.gepro.cz/TOPO/OUT/WMS', {
+    layers: '0',
     format: 'image/png',
     transparent: true,
-    attribution: '© Středočeský kraj - územní plány',
-    opacity: 0.6,
+    attribution: '© Gepro - územní plán Brandýs',
+    opacity: 0.7,
     maxZoom: 20
   });
 
@@ -304,7 +304,6 @@ function setupBaseLayers() {
   };
   
   const overlayLayers = {
-    "📋 Územní plán": uzemniPlan,
     "🛣️ Plánované komunikace (ZÚR)": zur
   };
   
