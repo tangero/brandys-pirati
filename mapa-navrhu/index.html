@@ -274,35 +274,53 @@ function initMap() {
 
 // Načtení katastrálních dat (WMS služba ČÚZK)
 function loadCadastralData() {
-  // Katastrální mapa z ČÚZK
+  // Katastrální mapa z ČÚZK - pouze parcely a budovy, bez popisků
   const cadastralWMS = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
     layers: 'DEF_PARCELY,DEF_BUDOVY',
     format: 'image/png',
     transparent: true,
     attribution: '© ČÚZK',
-    opacity: 0.7
+    opacity: 0.5,
+    interactive: false,
+    // Skryjeme textové popisky parcel
+    styles: '',
+    maxZoom: 18
   });
   
   cadastralLayer.addLayer(cadastralWMS);
 }
 
 // Načtení dat návrhů z Jekyll kolekce
-async function loadProposalsData() {
-  try {
-    console.log('Načítám data návrhů z Jekyll kolekce...');
-    
-    // Načtení dat z JSON API
-    const response = await fetch('{{ "/api/proposals.json" | relative_url }}');
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    
-    console.log('Načteno návrhů:', data.length);
-    
-    allProposals = data.map(proposal => {
+function loadProposalsData() {
+  console.log('Načítám data návrhů z Jekyll kolekce...');
+  
+  // Data z Jekyll kolekce (vložená přímo do stránky)
+  const jekyllData = [
+    {% for proposal in site.proposals %}
+    {
+      "id": {{ forloop.index }},
+      "title": {{ proposal.title | jsonify }},
+      "author": {{ proposal.author | jsonify }},
+      "category": {{ proposal.category | jsonify }},
+      "status": {{ proposal.status | jsonify }},
+      "description": {{ proposal.excerpt | strip_html | strip | jsonify }},
+      "location": {
+        "type": {{ proposal.location.type | jsonify }},
+        "coordinates": {{ proposal.location.coordinates | jsonify }},
+        "address": {{ proposal.location.address | jsonify }}
+      },
+      "budget": {{ proposal.budget | jsonify }},
+      "dateProposed": {{ proposal.date | date: "%Y-%m-%d" | jsonify }},
+      "url": {{ proposal.url | jsonify }},
+      "content": {{ proposal.content | strip_html | strip | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+  
+  console.log('Načteno návrhů z Jekyll:', jekyllData.length);
+  
+  if (jekyllData.length > 0) {
+    allProposals = jekyllData.map(proposal => {
       // Zajistíme správný formát dat
       return {
         ...proposal,
@@ -316,17 +334,16 @@ async function loadProposalsData() {
       };
     });
     
-    console.log('Zpracované návrhy:', allProposals);
+    console.log('Zpracované návrhy z Jekyll:', allProposals);
     
     renderProposalsOnMap();
     renderProposalsList();
-    
-  } catch (error) {
-    console.error('Chyba při načítání návrhů:', error);
-    
-    // Fallback na ukázková data
-    console.log('Používám ukázková data...');
-    allProposals = [
+    return;
+  }
+  
+  // Fallback na ukázková data
+  console.log('Žádná data z Jekyll kolekce, používám ukázková data...');
+  allProposals = [
       {
         id: 1,
         title: "Nové dětské hřiště u základní školy",
@@ -379,11 +396,10 @@ async function loadProposalsData() {
         budget: "450K Kč",
         dateProposed: "2025-05-10"
       }
-    ];
-    
-    renderProposalsOnMap();
-    renderProposalsList();
-  }
+  ];
+  
+  renderProposalsOnMap();
+  renderProposalsList();
 }
 
 // Vykreslení návrhů na mapě

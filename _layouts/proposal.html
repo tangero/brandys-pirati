@@ -117,14 +117,16 @@ document.addEventListener('DOMContentLoaded', function() {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
     
-    // Katastrální vrstva
+    // Katastrální vrstva - pouze parcely a budovy, bez popisků
     L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
       layers: 'DEF_PARCELY,DEF_BUDOVY',
       format: 'image/png',
       transparent: true,
       attribution: '© ČÚZK',
-      opacity: 0.6,
-      interactive: false
+      opacity: 0.5,
+      interactive: false,
+      styles: '',  // Skryjeme textové popisky parcel
+      maxZoom: 18
     }).addTo(map);
     
     // Zobrazení návrhu na mapě

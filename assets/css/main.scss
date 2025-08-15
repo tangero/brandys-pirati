@@ -2,9 +2,9 @@
 # Material Design 3 main stylesheet
 ---
 
-// Material Design 3 imports
-@import 'material-design-3';
-@import 'md3-components';
+// Material Design 3 imports - using @use instead of deprecated @import
+@use 'material-design-3';
+@use 'md3-components';
 
 // Legacy styles compatibility
 .pricing-table {

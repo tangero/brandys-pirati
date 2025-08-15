@@ -256,14 +256,16 @@ function initializeMap() {
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
     
-    // Katastrální vrstva
+    // Katastrální vrstva - pouze parcely a budovy, bez popisků
     const cadastralLayer = L.tileLayer.wms('https://services.cuzk.cz/wms/wms.asp', {
       layers: 'DEF_PARCELY,DEF_BUDOVY',
       format: 'image/png',
       transparent: true,
       attribution: '© ČÚZK',
-      opacity: 0.6,
-      interactive: false  // Důležité - vrstva nebude blokovat kliknutí
+      opacity: 0.5,
+      interactive: false,  // Důležité - vrstva nebude blokovat kliknutí
+      styles: '',  // Skryjeme textové popisky parcel
+      maxZoom: 18
     });
     cadastralLayer.addTo(map);
     
