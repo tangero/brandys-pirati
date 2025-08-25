@@ -94,6 +94,9 @@
   
   &__content {
     padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
   
   &__headline {
@@ -139,21 +142,30 @@
     line-height: 1.5;
     color: var(--md-sys-color-on-surface-variant);
     margin-bottom: 16px;
+    flex: 1;
   }
   
   &__actions {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
+    margin-top: auto;
   }
 }
 
 // MD3 Seznam článků
 .md-articles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
   margin-bottom: 48px;
+  
+  .md-article-card {
+    height: fit-content;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 // MD3 Hero sekce
