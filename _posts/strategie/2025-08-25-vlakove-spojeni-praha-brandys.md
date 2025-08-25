@@ -17,11 +17,11 @@ Dopravně jsme přitom odkázáni na silnici 610 a někdejší rychlostní silni
 
 Řešením dopravy do Prahy má být podle projektantů takzvaný Silniční okruh kolem Prahy (SOKP), přičemž pro nás je důležitá především jeho severní větev. Ta zatím končí v satalických polích, fakticky tedy nájezdem na D10, a to je právě ten zádrhel. Ve špičkách nemají pražské silnice dostatečnou kapacitu na rychlé odvedení aut přijíždějících z D10, auta se štosují. Dojezdový čas do Prahy se tak v posledních letech zvyšuje každým rokem v průměru o dvě minuty. Nejinak je tomu na silnici 610, kde se od Vinoře ve špičkách jezdí přískoky. 
 
-Jak toto vyřešit? Pražská Technická správa komunikací (TSK) vyhotovila v roce 2022 studii, která se snaží propočítat dopady jednotlivých zvažovaných dopravních řešení. Studie dává plastický obraz i pro náš region, takže si o jejích závěrech něco řekněme. Nejdříve je ale třeba přiznat jí značný optimismus, protože sama studie předpokládá vybudování tunelového komplexu nazvaného Blanka 2, který uzavře vnitřní městský okruh Prahy ze štěrboholské Jižní spojky do Holešoviček. Tato dopravní tepna měla před 10 lety stát 50 miliard korun, Praha na projektu pracuje (nyní řeší územní rozhodnutí) a do pěti let by chtěla začít stavět. Postaveno bude tedy nejdříve za 10 let. Rozpuštění přivedené dopravy do města, které předpokládá studie TSK, nebude v roce 2030 tak hladké.      
+Jak toto vyřešit? Pražská [Technická správa komunikací (TSK) vyhotovila v roce 2022 studii](/assets/img/download/DIP SOKP 520_2022_compressed.pdf), která se snaží propočítat dopady jednotlivých zvažovaných dopravních řešení. Studie dává plastický obraz i pro náš region, takže si o jejích závěrech něco řekněme. Nejdříve je ale třeba přiznat jí značný optimismus, protože sama studie předpokládá vybudování tunelového komplexu nazvaného Blanka 2, který uzavře vnitřní městský okruh Prahy ze štěrboholské Jižní spojky do Holešoviček. Tato dopravní tepna měla před 10 lety stát 50 miliard korun, Praha na projektu pracuje (nyní řeší územní rozhodnutí) a do pěti let by chtěla začít stavět. Postaveno bude tedy nejdříve za 10 let. Rozpuštění přivedené dopravy do města, které předpokládá studie TSK, nebude v roce 2030 tak hladké.      
 
 Zde je tabulka dopravní zátěže vstahující se k načemu městu. Tabulka zahrnuje osobní dopravu a za lomítkem z toho dopravu nad 3,5 t mimo PID
 
-| Région | Stav 2019 | Odhad 2030 | SOKP 2030 | + II/244 |
+| Oblast | Stav 2019 | Odhad 2030 | SOKP 2030 | + II/244 |
 |---------|-----------|------------|-----------|----------|
 | Pražská | 10400 / 470 | 11200 / 280 | 14600 / 300 | 13000 / 410 |
 | D10 | 61300 / 6720 | 70000 / 8650 | 67700 / 8510 | 66700 / 8670 |

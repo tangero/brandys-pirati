@@ -35,7 +35,8 @@ title: Aktuality
   
   <div class="md-articles-grid">
     {% assign all_posts = site.posts | where_exp: "post", "post.category != 'mistostarosti'" %}
-    {% assign aktuality_posts = all_posts | where_exp: "post", "post.proposal != true" %}
+    {% assign filtered_posts = all_posts | where_exp: "post", "post.category != 'strategie'" %}
+    {% assign aktuality_posts = filtered_posts | where_exp: "post", "post.proposal != true" %}
     {% for post in aktuality_posts limit: 12 %}
     <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
       <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
