@@ -5,7 +5,7 @@ title: Vyšší Hrádek musí spadnout, aby developeři mohli stavět!
 date: 2025-03-18T12:00:00.000Z
 author: Patrick Zandl
 authorId: patrick.zandl
-image: /assets/img/posts/2018-10-24-doprava-kolaps.jpg
+image: /assets/img/posts/piaristika-kolej.jpg
 tags:
   - Vyšší hrádek
   - development
