@@ -136,6 +136,44 @@ def process_images_in_html(soup, post_title):
             
             print(f"    Obrázek stažen: {filename}")
 
+def convert_table_to_markdown(table):
+    """Převede HTML tabulku na Markdown."""
+    rows = []
+    
+    # Najdi všechny řádky
+    table_rows = table.find_all("tr")
+    if not table_rows:
+        return ""
+    
+    # Zpracuj řádky
+    for i, row in enumerate(table_rows):
+        cells = row.find_all(["td", "th"])
+        if not cells:
+            continue
+            
+        # Získej text z buněk
+        cell_texts = []
+        for cell in cells:
+            # Rekurzivně zpracuj obsah buněk (může obsahovat odkazy, formátování)
+            cell_text = ''.join(convert_element_to_markdown(child) for child in cell.children)
+            if not cell_text.strip():
+                cell_text = cell.get_text(" ", strip=True)
+            # Escape pipes pro Markdown a vyčisti
+            cell_text = cell_text.replace("|", "\\|").strip()
+            cell_texts.append(cell_text)
+        
+        # Vytvoř řádek tabulky
+        if cell_texts:
+            row_md = "| " + " | ".join(cell_texts) + " |"
+            rows.append(row_md)
+            
+            # Po prvním řádku (hlavička) přidej oddělovač
+            if i == 0:
+                separator = "| " + " | ".join(["---"] * len(cell_texts)) + " |"
+                rows.append(separator)
+    
+    return "\n" + "\n".join(rows) + "\n" if rows else ""
+
 def convert_element_to_markdown(element):
     """Rekurzivně konvertuje HTML element na markdown."""
     if element.name is None:  # text node
@@ -197,6 +235,10 @@ def convert_element_to_markdown(element):
     elif element.name == 'br':
         return '\n'
     
+    # zpracování tabulek
+    elif element.name == 'table':
+        return convert_table_to_markdown(element)
+    
     # ignoruj inline styling elementy, ale zachovej obsah
     elif element.name in ['span', 'div']:
         return ''.join(convert_element_to_markdown(child) for child in element.children)
@@ -228,7 +270,7 @@ def convert_html_to_markdown(html_content):
     markdown_parts = []
     content_found = False
     
-    for element in soup.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ul', 'ol', 'figure']):
+    for element in soup.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ul', 'ol', 'figure', 'table']):
         try:
             if element.name == 'figure':
                 # speciální zpracování obrázků
@@ -249,6 +291,13 @@ def convert_html_to_markdown(html_content):
                         markdown_parts.append(f"*{caption}*")
                     else:
                         markdown_parts.append(f"![{alt_text}]({src})")
+                    content_found = True
+            
+            elif element.name == 'table':
+                # speciální zpracování tabulek
+                table_markdown = convert_table_to_markdown(element)
+                if table_markdown.strip():
+                    markdown_parts.append(table_markdown)
                     content_found = True
             
             else:

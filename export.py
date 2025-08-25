@@ -151,6 +151,42 @@ def extract_images_from_content(content_node, base_url):
                 })
     return images
 
+def table_to_markdown(table):
+    """Převede HTML tabulku na Markdown."""
+    rows = []
+    
+    # Najdi všechny řádky
+    table_rows = table.find_all("tr")
+    if not table_rows:
+        return ""
+    
+    # Zpracuj řádky
+    for i, row in enumerate(table_rows):
+        cells = row.find_all(["td", "th"])
+        if not cells:
+            continue
+            
+        # Získej text z buněk
+        cell_texts = []
+        for cell in cells:
+            # Zachovej základní formátování v buňkách
+            cell_text = cell.get_text(" ", strip=True)
+            # Escape pipes pro Markdown
+            cell_text = cell_text.replace("|", "\\|")
+            cell_texts.append(cell_text)
+        
+        # Vytvoř řádek tabulky
+        if cell_texts:
+            row_md = "| " + " | ".join(cell_texts) + " |"
+            rows.append(row_md)
+            
+            # Po prvním řádku (hlavička) přidej oddělovač
+            if i == 0:
+                separator = "| " + " | ".join(["---"] * len(cell_texts)) + " |"
+                rows.append(separator)
+    
+    return "\n".join(rows) if rows else ""
+
 def create_jekyll_filename(title, date_str):
     """Vytvoří Jekyll filename ve formátu YYYY-MM-DD-nazev-clanku.md."""
     # parsuj datum
@@ -231,15 +267,39 @@ def extract_article(url):
     for img in content_node.find_all("img"):
         img.decompose()
 
-    # převod na jednoduchý markdown-like text:
-    # (aby nebyla závislost na extra balíčcích; prostý text s prázdnými řádky)
-    paragraphs = []
-    for p in content_node.find_all(["p", "li", "h2", "h3", "h4", "blockquote"]):
-        txt = p.get_text(" ", strip=True)
-        if txt:
-            paragraphs.append(txt)
+    # převod na jednoduchý markdown-like text s tabulkami:
+    content_parts = []
+    
+    # Zpracuj všechny child elementy v pořadí
+    for element in content_node.children:
+        if hasattr(element, 'name'):  # HTML element
+            if element.name == 'table':
+                # Převeď tabulku na markdown
+                table_md = table_to_markdown(element)
+                if table_md:
+                    content_parts.append(table_md)
+            elif element.name in ["p", "li", "h2", "h3", "h4", "h5", "h6", "blockquote", "div"]:
+                txt = element.get_text(" ", strip=True)
+                if txt:
+                    content_parts.append(txt)
+        else:  # text node
+            txt = str(element).strip()
+            if txt:
+                content_parts.append(txt)
+    
+    # Pokud nebyly nalezeny žádné elementy, použij starší metodu
+    if not content_parts:
+        for element in content_node.find_all(["p", "li", "h2", "h3", "h4", "h5", "h6", "blockquote", "div", "table"]):
+            if element.name == 'table':
+                table_md = table_to_markdown(element)
+                if table_md:
+                    content_parts.append(table_md)
+            else:
+                txt = element.get_text(" ", strip=True)
+                if txt:
+                    content_parts.append(txt)
 
-    body = "\n\n".join(paragraphs).strip()
+    body = "\n\n".join(content_parts).strip()
 
     return {
         "title": title or "",
