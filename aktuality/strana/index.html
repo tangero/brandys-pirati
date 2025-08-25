@@ -63,15 +63,16 @@ permalink: /aktuality/strana/:num/
   
   <div class="md-articles-list">
     <!-- Filtrujeme posty pro paginaci -->
-    {% assign aktuality_posts = site.posts | where_exp: "post", "post.category != 'mistostarosti'" | where_exp: "post", "post.path contains '_posts/proposals/' != true" %}
+    {% assign all_posts = site.posts | where_exp: "post", "post.category != 'mistostarosti'" %}
+    {% assign aktuality_posts = all_posts | where_exp: "post", "post.proposal != true" %}
     
     <!-- Paginace - zobrazíme jen posty pro aktuální stránku -->
     {% assign posts_per_page = 12 %}
     {% assign current_page = page.url | split: "/" %}
     {% assign current_page = current_page[-2] | plus: 0 %}
-    {% if current_page == 0 %}
+    {% unless current_page > 0 %}
       {% assign current_page = 1 %}
-    {% endif %}
+    {% endunless %}
     
     {% assign offset = current_page | minus: 1 | times: posts_per_page %}
     {% assign end_index = offset | plus: posts_per_page %}
@@ -110,8 +111,10 @@ permalink: /aktuality/strana/:num/
   {% assign total_posts = aktuality_posts | size %}
   {% assign total_pages = total_posts | divided_by: posts_per_page | plus: 1 %}
   {% assign remainder = total_posts | modulo: posts_per_page %}
-  {% if remainder == 0 and total_posts > 0 %}
-    {% assign total_pages = total_pages | minus: 1 %}
+  {% if total_posts > 0 %}
+    {% unless remainder > 0 %}
+      {% assign total_pages = total_pages | minus: 1 %}
+    {% endunless %}
   {% endif %}
   
   {% if total_pages > 1 %}
