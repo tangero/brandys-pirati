@@ -85,7 +85,16 @@
       `;
     }).join('');
     
-    searchResults.innerHTML = html;
+    // Add "View all results" link if there are results
+    const viewAllLink = results.length > 0 ? `
+      <a href="/hledat/?q=${encodeURIComponent(query)}" class="md-search-result md-search-result--view-all">
+        <div style="text-align: center; font-weight: 500; color: var(--md-sys-color-primary);">
+          Zobrazit všechny výsledky (${results.length > 8 ? 'více než 8' : results.length})
+        </div>
+      </a>
+    ` : '';
+    
+    searchResults.innerHTML = html + viewAllLink;
     showResults();
   }
   
@@ -188,6 +197,12 @@
       e.preventDefault();
       if (selectedIndex >= 0 && resultLinks[selectedIndex]) {
         resultLinks[selectedIndex].click();
+      } else {
+        // Redirect to search page with query
+        const query = this.value.trim();
+        if (query.length > 0) {
+          window.location.href = `/hledat/?q=${encodeURIComponent(query)}`;
+        }
       }
     } else if (e.key === 'Escape') {
       hideResults();

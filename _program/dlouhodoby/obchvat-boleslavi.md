@@ -6,9 +6,11 @@ tags: Obchvat
 layout: post
 ---
 
-# Obchvat Boleslavi
+# Obchvat Boleslavi dokončený v roce 2024
 
-Přeprava štěrkopísku ani tranzit na dálnici by neměl jít přes město.
+Přeprava štěrkopísku ani tranzit na dálnici by neměl jít přes město. Proto jsme po nástupu na radnici v roce 2023 aktivně participovali se Středočeským krajem na dokončení obchvatu, kde zůstalo ještě několik nedořešených problémů. Ty jsme úspěšně vyřešili a staroboleslavský obchvat přinesl, co jsme si od něj slibovali. Významně zklidnil dopravu ve městě. 
+
+Zde jsou archivní materiály, abyste chápali, podle čeho jsme se rozhodovali. 
 
 ## Základní filozofie
 

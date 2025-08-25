@@ -1,0 +1,424 @@
+---
+layout: default
+title: Vyhledávání
+---
+
+<div class="search-page">
+  <div class="search-page__header">
+    <h1 class="search-page__title">Vyhledávání</h1>
+    <div class="search-page__input-container">
+      <input type="text" id="search-page-input" class="search-page__input" placeholder="Hledej články...">
+      <svg class="search-page__icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </div>
+  </div>
+  
+  <div id="search-page-loading" class="search-page__loading" style="display: none;">
+    <div class="search-page__spinner"></div>
+    <p>Načítám...</p>
+  </div>
+  
+  <div id="search-page-results" class="search-page__results">
+    <div class="search-page__help">
+      <h2>Jak vyhledávat</h2>
+      <ul>
+        <li>Zadej alespoň 2 znaky</li>
+        <li>Vyhledává v názvu, textu a kategoriích článků</li>
+        <li>Výsledky jsou seřazeny podle relevance</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+.search-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-page__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.search-page__title {
+  color: var(--md-sys-color-primary);
+  margin-bottom: 20px;
+}
+
+.search-page__input-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-page__input {
+  width: 100%;
+  padding: 16px 50px 16px 20px;
+  border: 2px solid var(--md-sys-color-outline);
+  border-radius: 32px;
+  background: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+  font-size: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.search-page__input:focus {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.2);
+}
+
+.search-page__icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--md-sys-color-on-surface-variant);
+  pointer-events: none;
+}
+
+.search-page__loading {
+  text-align: center;
+  padding: 40px;
+}
+
+.search-page__spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--md-sys-color-outline);
+  border-top: 3px solid var(--md-sys-color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.search-page__help {
+  background: var(--md-sys-color-surface-variant);
+  padding: 24px;
+  border-radius: 12px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.search-page__help h2 {
+  margin-top: 0;
+  color: var(--md-sys-color-on-surface);
+}
+
+.search-page__help ul {
+  margin: 16px 0 0 0;
+  padding-left: 20px;
+}
+
+.search-page__help li {
+  margin: 8px 0;
+}
+
+.search-page__results-header {
+  margin: 32px 0 16px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.search-page__result {
+  background: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.search-page__result:hover {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-page__result-category {
+  font-size: 12px;
+  color: var(--md-sys-color-primary);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.search-page__result-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.search-page__result-date {
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 12px;
+}
+
+.search-page__result-excerpt {
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.search-page__no-results {
+  text-align: center;
+  padding: 40px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.search-page__no-results svg {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .search-page {
+    padding: 16px;
+  }
+  
+  .search-page__input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .search-page__result {
+    padding: 16px;
+  }
+}
+</style>
+
+<script>
+// Search page functionality
+(function() {
+  'use strict';
+  
+  let searchData = [];
+  
+  // DOM elements
+  const searchInput = document.getElementById('search-page-input');
+  const resultsContainer = document.getElementById('search-page-results');
+  const loadingContainer = document.getElementById('search-page-loading');
+  
+  if (!searchInput || !resultsContainer) {
+    return;
+  }
+  
+  // Get query from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialQuery = urlParams.get('q') || '';
+  
+  // Load search data
+  function loadSearchData() {
+    showLoading();
+    
+    fetch('/search.json')
+      .then(response => response.json())
+      .then(data => {
+        searchData = data;
+        console.log(`Načteno ${searchData.length} článků pro vyhledávání`);
+        hideLoading();
+        
+        // Perform initial search if query provided
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          performSearch(initialQuery);
+        } else {
+          showHelp();
+        }
+      })
+      .catch(error => {
+        console.error('Chyba při načítání search.json:', error);
+        hideLoading();
+        showError();
+      });
+  }
+  
+  // Perform search
+  function performSearch(query) {
+    query = query.toLowerCase().trim();
+    
+    if (query.length === 0) {
+      showHelp();
+      return;
+    }
+    
+    if (query.length < 2) {
+      showMessage('Zadej alespoň 2 znaky pro vyhledávání');
+      return;
+    }
+    
+    // Update URL
+    const newUrl = new URL(window.location);
+    newUrl.searchParams.set('q', query);
+    window.history.replaceState(null, '', newUrl);
+    
+    // Search in data
+    const results = searchData.filter(item => {
+      const titleMatch = item.title.toLowerCase().includes(query);
+      const contentMatch = item.content.toLowerCase().includes(query);
+      const categoryMatch = item.category.toLowerCase().includes(query);
+      const tagsMatch = item.tags.toLowerCase().includes(query);
+      
+      return titleMatch || contentMatch || categoryMatch || tagsMatch;
+    });
+    
+    displayResults(results, query);
+  }
+  
+  // Display search results
+  function displayResults(results, query) {
+    if (results.length === 0) {
+      showNoResults(query);
+      return;
+    }
+    
+    const resultsHeader = `<div class="search-page__results-header">Nalezeno ${results.length} výsledků pro "${query}"</div>`;
+    
+    const html = results.map(result => {
+      const excerpt = getExcerpt(result.content, query, 200);
+      const categoryName = getCategoryName(result.category);
+      
+      return `
+        <a href="${result.url}" class="search-page__result">
+          <div class="search-page__result-category">${categoryName}</div>
+          <h3 class="search-page__result-title">${highlightQuery(result.title, query)}</h3>
+          ${result.date ? `<div class="search-page__result-date">${result.date}</div>` : ''}
+          <p class="search-page__result-excerpt">${highlightQuery(excerpt, query)}</p>
+        </a>
+      `;
+    }).join('');
+    
+    resultsContainer.innerHTML = resultsHeader + html;
+  }
+  
+  // Show no results message
+  function showNoResults(query) {
+    resultsContainer.innerHTML = `
+      <div class="search-page__no-results">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <h2>Žádné výsledky</h2>
+        <p>Pro "${query}" nebyly nalezeny žádné články.</p>
+        <p>Zkus použít jiná klíčová slova nebo zkrať hledaný výraz.</p>
+      </div>
+    `;
+  }
+  
+  // Show help message
+  function showHelp() {
+    resultsContainer.innerHTML = `
+      <div class="search-page__help">
+        <h2>Jak vyhledávat</h2>
+        <ul>
+          <li>Zadej alespoň 2 znaky</li>
+          <li>Vyhledává v názvu, textu a kategoriích článků</li>
+          <li>Výsledky jsou seřazeny podle relevance</li>
+        </ul>
+      </div>
+    `;
+  }
+  
+  // Show error message
+  function showError() {
+    resultsContainer.innerHTML = `
+      <div class="search-page__no-results">
+        <h2>Chyba při načítání</h2>
+        <p>Nepodařilo se načíst data pro vyhledávání. Zkus to prosím později.</p>
+      </div>
+    `;
+  }
+  
+  // Show message
+  function showMessage(message) {
+    resultsContainer.innerHTML = `<div class="search-page__no-results"><p>${message}</p></div>`;
+  }
+  
+  // Show/hide loading
+  function showLoading() {
+    loadingContainer.style.display = 'block';
+    resultsContainer.style.display = 'none';
+  }
+  
+  function hideLoading() {
+    loadingContainer.style.display = 'none';
+    resultsContainer.style.display = 'block';
+  }
+  
+  // Utility functions (same as header search)
+  function getExcerpt(content, query, maxLength) {
+    const queryIndex = content.toLowerCase().indexOf(query.toLowerCase());
+    
+    if (queryIndex === -1) {
+      return content.substring(0, maxLength) + '...';
+    }
+    
+    const start = Math.max(0, queryIndex - maxLength / 3);
+    const end = Math.min(content.length, start + maxLength);
+    
+    let excerpt = content.substring(start, end);
+    
+    if (start > 0) excerpt = '...' + excerpt;
+    if (end < content.length) excerpt = excerpt + '...';
+    
+    return excerpt;
+  }
+  
+  function highlightQuery(text, query) {
+    if (!query || query.length === 0) return text;
+    
+    const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+    return text.replace(regex, '<mark style="background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container); padding: 2px 4px; border-radius: 3px; font-weight: 500;">$1</mark>');
+  }
+  
+  function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+  
+  function getCategoryName(category) {
+    const categoryNames = {
+      'mistostarosti': 'Místostarosti',
+      'strategie': 'Strategie',
+      'aktuality': 'Aktuality',
+      'CLANKY': 'Články',
+      'page': 'Stránka'
+    };
+    
+    return categoryNames[category] || category || 'Článek';
+  }
+  
+  // Event listeners
+  let searchTimeout;
+  
+  searchInput.addEventListener('input', function() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      performSearch(this.value);
+    }, 300);
+  });
+  
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSearch(this.value);
+    }
+  });
+  
+  // Initialize
+  loadSearchData();
+  
+})();
+</script>
