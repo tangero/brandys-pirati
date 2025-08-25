@@ -61,6 +61,103 @@
     color: var(--md-sys-color-on-secondary-container);
   }
   
+  .md-search-container {
+    position: relative;
+    margin-left: 16px;
+  }
+  
+  .md-search-input {
+    width: 300px;
+    padding: 8px 40px 8px 16px;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 28px;
+    background: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+  
+  .md-search-input:focus {
+    border-color: var(--md-sys-color-primary);
+    box-shadow: 0 0 0 2px rgba(var(--md-sys-color-primary-rgb), 0.2);
+  }
+  
+  .md-search-input::placeholder {
+    color: var(--md-sys-color-on-surface-variant);
+    opacity: 0.7;
+  }
+  
+  .md-search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--md-sys-color-on-surface-variant);
+    pointer-events: none;
+  }
+  
+  .md-search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--md-sys-color-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1001;
+    display: none;
+    margin-top: 4px;
+  }
+  
+  .md-search-results--visible {
+    display: block;
+  }
+  
+  .md-search-result {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .md-search-result:last-child {
+    border-bottom: none;
+  }
+  
+  .md-search-result:hover {
+    background: var(--md-sys-color-secondary-container);
+  }
+  
+  .md-search-result__title {
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 4px;
+  }
+  
+  .md-search-result__category {
+    font-size: 12px;
+    color: var(--md-sys-color-primary);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  
+  .md-search-result__excerpt {
+    font-size: 13px;
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.4;
+  }
+  
+  .md-search-no-results {
+    padding: 16px;
+    text-align: center;
+    color: var(--md-sys-color-on-surface-variant);
+    font-style: italic;
+  }
+
   .md-mobile-menu-button {
     display: none;
     background: transparent;
@@ -99,6 +196,12 @@
     background: rgba(0,0,0,0.08);
   }
   
+  @media (max-width: 1024px) {
+    .md-search-input {
+      width: 200px;
+    }
+  }
+  
   @media (max-width: 768px) {
     .md-top-app-bar {
       padding: 0 16px;
@@ -110,6 +213,15 @@
     
     .md-top-app-bar__nav {
       display: none;
+    }
+    
+    .md-search-container {
+      margin-left: 8px;
+    }
+    
+    .md-search-input {
+      width: 150px;
+      font-size: 16px; /* Prevents zoom on iOS */
     }
     
     .md-mobile-menu-button {
@@ -134,6 +246,16 @@
     <a href="{{ '/pripoj-se/' | relative_url }}" class="md-nav-button {% if page.url contains '/pripoj-se' %}md-nav-button--active{% endif %}">Připoj se</a>
     <!-- <a href="{{ '/volby-2018/program/' | relative_url }}" class="md-nav-button {% if page.url contains '/volby-2018' %}md-nav-button--active{% endif %}">Program</a> -->
   </nav>
+  
+  <div class="md-search-container">
+    <input type="text" class="md-search-input" id="search-input" placeholder="Hledej články...">
+    <svg class="md-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    </svg>
+    <div class="md-search-results" id="search-results">
+      <div class="md-search-no-results">Začni psát pro vyhledávání...</div>
+    </div>
+  </div>
   
   <button class="md-mobile-menu-button" onclick="toggleMobileMenu()">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
