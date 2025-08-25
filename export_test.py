@@ -391,7 +391,7 @@ def main():
     
     # načti URL ze souboru místo hledání na webu
     print("[*] Načítám URL ze souboru kestazeni.txt…")
-    urls_to_process, file_lines = load_urls_from_file("kestazeni.txt")
+    urls_to_process, file_lines = load_urls_from_file("kestazeni_test.txt")
     
     if not urls_to_process:
         print("[!] Žádné URL k zpracování!")
@@ -426,7 +426,7 @@ def main():
             path = write_markdown(meta, url)
             
             # označit jako úspěšně zpracovanou
-            mark_url_as_processed("kestazeni.txt", url, line_num, 'done')
+            mark_url_as_processed("kestazeni_test.txt", url, line_num, 'done')
             
             # zaznamenej zpracovaný článek
             log_processed_article(meta["title"], url)
@@ -450,7 +450,7 @@ def main():
             print(f"    [{j}/{len(urls_to_retry)}] ✗ CHYBA pro {url}: {e}")
             
             # označit jako chybovou
-            mark_url_as_processed("kestazeni.txt", url, line_num, 'error', error_msg)
+            mark_url_as_processed("kestazeni_test.txt", url, line_num, 'error', error_msg)
             
             # zaznamenej i chybu
             log_processed_article(f"CHYBA: {e}", url)

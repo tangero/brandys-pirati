@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Místostarosti 28.5.2023: Vodu v krajině pivem nenahradíš"
-excerpt: "Město Brandýs-Boleslav zavádí Kulturní pas, který za jednotnou cenu umožní návštěvu šesti místních památek. Kvůli pokračujícímu suchu město investuje do vodohospodářských opatření, jako jsou nádrže na dešťovou vodu a revitalizace potoků, inspirováno úspěšným projektem v Praze-Dubči. Plánuje se také zpřístupnění Záhořské svodnice jako nové výletní trasy a úpravy v Central Parku a parku Pampeliška."
+excerpt: "Patrick Zandl ve svém newsletteru Místostarosti přináší pozorování z komunální politiky Brandýsa-Boleslavi. Dobrý den, vítejte u dalších Místostarostí. Úvodem na vás mám malou prosbu. Letošní sedmý ročník soutěžního festivalu dětmi vytvořených filmů Pražský filmový kufr potřebuje podpořit a peníze vybírá cr..."
 date: 2023-05-28 19:51:38 +0000
 author: "Patrick Zandl"
 category: "mistostarosti"

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Místostarosti 15.1.2023: Vídeňské dlaždice byste na vrata dneska dávat neměli 😇"
-excerpt: "Místostarosta informuje o plánovaném průzkumu kanalizace, který zohlední novou zástavbu a zajistí kapacitu sítě. Město připravuje dražbu vraků z ulic a řeší provizorní opravy silnic, které jsou pouze dočasným řešením. V kině byl nainstalován nový projektor a probíhá plánování rekonstrukce sociálního zázemí. Na jaře začne oprava Výletní ulice, přičemž stav kanalizace ovlivní další etapy prací."
+excerpt: "Patrick Zandl ve svém newsletteru Místostarosti přináší pozorování z komunální politiky Brandýsa-Boleslavi. Dobrý den, vítejte u dalšího dílu Brandýsko-Boleslavských Místostarostí. A hned z kraje: dostal jsem otázku, zda toto je oficiální komunikační kanál města. Ne"
 date: 2023-01-15 12:17:53 +0000
 author: "Patrick Zandl"
 category: "mistostarosti"

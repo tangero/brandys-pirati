@@ -149,7 +149,7 @@ def fallback_excerpt(title, content):
 
 def process_mistostarosti_files(limit=None):
     """Zpracuje všechny soubory Místostarosti a přidá excerpty."""
-    posts_dir = "/Users/patrickzandl/Documents/GitHub/brandys-pirati/_posts/mistostarosti"
+    posts_dir = "/Users/imac/Github/brandys-pirati/_posts/mistostarosti"
     
     if not os.path.exists(posts_dir):
         print(f"Adresář {posts_dir} neexistuje!")

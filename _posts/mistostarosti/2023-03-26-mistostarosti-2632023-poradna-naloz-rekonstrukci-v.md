@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Místostarosti 26.3.2023: Pořádná nálož rekonstrukcí vystřelená Čakovickým prakem"
-excerpt: "Článek popisuje aktuální rekonstrukce v Čakovicích, zejména přípravy na obnovu kina, kde se řeší spory s památkáři a úpravy projektu. Dále se pracuje na areálu Dragounské rezidence (Klíček), kde chybí vrata a plánuje se rekonstrukce střechy hlavního objektu. Starosta tlačí na výstavbu nové základní školy ve Staré Boleslavi, zatímco sportovní hala u ZŠ Palachova má být dokončena v roce 2024. Město také hodnotí kvalitu školního stravování, které je na vysoké úrovni."
+excerpt: "Patrick Zandl ve svém newsletteru Místostarosti přináší pozorování z komunální politiky Brandýsa-Boleslavi. Minulý týden jsem místostarosti nesepsal, vzal jsem si pár dní volna, abych přišel na jiné myšlenky a pak se navalilo dost práce. Také přidávám jednu opravu. Odkazoval jsem na otevřenou mapu datových ..."
 date: 2023-03-26 18:04:00 +0000
 author: "Patrick Zandl"
 category: "mistostarosti"
