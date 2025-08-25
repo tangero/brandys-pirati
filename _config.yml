@@ -28,7 +28,7 @@ defaults:
   - scope:
       path: "_program"
     values:
-      layout: "page"
+      layout: "program"
   - scope:
       path: "_proposals"
     values:
