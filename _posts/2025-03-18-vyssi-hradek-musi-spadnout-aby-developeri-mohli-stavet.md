@@ -32,3 +32,9 @@ Jaký má být správný postup?: Město má ve své dlouhodobé strategii, jak�
 S takovýmhle přístupem za dvacet let nebude mít město ani splacený úvěr, ani Vyšší Hrádek nebo Kolej Kim Ir Sena. A ani novou budovu ZUŠ nebo kulturní dům. Protože přesně takhle jsme postupovali před dvaceti lety… 
 
 _Proč usilovat o víc, když takhle to voličům stačí._
+
+[Vybydlené prostory někdejší Piaristické koleje chátrají](/assets/img/posts/piaristicka-kolej2.jpg)
+
+[I když z venku se budova ještě drží, první pohled klame](/assets/img/posts/piaristicka-kolej3.jpg)
+
+Fotografie: Zuzana Minx. 
