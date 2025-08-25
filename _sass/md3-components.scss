@@ -155,16 +155,22 @@
 
 // MD3 Seznam článků
 .md-articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   margin-bottom: 48px;
+  
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
   
   .md-article-card {
     height: fit-content;
     min-height: 280px;
     display: flex;
     flex-direction: column;
+    flex: 1 1 320px;
+    max-width: 400px;
   }
 }
 

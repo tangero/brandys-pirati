@@ -6,5 +6,8 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
   }
 }
