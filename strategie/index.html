@@ -17,7 +17,12 @@ permalink: /strategie/
       <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
       
       {% if post.image %}
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="md-article-card__media" itemprop="image">
+      <div class="md-article-card__image-container">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="md-article-card__media" itemprop="image">
+        {% if post.icon %}
+        <div class="md-article-card__icon">{{ post.icon }}</div>
+        {% endif %}
+      </div>
       {% endif %}
       
       <div class="md-article-card__content">

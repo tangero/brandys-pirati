@@ -15,46 +15,98 @@ const { chromium } = require('playwright');
     await page.screenshot({ path: 'strategy_page.png', fullPage: true });
     console.log('Screenshot saved as strategy_page.png');
     
-    // Check for icons in headlines
-    const headlines = await page.$$eval('.md-article-card__headline a', els => 
-      els.map(el => el.textContent.trim())
-    );
-    
-    console.log('\nArticle headlines:');
-    headlines.forEach((headline, i) => {
-      console.log(`${i + 1}. "${headline}"`);
+    // Check for all elements on the first card to find the black box
+    const firstCardElements = await page.$eval('.md-article-card', el => {
+      const allChildren = el.querySelectorAll('*');
+      const elements = [];
+      
+      // Check all children and pseudo-elements
+      allChildren.forEach((child, i) => {
+        const styles = window.getComputedStyle(child);
+        const beforeStyles = window.getComputedStyle(child, ':before');
+        const afterStyles = window.getComputedStyle(child, ':after');
+        
+        elements.push({
+          element: i + 1,
+          tagName: child.tagName,
+          className: child.className,
+          styles: {
+            position: styles.position,
+            background: styles.background,
+            backgroundColor: styles.backgroundColor,
+            width: styles.width,
+            height: styles.height,
+            top: styles.top,
+            left: styles.left,
+            zIndex: styles.zIndex,
+            display: styles.display
+          },
+          before: {
+            content: beforeStyles.content,
+            display: beforeStyles.display,
+            position: beforeStyles.position,
+            background: beforeStyles.background,
+            backgroundColor: beforeStyles.backgroundColor,
+            width: beforeStyles.width,
+            height: beforeStyles.height
+          },
+          after: {
+            content: afterStyles.content,
+            display: afterStyles.display,
+            position: afterStyles.position,
+            background: afterStyles.background,
+            backgroundColor: afterStyles.backgroundColor,
+            width: afterStyles.width,
+            height: afterStyles.height
+          }
+        });
+      });
+      
+      return elements;
     });
     
-    // Check the CSS of article cards
-    const cardStyles = await page.$$eval('.md-article-card', els => 
-      els.map(el => {
+    console.log('\nFirst card DOM structure:');
+    firstCardElements.forEach(el => {
+      if (el.styles.position === 'absolute' || 
+          el.styles.backgroundColor.includes('black') || 
+          el.styles.backgroundColor.includes('rgb(0, 0, 0)') ||
+          el.before.display !== 'none' ||
+          el.after.display !== 'none') {
+        console.log('POTENTIAL BLACK BOX:', el);
+      }
+    });
+    
+    // Look for specific overlay elements
+    const overlayElements = await page.$$eval('*', els => {
+      return els.filter(el => {
         const styles = window.getComputedStyle(el);
-        return {
-          display: styles.display,
-          flexDirection: styles.flexDirection,
-          width: styles.width,
-          height: styles.height,
-          minHeight: styles.minHeight
-        };
-      })
-    );
-    
-    console.log('\nCard styles:');
-    cardStyles.forEach((style, i) => {
-      console.log(`Card ${i + 1}:`, style);
+        return (
+          styles.position === 'absolute' && 
+          (styles.backgroundColor.includes('black') || 
+           styles.backgroundColor.includes('rgb(0, 0, 0)') ||
+           styles.backgroundColor.includes('rgba(0, 0, 0'))
+        );
+      }).map(el => ({
+        tagName: el.tagName,
+        className: el.className,
+        id: el.id,
+        textContent: el.textContent.slice(0, 50),
+        styles: {
+          position: window.getComputedStyle(el).position,
+          backgroundColor: window.getComputedStyle(el).backgroundColor,
+          width: window.getComputedStyle(el).width,
+          height: window.getComputedStyle(el).height,
+          top: window.getComputedStyle(el).top,
+          left: window.getComputedStyle(el).left,
+          zIndex: window.getComputedStyle(el).zIndex
+        }
+      }));
     });
     
-    // Check grid styles
-    const gridStyles = await page.$eval('.md-articles-grid', el => {
-      const styles = window.getComputedStyle(el);
-      return {
-        display: styles.display,
-        gridTemplateColumns: styles.gridTemplateColumns,
-        gap: styles.gap
-      };
+    console.log('\nBlack/Dark overlay elements found:');
+    overlayElements.forEach((el, i) => {
+      console.log(`Overlay ${i + 1}:`, el);
     });
-    
-    console.log('\nGrid styles:', gridStyles);
     
   } catch (error) {
     console.error('Error:', error);
