@@ -3,12 +3,42 @@ title: Revitalizace rekreační zóny Houšťka
 category: dlouhodoby
 topic: Běžný život města
 ---
+
+# Revitalizace rekreační zóny Houšťka
+
 Sluneční lázně nelze zachránit, ale Houšťka může ožít!
 
-Je třeba přiznat si jedno: Sluneční lázně v Houšťce není v silách města zachránit a nejsou unikátní památkou, o jejíž záchranu by měl kdokoliv jiný zájem.  
+## Současný stav Slunečních lázní
 
-Po zimě 2017 jsou Sluneční lázně ve staticky nebezpečném stavu a navrhujeme jejich definitivní asanaci. Jen zabezpečení ruiny město stálo dosud miliony korun. Místo bude upraveno do podoby parku a případně později použito při rozšiřování volnočasového areálu. V úvahu připadá výstavba budovy školy spojené s domovem důchodců a se zachováním architektonických prvků původních Slunečních lázní, pokud to bude únosné. Jelikož jde o cennou městskou lokalitu, měl by se na podobné stavbě a celkovém řešení prostoru podílet zkušený architekt.  
+Je třeba přiznat si jedno: **Sluneční lázně v Houšťce není v silách města zachránit** a nejsou unikátní památkou, o jejíž záchranu by měl kdokoliv jiný zájem.
 
-Bývalý dům Kim Ir Sena bude nadále zvažován jako stacionář pro sociální služby, ale i v tomto případě se může ukázat, že objekt není pro investory zajímavý a nebo by provoz s ním související nadmíru zatěžoval odpočinkový charakter lokality a v takovém případě bude objekt rovněž zbourán.
+Po zimě 2017 jsou Sluneční lázně ve staticky nebezpečném stavu a navrhujeme jejich **definitivní asanaci**. Jen zabezpečení ruiny město stálo dosud miliony korun.
 
-Naopak budou další peníze směřovány do trvalého rozvoje Houšťky jako odpočinkové a sportovní lokality. Žádoucí je postupná rekonstrukce stadionu a areálu kina a zainteresování provozovatelů na zvyšování počtu akcí. Plánujeme vybudování systému městských sportovišť a participace města na obnově a zpřístupnění soukromých sportovišť tak, aby naši občané měli k dispozici odpovídající lokality.
+### Budoucí využití lokality
+Místo bude upraveno do podoby parku a případně později použito při rozšiřování volnočasového areálu. V úvahu připadá:
+- výstavba budovy školy spojené s domovem důchodců
+- zachování architektonických prvků původních Slunečních lázní (pokud bude únosné)
+- zapojení zkušeného architekta do celkového řešení prostoru
+
+## Bývalý dům Kim Ir Sena
+
+Bývalý dům Kim Ir Sena bude nadále zvažován jako stacionář pro sociální služby. Pokud se však ukáže, že:
+- objekt není pro investory zajímavý
+- provoz by nadmíru zatěžoval odpočinkový charakter lokality
+
+V takovém případě bude objekt rovněž zbourán.
+
+## Rozvoj Houšťky jako odpočinkové lokality
+
+Další peníze budou směřovány do trvalého rozvoje Houšťky jako odpočinkové a sportovní lokality:
+
+### Plánované investice
+- postupná rekonstrukce stadionu
+- rekonstrukce areálu kina
+- zainteresování provozovatelů na zvyšování počtu akcí
+
+### Systém městských sportovišť
+Plánujeme:
+- vybudování systému městských sportovišť
+- participace města na obnově soukromých sportovišť
+- zpřístupnění sportovišť občanům města

@@ -3,18 +3,38 @@ title: Dlouhodobá propagace města a akcí
 category: dlouhodoby
 topic: Běžný život města
 ---
+
+# Dlouhodobá propagace města a akcí
+
 Naše město nikdo nezná a nejezdí sem. To je ale škoda!
+
+## Současný problém
 
 Město se nedostatečně zviditelňuje, zatímco je zajímavá destinace hned z několika směrů:
 
-* jako turistická lokalita lákající na výlety za poznáním, sportem i kulturou
-* jako místo pro život
-* jako lokalita pro podnikání
+- **jako turistická lokalita** lákající na výlety za poznáním, sportem i kulturou
+- **jako místo pro život**
+- **jako lokalita pro podnikání**
+
+## Turistický rozvoj
 
 V první fázi chceme zvýšit zapojení města do existujících turistických aktivit, zejména s ohledem na atraktivitu regionu Rudolfa II. a Staré Boleslavi.
 
-* Zpracujeme plán propagace regionu, účasti na veletrzích turistiky a napojení na další pro-turistické aktivity. Navážeme komunikaci s incomingovými agenturami.
-* Podpoříme rozvoj informací o regionu včetně turistické mapy atraktivních lokalit v regionu.
-* Podpoříme aktivity a akce pořádané v regionu ve všech komunikačních kanálech města i organizačně.
+### Konkrétní kroky
+- **Zpracujeme plán propagace regionu** a účasti na veletrzích turistiky
+- Napojení na další pro-turistické aktivity
+- **Navážeme komunikaci s incomingovými agenturami**
 
-Spolu s dopracovaným územním plánem budou zpracovány podobné informace pro developery, kteří by chtěli stavět či podnikat v našem městě. Pověřený pracovník jim bude ku pomoci, aby pro ně bylo co nejjednoduší zahájení aktivit ve městě. 
+### Informační podpora
+- Podpoříme rozvoj informací o regionu
+- Vytvoříme **turistickou mapu atraktivních lokalit** v regionu
+- Podpoříme aktivity a akce pořádané v regionu ve všech komunikačních kanálech města i organizačně
+
+## Podpora podnikání
+
+Spolu s dopracovaným územním plánem budou zpracovány podobné informace pro developery, kteří by chtěli stavět či podnikat v našem městě.
+
+### Služby pro podnikatele
+- **Pověřený pracovník** jim bude ku pomoci
+- Cílem je co nejjednodušší zahájení aktivit ve městě
+- Profesionální přístup k potenciálním investorům

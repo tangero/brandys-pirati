@@ -3,12 +3,49 @@ title: Základní školství a předškolní zařízení
 category: dlouhodoby
 topic: Běžný život města
 ---
+
+# Základní školství a předškolní zařízení
+
 Podpora státních i soukromých škol, pomoc se snížením administrativy.
 
-Populačně silné ročníky, zvyšující se atraktivita města pro mladé rodiny s dětmi, to vše zdvihá poptávku po předškolních a základních školních zařízeních a zvyšuje počet žáků v prvních třídách i čekací doby na školky nad únosnou míru. Chceme na to reagovat podporou soukromých zařízení a dále pokračujícími investicemi do rozvoje městských zařízení včetně výstavby nové školy spojené s domovem pro seniory.  Město by mělo přispívat nad běžný standard na trvale se zvyšující úroveň školství pro své obyvatele.
+## Současná situace
 
-Budeme finančně podporovat rozvoj gramotnosti dětí i mimoškolní vzdělávání formou nejrůznějších zájmových kroužků a to jak ve spolupráci s městskými institucemi, tak se soukromníky.
+**Populačně silné ročníky** a **zvyšující se atraktivita města pro mladé rodiny s dětmi** vede k:
+- zdvihání poptávky po předškolních a základních školních zařízeních
+- zvyšování počtu žáků v prvních třídách
+- čekací doby na školky nad únosnou míru
 
-Považujeme za důležité pomoci školám v zajištění prostředků na psychologické poradenství, asistenční služby a poradenství v dalším osobním rozvoji žáků i pedagogů. A pokud to půjde, budeme se snažit pomoci školám ve snížení administrativy.
+## Naše řešení
 
-Pro další rozvoj školství považujeme mimo jiné za důležité navázat přeshraniční kontakty s dalšími partnerskými městy a podporovat naše pedagogy i žáky ve výměně zkušeností se školami v zahraničí včetně výměnných pobytů.  
+### Podpora všech typů zařízení
+Chceme na to reagovat:
+- **podporou soukromých zařízení**
+- pokračujícími investicemi do rozvoje městských zařízení
+- včetně **výstavby nové školy spojené s domovem pro seniory**
+
+### Investice do kvality
+**Město by mělo přispívat nad běžný standard** na trvale se zvyšující úroveň školství pro své obyvatele.
+
+## Mimoškolní vzdělávání
+
+Budeme finančně podporovat:
+- **rozvoj gramotnosti dětí**
+- **mimoškolní vzdělávání** formou nejrůznějších zájmových kroužků
+- ve spolupráci s městskými institucemi i se soukromníky
+
+## Podpůrné služby
+
+Považujeme za důležité pomoci školám v zajištění prostředků na:
+- **psychologické poradenství**
+- **asistenční služby**
+- **poradenství v dalším osobním rozvoji** žáků i pedagogů
+
+### Snížení administrativy
+Pokud to půjde, budeme se snažit pomoci školám ve **snížení administrativy**.
+
+## Mezinárodní spolupráce
+
+Pro další rozvoj školství považujeme mimo jiné za důležité:
+- navázat **přeshraniční kontakty** s dalšími partnerskými městy
+- podporovat naše pedagogy i žáky ve **výměně zkušeností se školami v zahraničí**
+- včetně **výměnných pobytů**

@@ -4,18 +4,49 @@ category: dlouhodoby
 topic: Infrastruktura
 tags: Cyklistika
 ---
+
+# Na kole a pěšky po městě
+
 Cyklistika, chůze a běh jako dopravní alternativa i sportovní vyžití
 
-Rozvoj a propagace cyklistiky není jen turistickým a sportovním zviditelněním regionu, může pomoci i s dopravní situací. Zklidnit ji, snížit emise, prašnost, hluk a zvýšit bezpečnost dopravy.
+## Význam cyklistiky
 
-Chceme propojit Brandýs se Starou Boleslaví pro cyklisty nejenom mezi městskými částmi a s Labskou stezkou, ale také ve směru na Černý Most a Letňany mimo hlavní silnice (například znovuobnovením cesty Přezletice (Na Kocandě) - Popovice, propojením Brandýsa a Dřevčic chodníkem (a opravit u toho zastavení křížové cesty, než se dohodne, komu patří a kdo za to může) či propojení Brandýsa se Zelenčí polní cestou mimo hlavní silnici s cílem na vlak v Zelenči).
+Rozvoj a propagace cyklistiky není jen turistickým a sportovním zviditelněním regionu, může pomoci i s dopravní situací:
+- zklidnit dopravu
+- snížit emise
+- snížit prašnost a hluk
+- zvýšit bezpečnost dopravy
 
-Ve dvojměstí počítáme se zavedením bikesharingu, podrobněji o těchto plánech píšeme ve [zvláštním článku][bikesharing].
+## Nové cyklistické trasy
 
-Významně zvýšíme propagaci Zátopkových okruhů, Labské stezky a napojení na Prahu pro přespolní turisty tak, aby se dvojměstí stalo jejich oblíbenou výletní destinací, nikoliv jen průjezdní trasou. Součástí plánu je vybudování pěší lávky přes Labe v úrovni Kamenný most - River Café.
+Chceme propojit Brandýs se Starou Boleslaví pro cyklisty nejenom mezi městskými částmi a s Labskou stezkou, ale také ve směru na Černý Most a Letňany mimo hlavní silnice.
 
-Podpoříme finančně úložny kol ve školách, abychom motivovali žáky pro dojiždění na kole, koloběžce a snížil se počet aut ráno operujících v centru města.
+### Plánovaná propojení
+- znovuobnovení cesty Přezletice (Na Kocandě) - Popovice
+- propojení Brandýsa a Dřevčic chodníkem
+- oprava zastavení křížové cesty
+- propojení Brandýsa se Zelenčí polní cestou mimo hlavní silnici s cílem na vlak v Zelenči
 
-A samozřejmě, v momentě zprovoznění vlakotramvajové linky na Prahu podpoříme i úložiště kol na stanicích příměstské vlakotramvajové linky.
+## Bikesharing a podpůrná infrastruktura
+
+Ve dvojměstí počítáme se **zavedením bikesharingu**, podrobněji o těchto plánech píšeme ve [zvláštním článku][bikesharing].
+
+### Úložny kol
+- finanční podpora úložen kol ve školách
+- motivace žáků pro dojíždění na kole a koloběžce
+- snížení počtu aut v centru města ráno
+- úložiště kol na stanicích budoucí vlakové linky na Prahu
+
+## Turistický rozvoj
+
+Významně zvýšíme propagaci:
+- **Zátopkových okruhů**
+- **Labské stezky** 
+- napojení na Prahu pro přespolní turisty
+
+Cílem je, aby se dvojměstí stalo oblíbenou výletní destinací, nikoliv jen průjezdní trasou.
+
+### Nová infrastruktura
+Součástí plánu je **vybudování pěší lávky přes Labe** v úrovni Kamenný most - River Café.
 
 [bikesharing]: http://www.piratisestanem.cz/aktuality/bikesharing.html
