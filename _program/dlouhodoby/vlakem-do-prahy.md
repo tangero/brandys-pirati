@@ -2,6 +2,7 @@
 title: Vlakem do Prahy
 category: dlouhodoby
 topic: Infrastruktura
+layout: post
 ---
 
 # Vlakem do Prahy
