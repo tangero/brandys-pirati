@@ -26,7 +26,9 @@ rbar: fb, calendar, em
       <link itemprop="mainEntityOfPage" href="{{ article.url | absolute_url }}">
       
       {% if article.image %}
-      <img src="{{ article.image | relative_url }}" alt="{{ article.title }}" class="md-article-card__media" itemprop="image">
+      <a href="{{ article.url | relative_url }}" class="md-article-card__media-link">
+        <img src="{{ article.image | relative_url }}" alt="{{ article.title }}" class="md-article-card__media" itemprop="image">
+      </a>
       {% endif %}
       
       <div class="md-article-card__content">
@@ -145,3 +147,27 @@ rbar: fb, calendar, em
     </div>
   </div>
 </div>
+
+<style>
+  .md-article-card__media-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .md-article-card__media-link:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+  
+  .md-article-card__media-link:hover .md-article-card__media {
+    transform: scale(1.05);
+  }
+  
+  .md-article-card__media {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+</style>
