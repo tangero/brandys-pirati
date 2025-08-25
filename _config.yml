@@ -2,10 +2,6 @@ title: Brandýs nad Labem-Stará Boleslav
 description: Místní sdružení České pirátské strany v Brandýse nad Labem - Staré Boleslavi
 lang: cs
 
-# Paginace
-paginate: 12
-paginate_path: "/aktuality/strana/:num/"
-
 collections:
   people:
     output: true

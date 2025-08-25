@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Aktuality
+title: Archív aktualit
 ---
 
 <style>
@@ -29,14 +29,14 @@ title: Aktuality
 
 <div class="md-section">
   <div class="md-section__header">
-    <h1 class="md-section__title">Aktuality</h1>
+    <h1 class="md-section__title">Archív aktualit</h1>
     <p class="md-section__subtitle">Všechny naše aktuality a zprávy z Brandýsa nad Labem</p>
   </div>
   
   <div class="md-articles-grid">
     {% assign all_posts = site.posts | where_exp: "post", "post.category != 'mistostarosti'" %}
     {% assign aktuality_posts = all_posts | where_exp: "post", "post.proposal != true" %}
-    {% for post in aktuality_posts limit: 12 %}
+    {% for post in aktuality_posts %}
     <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
       <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
       
@@ -81,12 +81,4 @@ title: Aktuality
     </article>
     {% endfor %}
   </div>
-  
-  <!-- Odkaz na archív -->
-  {% assign total_posts = aktuality_posts | size %}
-  {% if total_posts > 12 %}
-  <div style="text-align: center; margin-top: 32px;">
-    <a href="/aktuality/archiv/" class="md-button md-button--filled">Všechny články</a>
-  </div>
-  {% endif %}
 </div>
