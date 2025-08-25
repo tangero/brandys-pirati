@@ -5,6 +5,7 @@ excerpt: "Bez přímého kolejového spojení s Prahou se naše město nepohne. 
 date: 2025-08-25 10:00:00 +0100
 author: "Patrick Zandl"
 category: "strategie"
+permalink: /strategie/vlakove-spojeni-praha-brandys/
 image: /assets/img/posts/terminal-staraboleslav.png
 ---
 

@@ -5,6 +5,7 @@ excerpt: "Komplexní strategie pro efektivní a udržitelné nakládání s odpa
 date: 2025-08-13 12:00:00 +0100
 author: "Patrick Zandl"
 category: "strategie"
+permalink: /strategie/odpadove-hospodarstvi/
 image: /assets/mistostarosti/mistostarosti532023procnejdeme-de3d1d48.jpeg
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Městostarosti a Art House Melichar v Brandýse (pozvánka)"
+title: "Art House Melichar v Brandýse (pozvánka)"
 excerpt: "V Brandýse-Boleslavi vznikla letní galerie Art House Melichar v prvorepublikové vile, která nabídne výstavy polabských umělců, workshopy a prodej uměleckých děl. Zahájení proběhne tento pátek od 16:00 s komentovanou prohlídkou a kulturním programem. Projekt potrvá do konce září a vilu zapůjčil Středočeský kraj. Doprava z Prahy je snadná autobusem nebo autem."
 date: 2025-07-15 08:23:21 +0000
 author: "Patrick Zandl"

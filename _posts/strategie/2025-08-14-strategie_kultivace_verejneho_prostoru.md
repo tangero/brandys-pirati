@@ -5,6 +5,7 @@ excerpt: "Kultivace veřejného prostoru je cestou ke spokojenějšímu životu 
 date: 2025-08-14 8:00:00 +0100
 author: "Patrick Zandl"
 category: "strategie"
+permalink: /strategie/strategie_kultivace_verejneho_prostoru/
 image: /assets/mistostarosti/mistostarosti2142024zamoreneme-e55cb8b2.jpg
 ---
 
