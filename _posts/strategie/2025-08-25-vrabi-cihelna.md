@@ -7,6 +7,7 @@ author: "Patrick Zandl"
 category: "strategie"
 permalink: /strategie/vrabi-cihelna/
 image: /assets/img/posts/vrabi-cihelna.png
+icon: "🏗️"
 ---
 
 

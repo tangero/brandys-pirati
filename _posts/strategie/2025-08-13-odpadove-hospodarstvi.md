@@ -7,6 +7,7 @@ author: "Patrick Zandl"
 category: "strategie"
 permalink: /strategie/odpadove-hospodarstvi/
 image: /assets/mistostarosti/mistostarosti532023procnejdeme-de3d1d48.jpeg
+icon: "♻️"
 ---
 
 Jde o aktualizovaný materiál, který připravil místostarosta Patrick Zandl v rámci svého působení na radnici v letech 2023-24. 

@@ -7,6 +7,7 @@ author: "Patrick Zandl"
 category: "strategie"
 permalink: /strategie/vlakove-spojeni-praha-brandys/
 image: /assets/img/posts/terminal-staraboleslav.png
+icon: "🚊"
 ---
 
 

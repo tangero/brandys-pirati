@@ -7,6 +7,7 @@ author: "Patrick Zandl"
 category: "strategie"
 permalink: /strategie/cyklogenerel/
 image: /assets/img/posts/cyklogenerel.png
+icon: "🚴"
 ---
 
 Naše město by bylo ideální na cyklodopravu, kdyby to ovšem bylo bezpečné. Bohužel tomu tak ne vždy je. Proto jsme najali na radnici odborníka a nechali jej celé naše město prozkoumat a navrhnout řešení. 

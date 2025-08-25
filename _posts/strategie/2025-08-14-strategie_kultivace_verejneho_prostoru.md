@@ -7,6 +7,7 @@ author: "Patrick Zandl"
 category: "strategie"
 permalink: /strategie/strategie_kultivace_verejneho_prostoru/
 image: /assets/mistostarosti/mistostarosti2142024zamoreneme-e55cb8b2.jpg
+icon: "🏙️"
 ---
 
 # **Kultivace města: Cesta ke spokojenějšímu životu ve veřejném prostoru**

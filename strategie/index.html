@@ -22,7 +22,9 @@ permalink: /strategie/
       
       <div class="md-article-card__content">
         <h2 itemprop="headline" class="md-article-card__headline">
-          <a href="{{ post.url | relative_url }}" itemprop="url">{{ post.title }}</a>
+          <a href="{{ post.url | relative_url }}" itemprop="url">
+            {% if post.icon %}{{ post.icon }}{% else %}🎯{% endif %} {{ post.title }}
+          </a>
         </h2>
         
         <div class="md-article-card__meta">
