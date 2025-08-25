@@ -77,7 +77,7 @@
       const categoryName = getCategoryName(result.category);
       
       return `
-        <a href="${result.url}" class="md-search-result">
+        <a href="${result.url}" class="md-search-result" style="padding: 20px 24px !important; display: block;">
           <div class="md-search-result__category">${categoryName}</div>
           <div class="md-search-result__title">${highlightQuery(result.title, query)}</div>
           <div class="md-search-result__excerpt">${highlightQuery(excerpt, query)}</div>
@@ -87,7 +87,7 @@
     
     // Add "View all results" link if there are results
     const viewAllLink = results.length > 0 ? `
-      <a href="/hledat/?q=${encodeURIComponent(query)}" class="md-search-result md-search-result--view-all">
+      <a href="/hledat/?q=${encodeURIComponent(query)}" class="md-search-result md-search-result--view-all" style="padding: 20px 24px !important; display: block;">
         <div style="text-align: center; font-weight: 500; color: var(--md-sys-color-primary);">
           Zobrazit všechny výsledky (${results.length > 8 ? 'více než 8' : results.length})
         </div>
@@ -145,7 +145,7 @@
   
   // Show message in results
   function showMessage(message) {
-    searchResults.innerHTML = `<div class="md-search-no-results">${message}</div>`;
+    searchResults.innerHTML = `<div class="md-search-no-results" style="padding: 20px 24px !important;">${message}</div>`;
     showResults();
   }
   
