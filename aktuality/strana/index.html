@@ -53,28 +53,6 @@ permalink: /aktuality/strana/:num/
     color: #666;
     font-size: 14px;
   }
-  
-  .md-article-card__media-link {
-    display: block;
-    text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .md-article-card__media-link:hover {
-    transform: scale(1.02);
-    opacity: 0.9;
-  }
-  
-  .md-article-card__media-link:hover .md-article-card__media {
-    transform: scale(1.05);
-  }
-  
-  .md-article-card__media {
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
 </style>
 
 <div class="md-section">
@@ -83,7 +61,7 @@ permalink: /aktuality/strana/:num/
     <p class="md-section__subtitle">Všechny naše aktuality a zprávy z Brandýsa nad Labem</p>
   </div>
   
-  <div class="md-articles-grid">
+  <div class="md-articles-list">
     <!-- Filtrujeme posty pro paginaci -->
     {% assign aktuality_posts = site.posts | where_exp: "post", "post.category != 'mistostarosti'" | where_exp: "post", "post.path contains '_posts/proposals/' == false" %}
     
@@ -99,46 +77,30 @@ permalink: /aktuality/strana/:num/
     {% assign end_index = offset | plus: posts_per_page %}
     
     {% for post in aktuality_posts offset: offset limit: posts_per_page %}
-    <article itemtype="http://schema.org/BlogPosting" class="md-article-card" itemscope="">
-      <link itemprop="mainEntityOfPage" href="{{ post.url | absolute_url }}">
-      
-      {% if post.image %}
-      <a href="{{ post.url | relative_url }}" class="md-article-card__media-link">
-        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="md-article-card__media" itemprop="image">
-      </a>
-      {% endif %}
-      
-      <div class="md-article-card__content">
-        <h2 itemprop="headline" class="md-article-card__headline">
-          <a href="{{ post.url | relative_url }}" itemprop="url">{{ post.title }}</a>
+    <article class="md-article-item">
+      <div class="md-article-item__content">
+        <h2 class="md-article-item__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h2>
         
-        <div class="md-article-card__meta">
-          <span class="md-article-card__date" itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
+        <div class="md-article-item__meta">
+          <span class="md-article-item__date">
             📅 {{ post.date | date: "%d.%m.%Y" }}
           </span>
           {% if post.author %}
-          <span class="md-article-card__author" itemprop="author" itemtype="http://schema.org/Person" itemscope="">
-            👤 <span itemprop="name">{{ post.author }}</span>
+          <span class="md-article-item__author">
+            👤 {{ post.author }}
           </span>
           {% endif %}
         </div>
         
-        <div itemprop="description" class="md-article-card__excerpt">
+        <div class="md-article-item__excerpt">
           {{ post.excerpt | strip_html | truncatewords: 30 }}
         </div>
         
-        <div class="md-article-card__actions">
-          <a href="{{ post.url | relative_url }}" class="md-button md-button--text">Číst celý článek</a>
+        <div class="md-article-item__actions">
+          <a href="{{ post.url | relative_url }}" class="md-link">Číst celý článek →</a>
         </div>
-      </div>
-      
-      <!-- Publisher metadata -->
-      <div itemprop="publisher" itemtype="http://schema.org/Organization" style="display: none;" itemscope="">
-        <div itemprop="logo" itemtype="http://schema.org/ImageObject" itemscope="">
-          <meta itemprop="url" content="{{ 'assets/img/brand/logo.svg' | absolute_url }}">
-        </div>
-        <meta itemprop="name" content="Pirátská strana Brandýs nad Labem">
       </div>
     </article>
     {% endfor %}
