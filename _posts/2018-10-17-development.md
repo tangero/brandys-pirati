@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Novinky ve výstavbě? Dům č. 98 a Zahradní město II.
 date: 2018-10-17T12:00:00.000Z

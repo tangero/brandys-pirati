@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Jak vyřešit fronty na poště a doručování?
 date: 2018-07-09T12:00:00.000Z

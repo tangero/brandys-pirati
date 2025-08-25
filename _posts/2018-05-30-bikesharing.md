@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Bikesharing - po městě na sdílených kolech
 date: 2018-05-30T12:00:00.000Z

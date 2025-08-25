@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Potřebujeme další doktory! Jak na to?
 date: 2018-07-26T12:00:00.000Z

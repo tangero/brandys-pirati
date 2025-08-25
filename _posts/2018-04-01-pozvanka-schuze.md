@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Pozvánka na ustanovující schůzi Pirátů Brandýs-Boleslav
 date: 2018-04-01T12:00:00.000Z

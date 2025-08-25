@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Vyšší Hrádek musí spadnout, aby developeři mohli stavět!
 date: 2025-03-18T12:00:00.000Z

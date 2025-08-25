@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Džungle v parku pod nemocnicí, aneb brandýská verze Central parku
 date: 2018-06-16T12:00:00.000Z

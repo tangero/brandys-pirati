@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Zveme na setkání ve čtvrtek 28.6.2018
 date: 2018-06-23T12:00:00.000Z

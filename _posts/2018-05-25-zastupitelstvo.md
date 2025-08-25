@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Květnové jednání zastupitelstva města (5/2018)
 date: 2018-05-25T12:00:00.000Z

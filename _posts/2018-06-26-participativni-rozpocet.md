@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Participativní rozpočet umožní vylepšovat město o drobnosti
 date: 2018-06-26T12:00:00.000Z

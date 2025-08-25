@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Také chcete jezdit tramvají z Brandýsa do Prahy?
 date: 2018-06-11T12:00:00.000Z

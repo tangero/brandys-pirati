@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 category: CLANKY
 title: Kamion a stodola hoří, Brandýs kolabuje
 date: 2018-10-24T12:00:00.000Z
