@@ -2,6 +2,7 @@
 title: Městský portál a opensource
 category: dlouhodoby
 topic: Otevřené město
+layout: post
 ---
 
 # Městský portál a opensource

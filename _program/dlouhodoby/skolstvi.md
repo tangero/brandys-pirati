@@ -2,6 +2,7 @@
 title: Základní školství a předškolní zařízení
 category: dlouhodoby
 topic: Běžný život města
+layout: post
 ---
 
 # Základní školství a předškolní zařízení

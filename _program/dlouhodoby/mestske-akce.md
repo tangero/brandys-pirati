@@ -2,6 +2,7 @@
 title: Dlouhodobá propagace města a akcí
 category: dlouhodoby
 topic: Běžný život města
+layout: post
 ---
 
 # Dlouhodobá propagace města a akcí

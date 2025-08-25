@@ -2,6 +2,7 @@
 title: Bezpečnost ve městě
 category: dlouhodoby
 topic: Běžný život města
+layout: post
 ---
 
 # Bezpečnost ve městě

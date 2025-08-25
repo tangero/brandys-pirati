@@ -43,3 +43,5 @@ Jde o dlouhodobý projekt s horizontem **10-15 let**, kterým chceme připravit 
 ## Naše závazek
 
 Na tomto projektu se již dlouhodobě pracuje, ale neexistuje nikdo, kdo by jej prosazoval a tlačil k realizaci. Jsme připraveni o jeho realizaci a optimální nastavení bojovat. Uvědomujeme si, že jde o běh na dlouhou trať, ale když nezačneme teď, nebudeme o deset let později ani o krok dále!
+
+Za dobu působení místostarosty Zandla na radnici jsme projekt posunuli k realitě a další [detailní informace o něm najdete zde](/strategie/vlakove-spojeni-praha-brandys).

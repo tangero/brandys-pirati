@@ -2,6 +2,7 @@
 title: Participativní rozpočet a otevřené město
 category: dlouhodoby
 topic: Otevřené město
+layout: post
 ---
 
 # Participativní rozpočet a otevřené město

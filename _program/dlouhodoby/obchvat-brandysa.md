@@ -3,6 +3,7 @@ title: Obchvat Brandýsa
 category: dlouhodoby
 topic: Infrastruktura
 tags: Obchvat
+layout: post
 ---
 
 # Obchvat Brandýsa

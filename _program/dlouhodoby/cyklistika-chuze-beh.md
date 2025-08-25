@@ -3,6 +3,7 @@ title: Na kole a pěšky po městě
 category: dlouhodoby
 topic: Infrastruktura
 tags: Cyklistika
+layout: post
 ---
 
 # Na kole a pěšky po městě

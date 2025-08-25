@@ -45,6 +45,10 @@ Speciální pozornost jsme věnovali **bezpečnosti dětí**. Cesta ze stávají
 
 Samozřejmě jsme mysleli i na **parkování**. Každý nový byt bude mít garantovaná parkovací místa podle velikosti - jedno místo pro menší byty, dvě místa pro větší. V ulicích budou navíc místa pro návštěvy.
 
+![Zákres Vrábí-Cihelna](/assets/img/posts/vrabi-cihelna-zakres.jpg)
+
+Co je potřeba zvláště dořešit s krajem a obcí Dřevčice, je napojení nově zvniklé ulice spojující tuto oblast s Průmyslovou ulicí na krajský obchvat, který v tomto místě vznikne. Taková propojka umožní zklidnit ulici Pražská a vyvést dopravu mimo rezicenční čtvrť na její hranici. Na to se nesmí zapomenout stejně, jako se již dříve zapomnělo na odhlučnění obchvatu vůči Zahradnímu městu a museli jsme to se zpožděním napravovat. 
+
 ## Infrastruktura - základ všeho
 
 Aby nová čtvrť mohla fungovat, musíme nejprve posílit **technickou infrastrukturu**. To znamená především:

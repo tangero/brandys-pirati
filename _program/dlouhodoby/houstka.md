@@ -2,6 +2,7 @@
 title: Revitalizace rekreační zóny Houšťka
 category: dlouhodoby
 topic: Běžný život města
+layout: post
 ---
 
 # Revitalizace rekreační zóny Houšťka

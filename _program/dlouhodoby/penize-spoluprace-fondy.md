@@ -2,6 +2,7 @@
 title: Peníze, spolupráce, fondy
 category: dlouhodoby
 topic: Otevřené město
+layout: post
 ---
 
 # Peníze, spolupráce, fondy

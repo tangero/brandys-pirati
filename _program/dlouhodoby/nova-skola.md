@@ -3,6 +3,7 @@ title: Výstavba nové školy = senior domu
 img: https://www.pirati.cz/_media/rp/program/me_308_taxincentives.png
 category: dlouhodoby
 topic: Běžný život města
+layout: post
 ---
 
 # Výstavba nové školy = senior domu
