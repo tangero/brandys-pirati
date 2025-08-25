@@ -33,8 +33,10 @@ S takovýmhle přístupem za dvacet let nebude mít město ani splacený úvěr,
 
 _Proč usilovat o víc, když takhle to voličům stačí._
 
-[Vybydlené prostory někdejší Piaristické koleje chátrají](/assets/img/posts/piaristicka-kolej2.jpg)
+### A na závěr pár fotografií Zuzany Minx
 
-[I když z venku se budova ještě drží, první pohled klame](/assets/img/posts/piaristicka-kolej3.jpg)
+![Vybydlené prostory někdejší Piaristické koleje chátrají](/assets/img/posts/piaristicka-kolej2.jpg)
+
+![I když z venku se budova ještě drží, první pohled klame](/assets/img/posts/piaristicka-kolej3.jpg)
 
 Fotografie: Zuzana Minx. 
