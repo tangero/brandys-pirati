@@ -35,6 +35,12 @@ Práce města musí být systematická, protože jeho projekty musí počítat s
 
 Příště se už podíváme na možnosti, jaké v oblasti kulturního domu naše město má. 
 
+**Na obrázku Kulturní centrum Lanškroun** 
+- spojení rekonstrukce historické budovy se sousedním moderním objektem. 
+- Kapacita cca 500 lidí
+- Cena kolem 180 mil Kč za obě rekonstrukce (2017-2019)
+- [detail stavby zde](https://www.stavbactvrtstoleti.cz/detail-stavby/108)
+
 ![Na obrázku nový kulturní dům v Lanškrouně](/assets/img/posts/KD_Lanskroun2.jpg)
 
 
