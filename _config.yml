@@ -1,6 +1,8 @@
 title: Brandýs - Boleslav
 description: Piráti v Brandýse nad Labem - Staré Boleslavi
 lang: cs
+url: "https://www.brandysboleslav.cz"
+baseurl: ""
 
 # Permalink konfigurace pro posty - default format
 permalink: /aktuality/:title/
