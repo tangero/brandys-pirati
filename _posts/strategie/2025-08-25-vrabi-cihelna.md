@@ -6,7 +6,7 @@ date: 2025-08-25 10:00:00 +0100
 author: "Patrick Zandl"
 category: "strategie"
 permalink: /strategie/vrabi-cihelna/
-image: /assets/img/posts/vrabi-cihelna.png
+image: /assets/img/posts/vrabi-cihelna-iso.png
 icon: "🏗️"
 ---
 
@@ -35,7 +35,7 @@ Srdcem nové čtvrti bude **náměstí s parkem**, kolem kterého se soustředí
 
 **Obchody a služby** se soustředí do přízemí budov kolem náměstí. Počítáme s prostory o celkové ploše 3 200 metrů čtverečních - to je místo pro supermarket, lékárnu, restauraci či další služby, které obyvatelé každý den potřebují.
 
-![Vrábí-Cihelna](/assets/img/posts/vrabi-cihelna.png)
+![Vrábí-Cihelna](/assets/img/posts/vrabi-cihelna-iso.png)
 
 ## Doprava bez komplikací
 
