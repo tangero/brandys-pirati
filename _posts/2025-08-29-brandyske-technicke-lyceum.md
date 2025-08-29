@@ -2,7 +2,7 @@
 layout: post
 category: CLANKY
 title: Čtyřleté technické lyceum v Brandýse
-date: 2025-08-29T12:00:00.000Z
+date: 2025-08-29T9:00:00.000Z
 author: Patrick Zandl
 authorId: patrick.zandl
 image: /assets/img/posts/gymnazium-brandys-poslucharna.jpeg
